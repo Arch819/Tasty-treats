@@ -1,0 +1,55 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+
+body {
+    
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.link {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+.btn {
+    display: block;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.section {
+}
+
+.visibility-hidden {
+    position: absolute;
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+img{
+    display: block;
+    line-height: 0;
+}
