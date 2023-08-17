@@ -1,15 +1,13 @@
-import { empty } from './empty';
+import { renderPageFavorits } from './renderFavorites';
 
 const conRef = document.querySelector('.container');
 
-const renderPageFavorits = () => {
+const favorites = () => {
   const keyOfLocalStorage = localStorage.getItem('setting');
   if (!keyOfLocalStorage) {
-    conRef.classList.add('empty');
-    conRef.innerHTML = empty();
+    renderPageFavorits(conRef); // Рендеримо сторінку якщо з LocalStorage нічого не отримано
     return;
   }
-  conRef.classList.remove('empty');
 };
 
-renderPageFavorits();
+favorites();
