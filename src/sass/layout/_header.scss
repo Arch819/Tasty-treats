@@ -1,0 +1,201 @@
+@mixin media($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+.container {
+  min-width: 320px;
+  max-width: 375px;
+  padding: 20px 20px 0 20px;
+  margin: 0 auto;
+
+  @include media(768px) {
+    padding: 28px 32px 0 32px;
+    max-width: 768px;
+  }
+
+  @include media(1024px) {
+    max-width: 1200px;
+    padding: 40px 100px 0 100px;
+  }
+}
+
+.svg-list {
+  gap: 14px;
+  margin-left: auto;
+  display: flex;
+}
+
+.svg-list label {
+  display: none;
+}
+
+.switch {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.header-navigation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header-wrapper {
+  display: flex;
+  .header-navigation-list {
+    display: none;
+  }
+
+  @include media(768px) {
+    justify-content: space-between;
+    .header-navigation-list {
+      display: flex;
+      flex-direction: row;
+    }
+    .svg-list {
+      align-items: center;
+    }
+  }
+}
+
+.navigation-link {
+  font-size: 12px;
+  color: #f8f8f8;
+  font-family: Inter;
+}
+
+.logo {
+  color: #9bb537;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+
+  letter-spacing: -0.64px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  @include media(768px) {
+    font-size: 18px;
+    line-height: 1.1;
+    letter-spacing: -0.72px;
+  }
+}
+
+@include media(768px) {
+  .svg-list {
+    label {
+      display: flex;
+    }
+    margin-left: 0;
+  }
+
+  .open-modal-button {
+    display: none;
+  }
+
+  .navigation-link {
+    color: #050505;
+  }
+}
+
+.black-logo {
+  color: #050505;
+}
+
+/* Mobile-menu */
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mobile-menu {
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.2);
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .mobile-menu-content {
+    background-color: #9bb537;
+    width: 52vw;
+    height: 100vh;
+    padding: 20px;
+    position: relative;
+
+    .switch {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+  }
+
+  .close-modal-button {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .header-navigation {
+    text-align: center;
+    margin-top: 200px;
+  }
+}
+
+/* Світч */
+
+.switch {
+  input {
+    display: none;
+  }
+}
+
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    top: 50%;
+    transform: translate(1px, -50%);
+    transition: transform 0.3s ease;
+  }
+}
+
+input:checked + .slider {
+  background-color: #9bb537;
+
+  &:before {
+    transform: translate(26px, -50%);
+  }
+}
