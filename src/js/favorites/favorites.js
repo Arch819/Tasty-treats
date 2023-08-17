@@ -1,6 +1,7 @@
 import { renderPageFavorits } from './renderFavorites';
 
-const conRef = document.querySelector('.container');
+const conRef = document.querySelector('.favorites__wrap');
+console.log(conRef);
 
 const favorites = () => {
   const keyOfLocalStorage = localStorage.getItem('setting');
