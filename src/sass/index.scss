@@ -1,2 +1,31 @@
-@import './common';
-@import './example';
+// BASE
+@import "./base/variables";
+@import "./base/reset";
+@import "./base/container";
+
+// VENDORS
+@import "./vendors/mixin";
+
+// COMPONENTS
+@import "./components/logo";
+@import "./components/pagination-btn";
+@import "./components/favorites-basket";
+@import "./components/navigation";
+@import "./components/switch";
+
+// LAYOUT
+@import "./layout/header";
+@import "./layout/footer";
+// home
+@import "./layout/home/hero";
+@import "./layout/home/categories";
+@import "./layout/home/popular";
+@import "./layout/home/recipe-cards";
+// favorites
+@import "./layout/favorites/favorites";
+// modal
+@import "./layout/modal/modal-order";
+@import "./layout/modal/modal-recipe";
+@import "./layout/modal/modal-rating";
+
+
