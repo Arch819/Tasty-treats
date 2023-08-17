@@ -1,6 +1,41 @@
 <header class="header">
-  <div class="container header__wrap">
-
+  <div class="container header-wrapper">
+    <ul class="header-navigation-list">
+      <li><a class="navigation-link" href="./index.html">Home</a></li>
+      <li><a class="navigation-link" href="./favorites.html">Favorites</a></li>
+    </ul>
+    <a href="" class="logo">tasty<span class="black-logo">treats.</span></a>
+    <div class="svg-list">
+      <button>
+        <svg width="24" height="24">
+          <use href="./images/symbol-defs.svg#icon-shopping-cart"></use>
+        </svg>
+      </button>
+      <svg class="open-modal-button" width="32" height="32">
+        <use href="./images/symbol-defs.svg#icon-burger"></use>
+      </svg>
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+  <div class="mobile-menu is-hidden">
+    <div class="mobile-menu-content">
+      <svg class="close-modal-button" width="32" height="32">
+        <use href="./images/symbol-defs.svg#icon-close-modal"></use>
+      </svg>
+      <nav class="header-navigation">
+        <ul class="header-navigation-list">
+          <li><a class="navigation-link" href="">Home</a></li>
+          <li><a class="navigation-link" href="">Favorites</a></li>
+        </ul>
+      </nav>
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider"></span>
+      </label>
+    </div>
   </div>
 </header>
 
@@ -29,6 +64,6 @@
 
   Click по бургер-меню розгортає його на всю висоту viewport -->
 
-  <!-- Додатково: -->
+<!-- Додатково: -->
 
-    <!-- Псевдоелемент-лічільник на корзину доданих у фейворіт -->
+<!-- Псевдоелемент-лічільник на корзину доданих у фейворіт -->
