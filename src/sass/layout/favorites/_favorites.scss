@@ -1,0 +1,80 @@
+.empty {
+    height: 100vh;
+    color: var(--color-btn-var2);
+  }
+
+  .favorites__img{
+    display: none;
+  }
+  
+  .favorites__empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  .favorites__empty img {
+    margin-bottom: 24px;
+  }
+  
+  .favorites__text {
+    text-align: center;
+  }
+
+  @media (min-width: 768px){
+    .empty {
+        height: 100%;
+        color: var(--color-btn-var2);
+      }
+
+      .favorites__empty{
+        padding-top: 50px;
+      }
+
+    .favorites__img{
+        display: block;
+        margin-bottom: 64px;
+        width: 704px;
+        height: 356px;
+        background-image: url("../images/card-tablet.jpg");
+      }
+
+      @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .favorites__img {
+        background-size: auto 100%;
+      background-image: url("../images/card-tablet@2x.jpg");
+    }
+  }
+
+      .favorites__empty img {
+        margin-bottom: 32px;
+      }
+  }
+
+  @media (min-width: 1080px) {
+    .favorites__empty{
+        padding-top: 40px;
+      }
+
+      .favorites__img{
+        display: block;
+        margin-bottom: 64px;
+        width: 1080px;
+        height: 356px;
+        background-image: url("../images/card-desk.jpg");
+      }
+
+      @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .favorites__img {
+        background-size: auto 100%;
+      background-image: url("../images/card-desk@2x.jpg");
+    }
+  }
+  }
