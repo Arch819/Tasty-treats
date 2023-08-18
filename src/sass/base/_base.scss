@@ -11,7 +11,7 @@ ul {
     padding: 0;
 }
 
-.link {
+a {
     text-decoration: none;
     display: block;
     color: inherit;
@@ -30,10 +30,6 @@ h6 {
 .btn {
     display: block;
     cursor: pointer;
-    border: 1px solid transparent;
-}
-
-.section {
 }
 
 .visibility-hidden {
