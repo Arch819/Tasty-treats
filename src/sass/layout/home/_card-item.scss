@@ -32,7 +32,8 @@
 }
 
 .card-image {
-  min-width: 335px;
+  //min-width: 335px;
+  width: 335px;
   height: 335px;
   object-fit: cover;
   position: absolute;
@@ -140,6 +141,7 @@
 .card-button:hover {
   color: var(--brand-black);
   transition: var(--basic-transition);
+  cursor: pointer;
 }
 
 .icon-star {
@@ -166,7 +168,7 @@
   }
 
   .card-image {
-    min-width: 240px;
+    width: 240px;
     height: 264px;
   }
 
