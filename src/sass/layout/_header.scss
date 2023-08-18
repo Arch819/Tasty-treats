@@ -4,44 +4,43 @@
   }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 .open-modal-button {
   background: none;
   border: none;
 }
 
-=======
->>>>>>> parent of cf99063 (+)
+
 .logo,
 .navigation-link,
 .create-order-link,
 .switch,
 .open-modal-button {
   padding: 20px 20px;
+  padding-top: 20px;
 }
 
 .header-navigation-list li {
   display: flex;
   justify-content: center;
   align-items: center;
-=======
+
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
->>>>>>> parent of 5068559 (Доробив розмітку)
+
 }
 a {
   text-decoration: none;
 }
 
-<<<<<<< HEAD
+
 @include media(1024px) {
   .header-scroll {
     background-color: #9648d5;
-    transition: background-color 2.5s;
-=======
+    transition: background-color 2.5s;}
+
 button {
   border: none;
   background: none;
