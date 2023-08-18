@@ -1,36 +1,46 @@
-import { refs } from "./refs";
+const openModalButton = document.querySelector('.open-modal-button');
+const modulWindow = document.querySelector('.mobile-menu');
+const mobileMenuContent = document.querySelector('.mobile-menu-content');
+const closeModalButton = document.querySelector('.close-modal-button');
+const input = document.querySelector('.mobile-menu input');
 
-refs.openModalButton.addEventListener('click', toggleModal);
-refs.closeModalButton.addEventListener('click', toggleModal);
-refs.modulWindow.addEventListener('click', (event) => {
+
+
+
+
+
+openModalButton.addEventListener('click', toggleModal);
+closeModalButton.addEventListener('click', toggleModal);
+modulWindow.addEventListener('click', (event) => {
     if (!event.target.closest('.mobile-menu-content')) {
         toggleModal();
     }
 });
+
 function toggleModal() {
-    refs.modulWindow.classList.toggle('is-hidden');
+    modulWindow.classList.toggle('is-hidden');
 }
 
-const currentPath = window.location.pathname;
 
-refs.navigationLinks.forEach(function (link) {
-    if (link.getAttribute('href') === currentPath) {
-        link.classList.add('current-link');
-    }
-    else {
-        link.classList.remove('current-link');
-    }
-});
+const svgList = document.querySelector('.svg-list');
+const switcher = document.querySelector('.switch');
+const mediaQuery = window.matchMedia('(min-width: 768px)');
 
 
-function onScrollHeader(px) {
-    const screenSize = window.screen.width;
-    if (screenSize >= px) {
-        scrollY <= 70
-            ? document.getElementById('header').classList.remove('header-scroll')
-            : document.getElementById('header').classList.add('header-scroll');
-    }
-}
-window.onscroll = function () {
-    onScrollHeader(768);
-};
+// function handleMediaQuery(event) {
+//     if (event.matches) {
+//         // Добавляем элемент в главное меню
+//         svgList.replaceChild(switcher, openModalButton);
+//     } else {
+//         // Возвращаем openModalButton в svgList
+//         svgList.replaceChild(switcher, openModalButton);
+//     }
+// }
+
+// // Добавляем слушатель для изменения медиа-запроса
+// mediaQuery.addEventListener('change', handleMediaQuery);
+
+// // Инициализируем обработку медиа-запроса
+// handleMediaQuery(mediaQuery);
+
+

@@ -4,57 +4,35 @@
   }
 }
 
-.open-modal-button {
-  background: none;
-  border: none;
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
 }
 
-.logo,
-.navigation-link,
-.create-order-link,
-.switch,
-.open-modal-button {
-  padding-top: 20px;
+button {
+  border: none;
+  background: none;
+}
+
+.container {
+  min-width: 320px;
+  max-width: 375px;
+  padding: 20px 20px 0 20px;
+  margin: 0 auto;
 
   @include media(768px) {
-    padding-top: 28px;
+    padding: 28px 32px 0 32px;
+    max-width: 768px;
   }
 
-  @include media(1028px) {
-    padding-top: 40px;
+  @include media(1024px) {
+    max-width: 1200px;
+    padding: 40px 100px 0 100px;
   }
-}
-
-.header-navigation-list li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@include media(1024px) {
-  .header-scroll {
-    background-color: #9648d5;
-    transition: background-color 2.5s;
-  }
-  #header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-  }
-}
-
-.navigation-link {
-  font-size: 12px;
-  font-family: Inter;
-}
-
-.mobile-menu .header-navigation-list li:first-child a {
-  color: #fff;
-}
-
-.mobile-menu .header-navigation-list li:nth-child(2) a {
-  color: #f8f8f8; /* Стиль для второй ссылки */
 }
 
 .svg-list {
@@ -65,10 +43,6 @@
 
 .svg-list label {
   display: none;
-}
-
-.navigation-link.current-link {
-  color: #9bb537;
 }
 
 .switch {
@@ -99,6 +73,12 @@
       align-items: center;
     }
   }
+}
+
+.navigation-link {
+  font-size: 12px;
+  color: #f8f8f8;
+  font-family: Inter;
 }
 
 .logo {
@@ -162,9 +142,7 @@
     width: 52vw;
     height: 100vh;
     padding: 20px;
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: relative;
 
     .switch {
       position: absolute;
@@ -185,3 +163,39 @@
 }
 
 /* Світч */
+
+.switch {
+  input {
+    display: none;
+  }
+}
+
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    top: 50%;
+    transform: translate(1px, -50%);
+    transition: transform 0.3s ease;
+  }
+}
+
+input:checked + .slider {
+  background-color: #9bb537;
+
+  &:before {
+    transform: translate(26px, -50%);
+  }
+}
