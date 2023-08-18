@@ -1,5 +1,6 @@
 //* header
 import './js/header/header';
+import ./js/header/_switch-themes"
 //* home
   //hero
 import './js/home/hero/hero';
@@ -13,3 +14,5 @@ import './js/home/recipe-cards/recipe-cards';
 import './js/favorites/favorites';
 //*footer
 import './js/footer/footer'
+//*modal 
+
