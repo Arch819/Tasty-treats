@@ -3,32 +3,76 @@
   flex-direction: column;
 }
 
-.team {
-  border: 1px solid #000;
-}
-// .support {
-//   max-width: 200px;
-// }
+.footer-top-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+  margin-bottom: 20px;
+}
+
+.footer .navigation {
+  display: flex;
+  align-items: end;
+  gap: 60px;
+}
+
+.footer .navigation-list {
+  display: flex;
+  gap: 20px;
+}
+
+// .team {
+//   border: 1px solid #000;
+// }
+.support {
+  margin-left: auto;
+  margin-bottom: 40px;
+}
 .support-text {
   text-transform: uppercase;
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 }
 
 .support-link {
   display: inline-block;
-  padding: 14px 28px;
+  padding: 12px 28px;
+
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--color-text-light);
 
   border: var(--border-btn-var2);
   border-radius: var(--border-radius);
 
-  transition: background var(--transition);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: color var(--transition);
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform: translateX(-100%);
+    border-radius: var(--border-radius);
+    background-image: url("../images/footer/camouflage-pattern.png");
+    background-position: 0 50%;
+
+    z-index: -1;
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: transform 250ms;
+  }
   &:is(:hover, :focus) {
-    background: var(--bg-btn-var1);
-    color: var(--color-text-d);
+    &::before {
+      transform: translateX(0);
+    }
   }
 }
 
