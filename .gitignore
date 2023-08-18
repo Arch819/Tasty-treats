@@ -107,3 +107,6 @@ dist
 
 # TernJS port file
 .tern-port
+src/js/header/refs.js
+src/partials/header.html
+src/sass/layout/_header.scss
