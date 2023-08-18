@@ -20,9 +20,7 @@ export function createMarkup(recipes) {
       recipe => `<li class="card-item">
           <div class="card-block">
             <img class="card-image" src="${recipe.preview}" alt="${recipe.title}" width="335px">
-        <div class="heart-block">
-          <input type="checkbox" class="card-checkbox" id="card-checkbox-${recipe._id}" aria-label="card-checkbox-${recipe._id}" />
-          <label for="card-checkbox-${recipe._id}" class="card-checkbox-label">
+        <div class="heart-block" id="card-checkbox-${recipe._id}">
             <span class="unchecked-heart">
             <svg class="heartIconGrey" width="18" height="18">
                 <use href="./images/sprite.svg#icon-search"></use>
@@ -32,7 +30,6 @@ export function createMarkup(recipes) {
                 <use href="./images/sprite.svg#icon-search"></use>
               </svg></span>
             </span>
-          </label>
         </div>
             <div class="card-content">
               <h3 class="card-heading">${recipe.title}</h3>
