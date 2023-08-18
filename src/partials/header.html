@@ -1,24 +1,7 @@
-<header class="header">
+<header id="header">
   <div class="container header-wrapper">
-    <ul class="header-navigation-list">
-      <li><a class="navigation-link" href="./index.html">Home</a></li>
-      <li><a class="navigation-link" href="./favorites.html">Favorites</a></li>
-    </ul>
-    <a href="" class="logo">tasty<span class="black-logo">treats.</span></a>
-    <div class="svg-list">
-      <button>
-        <svg width="24" height="24">
-          <use href="./images/symbol-defs.svg#icon-shopping-cart"></use>
-        </svg>
-      </button>
-      <svg class="open-modal-button" width="32" height="32">
-        <use href="./images/symbol-defs.svg#icon-burger"></use>
-      </svg>
-      <label class="switch">
-        <input type="checkbox" />
-        <span class="slider"></span>
-      </label>
-    </div>
+    <include src="./partials/components/navigation.html"></include>
+    <include src="./partials/components/svg-list.html"></include>
   </div>
   <div class="mobile-menu is-hidden">
     <div class="mobile-menu-content">
@@ -27,17 +10,12 @@
       </svg>
       <nav class="header-navigation">
         <ul class="header-navigation-list">
-<<<<<<< HEAD
           <li>
             <a class="navigation-link" href="./index.html">Home</a>
           </li>
           <li>
             <a class="navigation-link" href="./favorites.html">Favorites</a>
           </li>
-=======
-          <li><a class="navigation-link" href="">Home</a></li>
-          <li><a class="navigation-link" href="">Favorites</a></li>
->>>>>>> parent of 5068559 (Доробив розмітку)
         </ul>
       </nav>
       <label class="switch">
