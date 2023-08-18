@@ -1,3 +1,7 @@
+.footer {
+  background: var(--bg-body-dark);
+  color: var(--color-text-d);
+}
 .footer__wrap {
   display: flex;
   flex-direction: column;
@@ -8,18 +12,26 @@
   align-items: center;
   justify-content: space-between;
 
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .footer .navigation {
   display: flex;
   align-items: end;
   gap: 60px;
+
+  & .black-logo {
+    color: var(--color-text-d);
+  }
 }
 
 .footer .navigation-list {
   display: flex;
   gap: 20px;
+
+  & .navigation-link {
+    color: inherit;
+  }
 }
 
 // .team {
@@ -31,19 +43,20 @@
 }
 .support-text {
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   margin-bottom: 4px;
 }
 
 .support-link {
-  display: inline-block;
-  padding: 12px 28px;
+  display: block;
+  width: 160px;
+  height: 44px;
 
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.7;
-  color: var(--color-text-light);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: inherit;
 
   border: var(--border-btn-var2);
   border-radius: var(--border-radius);
@@ -52,6 +65,16 @@
   position: relative;
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: color var(--transition);
+
+  & span {
+    display: block;
+    white-space: nowrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+  }
 
   &::before {
     content: "";
@@ -65,7 +88,7 @@
     background-image: url("../images/footer/camouflage-pattern.png");
     background-position: 0 50%;
 
-    z-index: -1;
+    // z-index: -1;
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: transform 250ms;
   }
@@ -78,11 +101,11 @@
 
 .footer-text {
   font-size: 12px;
+  color: inherit;
 }
 
 .footer-bottom-line {
   margin: 0 auto;
-  color: var(--color-text-light);
 }
 
 .footer-copyright {
@@ -91,5 +114,10 @@
 
 .footer-policy-list {
   display: flex;
+  justify-content: center;
   gap: 20px;
+
+  & a {
+    color: inherit;
+  }
 }
