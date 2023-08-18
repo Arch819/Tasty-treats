@@ -14,4 +14,9 @@ import './js/home/recipe-cards/recipe-cards';
 // import './js/favorites/favorites';
 //*footer
 import './js/footer/footer';
-//*modal
+//*modal 
+import './js/modal/modal-order/modal-order';
+import './js/modal/modal-rating/modal-rating';
+import './js/modal/modal-recipe/modal-recipe';
+import './js/modal/modal-createRecipe/createRecipeRender';
+

@@ -8,7 +8,8 @@ refs.modulWindow.addEventListener('click', (event) => {
     }
 });
 function toggleModal() {
-    refs.modulWindow.classList.toggle('is-hidden');
+
+    refs.modulWindow.classList.toggle('is-visible');
 }
 
 const currentPath = window.location.pathname;
