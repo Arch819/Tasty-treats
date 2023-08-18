@@ -7,8 +7,9 @@
 .logo,
 .navigation-link,
 .create-order-link,
-.switch {
-  padding-top: 40px;
+.switch,
+.open-modal-button {
+  padding: 20px 20px;
 }
 
 .header-navigation-list li {
@@ -19,7 +20,7 @@
 
 @include media(1024px) {
   .header-scroll {
-    background-color: #1e1823;
+    background-color: #9648d5;
     transition: background-color 2.5s;
   }
   #header {
