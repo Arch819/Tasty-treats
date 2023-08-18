@@ -1,14 +1,14 @@
-@import '~node_modules/modern-normalize/modern-normalize.css';
+@import "~node_modules/modern-normalize/modern-normalize.css";
 
 body {
-    
+    font-family: "Inter", sans-serif;
+    color: var(--color-text-light);
 }
 
 ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    
 }
 
 .link {
@@ -49,7 +49,7 @@ h6 {
     overflow: hidden;
 }
 
-img{
+img {
     display: block;
     line-height: 0;
 }
