@@ -7,6 +7,7 @@
 .open-modal-button {
   background: none;
   border: none;
+  padding: 0;
 }
 
 .logo,
@@ -15,6 +16,12 @@
 .switch,
 .open-modal-button {
   padding-top: 20px;
+
+  @include media(1024px) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+   
+  }
 }
 
 .header-navigation-list li {
