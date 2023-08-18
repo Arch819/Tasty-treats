@@ -1,0 +1,154 @@
+.container-right {
+  //max-width: 335px;
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  //   max-width: 335px;
+  gap: 14px;
+}
+
+.wrap-form-item {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.input-wrap {
+  position: relative;
+  // width: 335px;
+  border-radius: 15px;
+}
+
+.label-input {
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  color: #05050580;
+  margin-bottom: 10px;
+}
+
+.icon-search {
+  position: absolute;
+  left: 18px;
+  bottom: 14px;
+  fill: #05050580;
+  pointer-events: none;
+}
+
+.input-search {
+  width: 322px;
+
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #05050580;
+  background-color: transparent;
+  //   margin-top: 10px;
+  width: 100%;
+  height: 46px;
+  padding: 0 0 0 48px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  outline: none;
+}
+
+.input-search:is(:hover, :focus) {
+  border: 2px solid #9bb537;
+}
+
+.label-selector {
+  display: block;
+  color: #05050580;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.time-selector {
+  width: 160px;
+}
+
+.area-selector {
+  width: 160px;
+}
+
+.ingredients-selector {
+  width: 188px;
+}
+
+.time-selector,
+.area-selector,
+.ingredients-selector {
+  height: 46px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  color: #05050580;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+  padding-left: 18px;
+  outline: none;
+}
+
+.time-selector:is(:hover, :focus) {
+  border: 2px solid #9bb537;
+}
+.area-selector:is(:hover, :focus) {
+  border: 2px solid #9bb537;
+}
+.ingredients-selector:is(:hover, :focus) {
+  border: 2px solid #9bb537;
+}
+
+.gallery-cards {
+  display: flex;
+  flex-wrap: wrap;
+  //   max-width: 335px;
+  gap: 14px;
+  //padding: 0px;
+  padding: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .container-right {
+    width: 100%;
+    margin-left: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container-right {
+    width: 782px;
+    margin-left: 63px;
+  }
+
+  .input-search {
+    width: 278px;
+  }
+
+  .time-selector {
+    width: 125px;
+  }
+
+  .area-selector {
+    width: 140px;
+  }
+
+  .ingredients-selector {
+    width: 188px;
+  }
+}
+
+@import './card-item';

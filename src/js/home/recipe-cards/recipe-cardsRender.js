@@ -28,7 +28,7 @@ export function createMarkup(recipes) {
             <span class="checked-heart">
             <svg class="heartIconWhite" width="18" height="18">
                 <use href="./images/sprite.svg#icon-search"></use>
-              </svg></span>
+              </svg>
             </span>
         </div>
             <div class="card-content">

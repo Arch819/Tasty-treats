@@ -1,4 +1,3 @@
-
 <!-- Файли для роботи:
     Стилі:
       sass\layout\home\_recipe-cards.scss - стілі блоку;
@@ -40,8 +39,7 @@
 <!-- Click по будь-якому рецепту з блоку популярних або click по кнопці "See recipe" на картці рецепту повинен 
       відкривати модальне вікно з детальною інформацією про цей рецепт -->
 
-
-      <!-- Додатково: 
+<!-- Додатково: 
         1)Підключити/зверстати Loader (spinner) для асинхронних запитів
         2)Для більш деталізованого пошуку рецептів у блок з панеллю фільтрів необхідно додати додаткові стилізовані селекти. 
         3)При реалізації пошуку за часом приготування час приготування обирається з випадаючого списку в діапазоні 
@@ -54,3 +52,66 @@
           Випадаючий список має обмеження по висоті, за рахунок чого значення селекта повинні скролитись в межах 
           даного контейнеру.
 -->
+<div class="container-right">
+  <form class="filter-form" id="search-form">
+    <div class="wrap-form-item input-wrap">
+      <label for="input" class="label-input">Search</label>
+      <input
+        type="text"
+        name="searchQuery"
+        id="inpute"
+        placeholder="Enter Text"
+        class="input-search"
+      />
+      <svg class="icon-search" width="18" height="18">
+        <use href="./images/sprite.svg#icon-search"></use>
+      </svg>
+    </div>
+    <div class="wrap-form-item">
+      <label for="time" class="label-selector label-time">Time</label>
+      <select id="time" name="time" class="time-selector">
+        <option value="">Select</option>
+        <!-- <option value="5" class="time">5 min</option>
+              <option value="10" class="time">10 min</option>
+              <option value="15" class="time">15 min</option>
+              <option value="20" class="time">20 min</option>
+              <option value="25" class="time">25 min</option>
+              <option value="30" class="time">30 min</option>
+              <option value="35" class="time">35 min</option>
+              <option value="40" class="time">40 min</option>
+              <option value="45" class="time">45 min</option>
+              <option value="50" class="time">50 min</option>
+              <option value="55" class="time">55 min</option>
+              <option value="60" class="time">60 min</option>
+              <option value="65" class="time">65 min</option>
+              <option value="70" class="time">70 min</option>
+              <option value="75" class="time">75 min</option>
+              <option value="80" class="time">80 min</option>
+              <option value="85" class="time">85 min</option>
+              <option value="90" class="time">90 min</option>
+              <option value="95" class="time">95 min</option>
+              <option value="100" class="time">100 min</option>
+              <option value="105" class="time">105 min</option>
+              <option value="110" class="time">110 min</option>
+              <option value="115" class="time">115 min</option>
+              <option value="120" class="time">120 min</option> -->
+      </select>
+    </div>
+    <div class="wrap-form-item">
+      <label for="area" class="label-selector label-area">Area</label>
+      <select id="area" name="area" class="area-selector">
+        <option value="">Select</option>
+      </select>
+    </div>
+    <div class="wrap-form-item">
+      <label for="ingredients" class="label-selector label-ingredients"
+        >Ingredients</label
+      >
+      <select id="ingredients" name="area" class="ingredients-selector">
+        <option value="">Select</option>
+      </select>
+    </div>
+  </form>
+  <ul class="gallery-cards js-gallery"></ul>
+  <div id="tui-pagination-container" class="tui-pagination"></div>
+</div>
