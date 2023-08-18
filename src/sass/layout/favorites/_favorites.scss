@@ -39,7 +39,7 @@
         margin-bottom: 64px;
         width: 704px;
         height: 356px;
-        background-image: url("../images/card-tablet.jpg");
+        background-image: url("../images/favorites/card-tablet.jpg");
       }
 
       @media (min-device-pixel-ratio: 2),
@@ -47,7 +47,7 @@
     (min-resolution: 2dppx) {
     .favorites__img {
         background-size: auto 100%;
-      background-image: url("../images/card-tablet@2x.jpg");
+      background-image: url("../images/favorites/card-tablet@2x.jpg");
     }
   }
 
@@ -56,7 +56,7 @@
       }
   }
 
-  @media (min-width: 1080px) {
+  @media (min-width: 1280px) {
     .favorites__empty{
         padding-top: 40px;
       }
@@ -66,7 +66,7 @@
         margin-bottom: 64px;
         width: 1080px;
         height: 356px;
-        background-image: url("../images/card-desk.jpg");
+        background-image: url("../images/favorites/card-desk.jpg");
       }
 
       @media (min-device-pixel-ratio: 2),
@@ -74,7 +74,137 @@
     (min-resolution: 2dppx) {
     .favorites__img {
         background-size: auto 100%;
-      background-image: url("../images/card-desk@2x.jpg");
+      background-image: url("../images/favorites/card-desk@2x.jpg");
     }
   }
   }
+
+  .favorites__cards-item {
+    position: relative;
+  }
+  
+  .favorites__cards-item img {
+    border-radius: 15px;
+  }
+  
+  .favorites__cards-item::before {
+    content: ""; /* Додати пустий контент для підшару */
+    position: absolute; /* Абсолютне позиціонування підшару */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
+    border-radius: 15px;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(0, 0, 0, 0.6)
+    ); /* Чорний колір з 60% прозорістю */
+    z-index: 1; /* Затемнення повинно бути вище картинки */
+  }
+  
+  .favorites__heart,
+  .icon-button {
+    top: 16px;
+    right: 16px;
+    width: 22px;
+    height: 22px;
+    fill: transparent;
+    stroke: white;
+  }
+  
+  .icon-button {
+    position: absolute;
+    z-index: 50;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .favorites__cards-thumb {
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    padding: 16px;
+  }
+  
+  .favorites__cards-title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  
+  .favorites__cards-text {
+  }
+  
+  .favorites__rating-thumb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .favorites__cards-btn {
+    padding: 8px 14px;
+    background-color: #9bb537;
+    border: none;
+    border-radius: 8px;
+    color: white;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    gap: 4px;
+  }
+  
+  .rating__active {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .rating__body {
+    position: relative;
+  }
+  
+  .favorites__cards-rating {
+    color: #f8f8f8;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  
+  .rating__items {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  .rating__item {
+    margin: 1px;
+    opacity: 0;
+  }
+  
+  .favorites__star-active,
+  .favorites__star-notActive {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .favorites__star-active {
+    fill: #eea10c;
+    opacity: 1;
+  }
+  
+  .favorites__star-notActive {
+    fill: #f8f8f8;
+    opacity: 0.1;
+  }
+  
+  .heart-isActive {
+    fill: white;
+  }
+  
