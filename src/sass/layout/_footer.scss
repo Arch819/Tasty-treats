@@ -1,0 +1,51 @@
+.footer__wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.team {
+  border: 1px solid #000;
+}
+// .support {
+//   max-width: 200px;
+// }
+
+.support-text {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.support-link {
+  display: inline-block;
+  padding: 14px 28px;
+
+  border: var(--border-btn-var2);
+  border-radius: var(--border-radius);
+
+  transition: background var(--transition);
+
+  &:is(:hover, :focus) {
+    background: var(--bg-btn-var1);
+    color: var(--color-text-d);
+  }
+}
+
+.footer-text {
+  font-size: 12px;
+}
+
+.footer-bottom-line {
+  margin: 0 auto;
+  color: var(--color-text-light);
+}
+
+.footer-copyright {
+  margin-bottom: 20px;
+}
+
+.footer-policy-list {
+  display: flex;
+  gap: 20px;
+}
