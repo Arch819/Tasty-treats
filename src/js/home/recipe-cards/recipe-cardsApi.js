@@ -33,7 +33,7 @@ export class TastyApiService {
   }
 
   fetchRecipes() {
-    const url = `${BASE_URL}?title=${this.searchQuery}&category=${this.category}&page=${this.page}&limit=${this.limit}&time=${this.time}&area=${this.area}&ingredient=${this.ingredient}`;
+    const url = `${BASE_URL}?title=${this.title}&category=${this.category}&page=${this.page}&limit=${this.limit}&time=${this.time}&area=${this.area}&ingredient=${this.ingredient}`;
 
     return fetch(url)
       .then(response => response.json())
@@ -51,11 +51,17 @@ export class TastyApiService {
     this.page = 1;
   }
 
-  get query() {
-    return this.searchQuery;
-  }
+  // get query() {
+  //   return this.searchQuery;
+  // }
 
-  set query(newQuery) {
-    this.searchQuery = newQuery;
+  // set query(newQuery) {
+  //   this.searchQuery = newQuery;
+  // }
+
+  /////
+  setSearchTitle(query) {
+    this.title = query;
+    console.log('this.title', this.title);
   }
 }
