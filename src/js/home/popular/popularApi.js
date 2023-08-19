@@ -4,7 +4,7 @@ import { createMarkupPopularRecipes } from './popularRender.js';
 const popularRecipesUrl =
   'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
 
-const container = document.querySelector('.popular-recipes-container');
+const container = document.querySelector('.popular-recipes-card');
 
 function updatePopularRecipes() {
   axios
