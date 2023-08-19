@@ -64,4 +64,9 @@ export class TastyApiService {
     this.title = query;
     console.log('this.title', this.title);
   }
+
+  setSearchTime(query) {
+    this.time = query;
+    console.log('this.time', this.time);
+  }
 }
