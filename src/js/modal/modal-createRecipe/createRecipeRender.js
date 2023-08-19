@@ -60,3 +60,4 @@ addIngredientBtn.addEventListener('click', () => {
     ingredientsContainer.appendChild(newIngredientDiv);
 });
 
+export { modal, recipeForm, ingredientsContainer };

@@ -21,7 +21,6 @@ function addDarkTheme() {
       document.querySelector('body').classList.add('dark');
     } else {
       document.querySelector('body').classList.remove('dark');
-      //       document.querySelector('input').checked = false;
     }
   } catch (err) {}
 }

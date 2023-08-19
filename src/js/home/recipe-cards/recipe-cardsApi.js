@@ -69,4 +69,14 @@ export class TastyApiService {
     this.time = query;
     console.log('this.time', this.time);
   }
+
+  setSearchArea(query) {
+    this.area = query;
+    console.log('this.area', this.area);
+  }
+
+  setSearchIngredient(query) {
+    this.ingredient = query;
+    console.log('this.ingredient', this.ingredient);
+  }
 }
