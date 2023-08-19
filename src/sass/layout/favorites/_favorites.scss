@@ -1,11 +1,25 @@
-.empty {
-    height: 100vh;
-    color: var(--color-btn-var2);
-  }
+.favorites__wrap{
+  width: 375px;
+  padding: 0 20px;
+}
 
-  .favorites__img{
-    display: none;
-  }
+.favorites__img{
+  display: none;
+  margin-bottom: 40px;
+  width: 335px;
+  height: 516px;
+  background-image: url("../images/favorites/card.jpg");
+  border-radius: 15px;
+}
+
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+.favorites__img {
+  background-size: auto 100%;
+background-image: url("../images/favorites/card@2x.jpg");
+}
+}
   
   .favorites__empty {
     display: flex;
@@ -21,62 +35,23 @@
   }
   
   .favorites__text {
+    width: 335px;
+    color: var(--color-text-light);
+    font-family: Inter;
+    font-size: 14px;
+    line-height: 18px;
     text-align: center;
   }
 
-  @media (min-width: 768px){
-    .empty {
-        height: 100%;
-        color: var(--color-btn-var2);
-      }
-
-      .favorites__empty{
-        padding-top: 50px;
-      }
-
-    .favorites__img{
-        display: block;
-        margin-bottom: 64px;
-        width: 704px;
-        height: 356px;
-        background-image: url("../images/favorites/card-tablet.jpg");
-      }
-
-      @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .favorites__img {
-        background-size: auto 100%;
-      background-image: url("../images/favorites/card-tablet@2x.jpg");
-    }
+  .empty {
+    height: 100vh;
+    color: var(--color-btn-var2);
   }
 
-      .favorites__empty img {
-        margin-bottom: 32px;
-      }
-  }
-
-  @media (min-width: 1280px) {
-    .favorites__empty{
-        padding-top: 40px;
-      }
-
-      .favorites__img{
-        display: block;
-        margin-bottom: 64px;
-        width: 1080px;
-        height: 356px;
-        background-image: url("../images/favorites/card-desk.jpg");
-      }
-
-      @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .favorites__img {
-        background-size: auto 100%;
-      background-image: url("../images/favorites/card-desk@2x.jpg");
-    }
-  }
+  .favorites__list-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 
   .favorites__cards-item {
@@ -84,9 +59,10 @@
   }
   
   .favorites__cards-item img {
+    width: 335px;
     border-radius: 15px;
   }
-  
+
   .favorites__cards-item::before {
     content: ""; /* Додати пустий контент для підшару */
     position: absolute; /* Абсолютне позиціонування підшару */
@@ -111,7 +87,9 @@
     width: 22px;
     height: 22px;
     fill: transparent;
+    stroke-width: 2px;
     stroke: white;
+    opacity: 0.5;
   }
   
   .icon-button {
@@ -131,12 +109,23 @@
   }
   
   .favorites__cards-title {
+    color: var(--color-btn-var1);
+    font-size: 14px;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 18px;
+    line-height: 18px; /* 128.571% */
+    text-transform: uppercase;
+    font-family: Inter;
+    margin-bottom: 8px;
   }
   
   .favorites__cards-text {
+    height: 32px;
+    overflow: hidden;
+    font-family: Inter;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-btn-var1);
+    margin-bottom: 16px;
   }
   
   .favorites__rating-thumb {
@@ -146,11 +135,16 @@
   }
   
   .favorites__cards-btn {
+    
+    font-size: 12px;
+    
+    font-weight: 500;
+    font-family: Inter;
     padding: 8px 14px;
-    background-color: #9bb537;
+    background-color: var(--bg-btn-var1);
     border: none;
     border-radius: 8px;
-    color: white;
+    color: var(--color-btn-var1);
   }
   
   .rating {
@@ -163,6 +157,121 @@
   .rating__active {
     display: flex;
     gap: 4px;
+    align-items: center;
+  }
+
+  .favorites__star-active,
+  .favorites__star-notActive {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .favorites__star-active {
+    fill: #eea10c;
+    opacity: 1;
+  }
+  
+  .favorites__star-notActive {
+    fill: #f8f8f8;
+    opacity: 0.1;
+  }
+
+  @media (min-width: 768px){
+
+    .favorites__wrap{
+      width: 704px;
+      padding: 0;
+    }
+
+    .empty {
+        height: 100%;
+        color: var(--color-btn-var2);
+      }
+
+      .favorites__empty{
+        padding-top: 50px;
+      }
+
+    .favorites__img{
+        display: block;
+        margin-bottom: 64px;
+        width: 704px;
+        height: 356px;
+        background-image: url("../images/favorites/card-tablet.jpg");
+        border-radius: 15px;
+      }
+
+      @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .favorites__img {
+        background-size: auto 100%;
+      background-image: url("../images/favorites/card-tablet@2x.jpg");
+    }
+  }
+
+      .favorites__empty img {
+        margin-bottom: 32px;
+      }
+
+      .favorites__text{
+        width: 481px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      .favorites__list-cards{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 16px;
+      }
+
+      .favorites__cards-item img {
+        width: 224px;
+      }
+
+      .rating__active{
+        gap: 2px;
+      }
+
+      .favorites__star-active,
+  .favorites__star-notActive {
+    width: 12px;
+    height: 12px;
+  }
+  }
+
+  @media (min-width: 1280px) {
+
+    .favorites__wrap{
+      width: 1080px;
+      padding: 0;
+    }
+
+    .favorites__empty{
+        padding-top: 100px;
+      }
+
+      .favorites__img{
+        margin-bottom: 64px;
+        width: 1080px;
+        height: 356px;
+        background-image: url("../images/favorites/card-desk.jpg");
+      }
+
+      @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .favorites__img {
+        background-size: auto 100%;
+      background-image: url("../images/favorites/card-desk@2x.jpg");
+    }
+  }
+
+  .favorites__cards-item img {
+    width: 258px;
+  }
   }
   
   .rating__body {
@@ -170,11 +279,12 @@
   }
   
   .favorites__cards-rating {
-    color: #f8f8f8;
+    color: var(--color-btn-var1);
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 18px;
+    
   }
   
   .rating__items {
@@ -188,23 +298,8 @@
     opacity: 0;
   }
   
-  .favorites__star-active,
-  .favorites__star-notActive {
-    width: 16px;
-    height: 16px;
-  }
-  
-  .favorites__star-active {
-    fill: #eea10c;
-    opacity: 1;
-  }
-  
-  .favorites__star-notActive {
-    fill: #f8f8f8;
-    opacity: 0.1;
-  }
-  
   .heart-isActive {
     fill: white;
+    opacity: 1;
   }
   
