@@ -7,7 +7,7 @@ import './js/header/_switch-themes';
 //hero
 import './js/home/hero/hero';
 // features
-import './js/home/features/scrollToTop';
+//import './js/home/features/scrollToTop';
 //?categories
 import './js/home/categories/categories';
 //?popular recipes
