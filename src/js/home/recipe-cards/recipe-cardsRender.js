@@ -39,6 +39,7 @@ export function createMarkup(recipes) {
               <div class="card-rating-block">
                 <p class="card-rating">${recipe.rating}</p>
                 <div class="eating-stars">&star;&star;&star;</div>
+
               </div>
               <button class="card-button" data-id="${recipe._id}">See recipe</button>
             </div>
@@ -48,4 +49,4 @@ export function createMarkup(recipes) {
     .join('');
 }
 
-//generateStars(recipe.rating); ^^^^^^^^^ in div class="eating-stars"
+

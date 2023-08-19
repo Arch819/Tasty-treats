@@ -119,12 +119,17 @@
   gap: 14px;
   //padding: 0px;
   padding: 0px;
+  margin-top: 54px;
 }
 
 @media screen and (min-width: 768px) {
   .container-right {
     width: 100%;
     margin-left: 32px;
+  }
+
+  .gallery-cards {
+    margin-top: 44px;
   }
 }
 
