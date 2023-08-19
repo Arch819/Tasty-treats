@@ -1,4 +1,5 @@
 .footer {
+  padding: 20px 0;
   background: var(--bg-body-dark);
   color: var(--color-text-d);
 }
@@ -17,7 +18,7 @@
 
 .footer .navigation {
   display: flex;
-  align-items: end;
+  align-items: center;
   gap: 60px;
 
   & .black-logo {
@@ -25,11 +26,11 @@
   }
 }
 
-.footer .navigation-list {
+.footer .header-navigation-list {
   display: flex;
-  gap: 20px;
 
   & .navigation-link {
+    padding: 10px 0;
     color: inherit;
   }
 }
