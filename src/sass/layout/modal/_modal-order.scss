@@ -1,11 +1,6 @@
-//request please
-#imitation{
-    width: 150px;
-    background-color: red;
-}
 .backdrop {
 position: fixed;
-z-index: 2;
+z-index: 101;
 left: 0;
 top: 0;
     width: 100%;
@@ -155,36 +150,44 @@ order-form{
     color: var(--color-btn-var2);
   }
 }
-
-.name-form-valid:not(:placeholder-shown):required:valid{
-  border-color:var(--color-active-el);
-  transition: border var(--transition);
+.invalid {
+    border: 2px solid red;
 }
 
-.name-form-valid:not(:placeholder-shown):required:invalid{
-  border:2px solid red;
-  transition: border var(--transition);
+.valid {
+    border: 2px solid var(--color-active-el);
 }
 
-.phone-form-valid:not(placeholder-shown):required:valid{
-   border-color:var(--color-active-el);
-  transition: border var(--transition);
-}
+// .name-form-valid:not(:placeholder-shown):required:valid{
+//   border-color:var(--color-active-el);
+//   transition: border-color var(--transition);
+// }
 
-.phone-form-valid:not(placeholder-shown):required:invalid{
-  border:2px solid red;
-  transition: border var(--transition);
-}
+// .name-form-valid:not(:placeholder-shown):required:invalid{
+//   border-color:red;
+//   transition: border-color var(--transition);
+// }
 
-.email-form-valid:not(placeholder-shown):required:valid{
-   border-color:var(--color-active-el);
-  transition: border var(--transition);
-}
+// .phone-form-valid:not(placeholder-shown):required:valid{
+//    border-color:var(--color-active-el);
+//   transition: border-color var(--transition);
+// }
 
-.email-form-valid:not(placeholder-shown):required:invalid{
-  border:2px solid red;
-  transition: border var(--transition);
-}
+// .phone-form-valid:not(placeholder-shown):required:invalid{
+//   border-color:red;
+//   transition: border-color var(--transition);
+// }
+
+// .email-form-valid:not(placeholder-shown):required:valid{
+//    border-color:var(--color-active-el);
+//   transition: border-color var(--transition);
+// }
+
+// .email-form-valid:not(placeholder-shown):required:invalid{
+//   border-color:red;
+//   transition: border-color var(--transition);
+// }
+
 .submit-btn[disabled]{
   opacity: 0.6;
   cursor:not-allowed;

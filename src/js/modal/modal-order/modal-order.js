@@ -1,14 +1,18 @@
+import Notiflix from "notiflix";
+
 const refs = {
     openModalBtn: document.querySelectorAll('.create-order-link'),
-    closeModalBtn: document.querySelector('.close'),
+  closeModalBtn: document.querySelector('.close'),
+  sendBtn: document.querySelector(".submit-btn"),
+
     modal: document.querySelector('[data-modal]'),
     modalContent: document.querySelector('.order-modal'),
     
     buttonToSimulateClick: document.querySelector('#imitation'),
   };
 
-console.log(refs.openModalBtn);
-  refs.buttonToSimulateClick.addEventListener('click', toggleModal);
+// console.log(refs.openModalBtn);
+ // refs.buttonToSimulateClick.addEventListener('click', toggleModal);
   refs.openModalBtn.forEach(button => {button.addEventListener('click', toggleModal);})
 
 
@@ -45,4 +49,73 @@ function toggleModal() {
     } else {
       document.body.style.overflow = 'hidden';
     }
-  }
+}
+
+const form = document.getElementById("order-form");
+const inputs = form.querySelectorAll(".input-js");
+
+inputs.forEach(function(input) {
+    input.addEventListener("input", function() {
+        validateInput(input);
+        checkFormValidity();
+    });
+});
+function validateInput(input) {
+    if (input.checkValidity()) {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+    } else {
+        input.classList.add("invalid");
+        input.classList.remove("valid");
+    }
+}
+function checkFormValidity() {
+    var isValid = true;
+
+    inputs.forEach(function(input) {
+        if (!input.checkValidity()) {
+            isValid = false;
+        }
+    });
+
+    if (isValid) {
+        refs.sendBtn.removeAttribute("disabled");
+    } else {
+        refs.sendBtn.setAttribute("disabled", "disabled");
+    }
+}
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (form.checkValidity()) {
+        const formData = {
+            name: form.name.value.trim(),
+            phone: form.phone.value.trim(),
+            email: form.email.value.trim(),
+            comment: form.comment.value.trim()
+        };
+
+        // Збереження даних у localStorage
+        saveFormDataToLocalStorage(formData);
+        console.log(`https://tasty-treats-backend.p.goit.global/api/orders/add&{
+            name: ${formData.name},
+            phone: ${formData.phone},
+            email: ${formData.email},
+            comment:${formData.comment},
+        }`);
+        
+        Notiflix.Report.success("Your order has successfully been sent. Thank you!", "OK");
+
+        form.reset();
+    } else {
+        Notiflix.Report.failure("Please enter valid data.");
+    }
+});
+
+// Збереження даних у localStorage
+function saveFormDataToLocalStorage(formData) {
+    const storedData = JSON.parse(localStorage.getItem("storedData")) || [];
+    storedData.push(formData);
+    localStorage.setItem("storedData", JSON.stringify(storedData));
+}
