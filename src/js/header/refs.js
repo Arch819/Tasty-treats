@@ -6,4 +6,5 @@ export const refs = {
     '.header-wrapper .header-navigation-list li a'
   ),
   sliderEl: document.querySelectorAll('input[type=checkbox]'),
+  bodyEl: document.querySelector('body'),
 };

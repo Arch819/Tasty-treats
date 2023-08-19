@@ -18,10 +18,9 @@ function handlerChangeThemes() {
 function addDarkTheme() {
   try {
     if (localStorage.getItem('theme') === 'black') {
-      document.querySelector('body').classList.add('dark');
+      refs.bodyEl.classList.add('dark');
     } else {
-      document.querySelector('body').classList.remove('dark');
-      //       document.querySelector('input').checked = false;
+      refs.bodyEl.classList.remove('dark');
     }
   } catch (err) {}
 }
