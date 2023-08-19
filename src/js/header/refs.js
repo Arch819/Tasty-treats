@@ -5,5 +5,5 @@ export const refs = {
   navigationLinks: document.querySelectorAll(
     '.header-wrapper .header-navigation-list li a'
   ),
-  sliderEl: document.querySelector('.slider'),
+  sliderEl: document.querySelectorAll('input[type=checkbox]'),
 };
