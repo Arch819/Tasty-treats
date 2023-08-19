@@ -1,3 +1,5 @@
+//?component
+import './js/components/components-index';
 //* header
 import './js/header/header';
 import './js/header/_switch-themes';
@@ -20,4 +22,5 @@ import './js/footer/footer';
 import './js/modal/modal-order/modal-order';
 import './js/modal/modal-rating/modal-rating';
 import './js/modal/modal-recipe/modal-recipe';
-import './js/modal/modal-createRecipe/createRecipeRender';
+import './js/modal/modal-createRecipe/createRecipe';
+
