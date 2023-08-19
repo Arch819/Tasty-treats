@@ -25,4 +25,7 @@ function addDarkTheme() {
     }
   } catch (err) {}
 }
-// addDarkTheme();
+if (localStorage.getItem('theme') === 'black') {
+  addDarkTheme();
+  refs.sliderEl.forEach(slider => (slider.checked = true));
+}
