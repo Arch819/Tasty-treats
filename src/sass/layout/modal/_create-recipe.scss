@@ -1,12 +1,11 @@
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 9999;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -16,26 +15,30 @@
   border: 1px solid #888;
   border-radius: 15px;
   background: #fff;
-  width: 80%;
   max-width: 400px;
+  max-height: 80%;
+  overflow: auto;
+  position: relative;
 }
 
 .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   color: #aaa;
-  float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: var(--color-text-light);
   text-decoration: none;
   cursor: pointer;
 }
 .btn {
-  background-color: #9bb537;
-  color: #f8f8f8;
+  background-color: var(--bg-btn-var1);
+  color: var(--color-btn-var1);
 }
 
 .label-recipe-name {
@@ -46,4 +49,19 @@
 label {
   display: block;
   margin-bottom: 5px;
+}
+.create-recipe-btn {
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--bg-btn-var1);
+  color: var(--color-btn-var1);
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+}
+.create-recipe-btn:hover,
+.create-recipe-btn:focus {
+  color: var(--color-btn-var2);
 }
