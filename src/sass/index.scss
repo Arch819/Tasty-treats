@@ -15,11 +15,12 @@
 @import './components/favorites-basket';
 @import './components/navigation';
 @import './components/switch';
+@import './components/scroll_to_top';
 
 // LAYOUT
 @import './layout/header.scss';
 @import './layout/footer';
-@import './layout/home/scroll_to_top';
+
 // home
 @import './layout/home/hero';
 @import './layout/home/categories';
