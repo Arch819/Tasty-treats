@@ -1,4 +1,8 @@
 //request please
+#imitation{
+    width: 150px;
+    background-color: red;
+}
 .backdrop {
 position: fixed;
 z-index: 2;
@@ -68,9 +72,9 @@ transform-origin: center;
   }
 }
 
-.hero-modal-close-icon{
-stroke: var( --color-btn-var2);
-}
+// .hero-modal-close-icon{
+// stroke: var( --color-btn-var2);
+// }
 
 .order-modal-title {
 color: var( --color-btn-var2);
