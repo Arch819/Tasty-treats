@@ -1,3 +1,59 @@
+<!-- Куди мені прописувати мої стилі? Базові я розумію як підключити. Також мене немає в файлі в index.html  <include src="..... і я не бачу свій код через npm start.
+/* Стилі для модального вікна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  margin: 15% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  border-radius: 15px;
+  background: #fff;
+  width: 80%;
+  max-width: 400px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn {
+  background-color: #9bb537;
+  color: #f8f8f8;
+}
+
+.label-recipe-name {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+ -->
+
+<button class="js-createRecipeBtn create-recipe-btn" id="openModalBtn">
+  Add your recipe
+</button>
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
