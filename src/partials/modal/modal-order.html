@@ -1,3 +1,62 @@
+<!--backdrop is-hidden-->
+<button class="btn" type="button" id="imitation">imitation</button>
+<!-- це також треба добавити-->
+<div class="backdrop is-hidden" data modal>
+  <div class="order-modal">
+    <span class="close">
+      <svg width="24" height="24">
+        <use
+          class="order-modal-close-icon"
+          href="/src/images/sprite.svg#icon-close-x"
+        ></use>
+      </svg>
+    </span>
+    <h2 class="order-modal-title">Order now</h2>
+    <form class="order-form" id="order-form">
+      <label for="name" class="order-form-label">Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Кирило Буданов"
+        class="order-form-input name-form-valid input-js"
+        required
+        pattern="[A-Za-zА-Яа-яЁёІіЇїЄє\s]+$"
+      />
+
+      <label for="prhone" class="order-form-label">Phone number</label>
+      <input
+        type="tel"
+        id="phone"
+        class="order-form-input phone-form-valid input-js"
+        name="phone"
+        pattern="^\+380\d{9}$"
+        required
+        placeholder="+380444286274"
+        maxlength="13"
+      />
+
+      <label for="email" class="order-form-label">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="contact@gur.gov.ua"
+        class="order-form-input email-form-valid input-js"
+        required
+      />
+
+      <label for="comment" class="order-form-label">Comment</label>
+      <textarea
+        name="comment"
+        id="comment"
+        class="order-form-comment"
+      ></textarea>
+
+      <button type="submit" class="submit-btn" disabled>Send</button>
+    </form>
+  </div>
+</div>
 <!-- Файли для роботи:
     Стилі:
       sass\layout\modal\_modal-order.scss - стілі блоку;
@@ -12,9 +71,7 @@
 
       -->
 
-
 <!-- Додавання замовлення - https://tasty-treats-backend.p.goit.global/api/orders -->
-
 
 <!--  1)Підключити/зверстати Loader (spinner) для асинхронних запитів
       2)Модальне вікно для створення замовлення містить в собі:
