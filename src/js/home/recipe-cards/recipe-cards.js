@@ -4,7 +4,7 @@ import { TastyApiService } from './recipe-cardsApi';
 
 const galleryRecipesRef = document.querySelector('.js-gallery');
 const searchQueryTitleRef = document.querySelector('.input-search');
-//console.log(searchQueryTitleRef);
+const seachQueryTimeRef = document.querySelector('.time-selector');
 
 const testyApiService = new TastyApiService();
 
@@ -25,6 +25,7 @@ function renderGallery(dataArr) {
 }
 
 searchQueryTitleRef.addEventListener('input', debounce(onSeachQueryTitle, 500));
+seachQueryTimeRef.addEventListener('change', onSeachQueryTime);
 
 function onSeachQueryTitle(evt) {
   console.log(evt.target.value);
@@ -33,6 +34,15 @@ function onSeachQueryTitle(evt) {
   clearRecipesContainer();
   testyApiService.resetPage();
   testyApiService.setSearchTitle(inputQuery);
+  fetchRecipesQuery();
+}
+
+function onSeachQueryTime(evt) {
+  console.log(evt.target.value);
+  const inputQuery = evt.target.value;
+  clearRecipesContainer();
+  testyApiService.resetPage();
+  testyApiService.setSearchTime(inputQuery);
   fetchRecipesQuery();
 }
 
