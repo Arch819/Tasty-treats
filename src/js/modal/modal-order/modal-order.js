@@ -52,6 +52,7 @@ function toggleModal() {
 }
 
 const form = document.getElementById("order-form");
+const sendBtn = document.querySelector(".submit-btn");
 const inputs = form.querySelectorAll(".input-js");
 
 inputs.forEach(function(input) {
