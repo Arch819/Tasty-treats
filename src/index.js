@@ -6,8 +6,6 @@ import './js/header/_switch-themes';
 //* home
 //hero
 import './js/home/hero/hero';
-// features
-//import './js/home/features/scrollToTop';
 //?categories
 import './js/home/categories/categories';
 //?popular recipes
