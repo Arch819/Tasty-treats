@@ -112,7 +112,12 @@ if (formData.name === "" || formData.phone === "" || formData.email === "") {
         
         Notiflix.Report.success("Your order has successfully been sent. Thank you!", "OK");
 
-        form.reset();
+      form.reset();
+
+      setTimeout(() => {
+        toggleModal();
+      }, 1000);
+      
     } else { 
         Notiflix.Report.failure("Please enter valid data.");
     }
