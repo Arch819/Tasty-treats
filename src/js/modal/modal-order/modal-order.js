@@ -71,7 +71,7 @@ function validateInput(input) {
     }
 }
 function checkFormValidity() {
-    var isValid = true;
+    let isValid = true;
 
     inputs.forEach(function(input) {
         if (!input.checkValidity()) {
@@ -80,9 +80,9 @@ function checkFormValidity() {
     });
 
     if (isValid) {
-        refs.sendBtn.removeAttribute("disabled");
+        sendBtn.removeAttribute("disabled");
     } else {
-        refs.sendBtn.setAttribute("disabled", "disabled");
+        sendBtn.setAttribute("disabled", "disabled");
     }
 }
 
@@ -94,9 +94,13 @@ form.addEventListener("submit", function(event) {
             name: form.name.value.trim(),
             phone: form.phone.value.trim(),
             email: form.email.value.trim(),
-            comment: form.comment.value.trim()
-        };
-
+          comment: form.comment.value.trim()
+            
+      };
+if (formData.name === "" || formData.phone === "" || formData.email === "") {
+            Notiflix.Report.failure("Please fill out all required fields.");
+            return;
+        }
         // Збереження даних у localStorage
         saveFormDataToLocalStorage(formData);
         console.log(`https://tasty-treats-backend.p.goit.global/api/orders/add&{
@@ -108,8 +112,13 @@ form.addEventListener("submit", function(event) {
         
         Notiflix.Report.success("Your order has successfully been sent. Thank you!", "OK");
 
-        form.reset();
-    } else {
+      form.reset();
+
+      setTimeout(() => {
+        toggleModal();
+      }, 1000);
+      
+    } else { 
         Notiflix.Report.failure("Please enter valid data.");
     }
 });
