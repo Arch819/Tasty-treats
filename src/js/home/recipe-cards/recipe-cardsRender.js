@@ -19,7 +19,7 @@ export function createMarkup(recipes) {
     .map(
       recipe => `<li class="card-item">
           <div class="card-block">
-            <img class="card-image" src="${recipe.preview}" alt="${recipe.title}" width="335px">
+            <img class="card-image" src="${recipe.preview}" alt="${recipe.title}"">
         <div class="heart-block" id="card-checkbox-${recipe._id}">
             <span class="unchecked-heart">
             <svg class="heartIconGrey" width="18" height="18">
@@ -38,7 +38,8 @@ export function createMarkup(recipes) {
             <div class="card-bottom">
               <div class="card-rating-block">
                 <p class="card-rating">${recipe.rating}</p>
-                <div class="eating-stars">generateStars(recipe.rating)</div>
+                <div class="eating-stars">&star;&star;&star;</div>
+
               </div>
               <button class="card-button" data-id="${recipe._id}">See recipe</button>
             </div>
@@ -47,3 +48,5 @@ export function createMarkup(recipes) {
     )
     .join('');
 }
+
+

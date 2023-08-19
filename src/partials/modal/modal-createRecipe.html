@@ -1,1 +1,98 @@
+<!-- Куди мені прописувати мої стилі? Базові я розумію як підключити. Також мене немає в файлі в index.html  <include src="..... і я не бачу свій код через npm start.
+/* Стилі для модального вікна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 
+.modal-content {
+  margin: 15% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  border-radius: 15px;
+  background: #fff;
+  width: 80%;
+  max-width: 400px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn {
+  background-color: #9bb537;
+  color: #f8f8f8;
+}
+
+.label-recipe-name {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+ -->
+
+<button class="js-createRecipeBtn create-recipe-btn" id="openModalBtn">
+  Add your recipe
+</button>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form id="recipeForm">
+      <label class="label-recipe-name" for="recipeName">Recipe name:</label>
+      <input type="text" id="recipeName" name="recipeName" required />
+
+      <div>
+        <label>Ingredients:</label>
+        <div id="ingredients">
+          <div class="ingredient">
+            <input
+              type="text"
+              class="ingredient-name"
+              name="ingredient[]"
+              required
+            />
+            <input
+              type="text"
+              class="ingredient-amount"
+              name="amount[]"
+              placeholder="Quantity (g)"
+              required
+            />
+
+            <button type="button" class="add-ingredient">+</button>
+          </div>
+        </div>
+      </div>
+
+      <label for="instructions">Instructions:</label>
+      <textarea
+        id="instructions"
+        name="instructions"
+        rows="4"
+        required
+      ></textarea>
+
+      <button class="btn" type="submit">Save recipe</button>
+    </form>
+  </div>
+</div>

@@ -1,13 +1,16 @@
 import { refs } from './refs';
-refs.sliderEl.addEventListener('click', handlerChangeThemes);
 
-function handlerChangeThemes(e) {
+refs.sliderEl.forEach(slider => {
+  slider.addEventListener('click', handlerChangeThemes);
+});
+
+function handlerChangeThemes() {
   if (localStorage.getItem('theme') === 'black') {
     localStorage.removeItem('theme');
-    document.querySelector('input').checked = false;
+    refs.sliderEl.forEach(slider => (slider.checked = false));
   } else {
     localStorage.setItem('theme', 'black');
-    document.querySelector('input').checked = true;
+    refs.sliderEl.forEach(slider => (slider.checked = true));
   }
   addDarkTheme();
 }
@@ -16,11 +19,10 @@ function addDarkTheme() {
   try {
     if (localStorage.getItem('theme') === 'black') {
       document.querySelector('body').classList.add('dark');
-      document.querySelector('input').checked = true;
     } else {
       document.querySelector('body').classList.remove('dark');
-      document.querySelector('input').checked = false;
+      //       document.querySelector('input').checked = false;
     }
   } catch (err) {}
 }
-addDarkTheme();
+// addDarkTheme();
