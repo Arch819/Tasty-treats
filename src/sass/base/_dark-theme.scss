@@ -2,21 +2,22 @@
   background-color: var(--bg-body-dark);
   color: var(--color-text-d);
 
-  // header
-  .navigation-link {
+  .navigation-link,
+  .black-logo,
+  .card-heading,
+  .card-button {
     color: var(--color-text-d);
   }
   .logo {
     text-shadow: 0 4px 4px #ffffff1b;
   }
-  .black-logo {
-    color: var(--color-text-d);
-  }
-  label {
+  label,
+  select,
+  .card-rating,
+  .footer-text {
     color: var(--color-input-placeholder-d);
   }
   select {
-    color: var(--color-input-placeholder-d);
     background-color: transparent;
     border: var(--border-input-d);
   }
@@ -31,19 +32,11 @@
   .card-block:after {
     background: linear-gradient(1deg, #050505 0%, rgba(5, 5, 5, 0) 100%);
   }
-  .card-heading {
-    color: var(--color-text-d);
-  }
   .card-description {
     color: var(--color-text-desc-d);
   }
-  .card-rating {
-    color: var(--color-input-placeholder-d);
-  }
-  .card-button {
-    color: var(--color-text-d);
-  }
-  .footer-text {
-    color: var(--color-input-placeholder-d);
+  .mobile-menu .mobile-menu-content,
+  .modal-content {
+    background: var(--color-text-light);
   }
 }
