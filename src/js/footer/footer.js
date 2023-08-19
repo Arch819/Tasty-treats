@@ -62,7 +62,6 @@ function onKeyClose(event) {
 }
 
 function onClickClose(event) {
-  console.log(event.target);
   if (event.target !== backdropTeam && !teamList.contains(event.target)) {
     onClose();
     document.removeEventListener('click', onClickClose);
