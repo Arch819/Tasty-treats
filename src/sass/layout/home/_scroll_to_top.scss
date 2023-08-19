@@ -1,0 +1,60 @@
+.btn_scroll {
+  opacity: 0;
+  position: fixed;
+  z-index: 100;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: var(--bg-btn-var1);
+  animation: slideInDown 6s infinite alternate;
+  transition: opacity 0.3s ease-in-out;
+  fill: var(--color-btn-var2);
+}
+
+@media screen and (min-width: 768px) {
+  .btn_scroll {
+    width: 45px;
+    height: 45px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .btn_scroll {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .scroll-button-svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .scroll-button-svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@keyframes slideInDown {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+  20% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideOutUp {
+  animation-name: slideOutUp;
+}
