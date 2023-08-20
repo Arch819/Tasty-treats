@@ -60,6 +60,10 @@ export class TastyApiService {
   // }
 
   /////
+  get currentPage() {
+    return this.page;
+  }
+  /////
   resetCategory() {
     this.searchQuery = '';
     this.title = '';
@@ -85,21 +89,30 @@ export class TastyApiService {
 
   setSearchTitle(query) {
     this.title = query;
-    console.log('this.title', this.title);
+    //console.log('this.title', this.title);
   }
 
   setSearchTime(query) {
     this.time = query;
-    console.log('this.time', this.time);
+    //console.log('this.time', this.time);
   }
 
   setSearchArea(query) {
     this.area = query;
-    console.log('this.area', this.area);
+    //console.log('this.area', this.area);
   }
 
   setSearchIngredient(query) {
     this.ingredient = query;
-    console.log('this.ingredient', this.ingredient);
+    //console.log('this.ingredient', this.ingredient);
+  }
+
+  setCurrentPage(page) {
+    this.page = page;
+    //console.log('api-setCurrentPage', this.page);
+  }
+
+  decrementPage() {
+    this.page -= 1;
   }
 }
