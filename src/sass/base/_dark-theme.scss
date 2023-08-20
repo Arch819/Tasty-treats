@@ -1,6 +1,7 @@
 .dark {
   background-color: var(--bg-body-dark);
   color: var(--color-text-d);
+  transition: background-color 1.5s;
 
   .navigation-link,
   .black-logo,
@@ -41,6 +42,7 @@
   .mobile-menu .mobile-menu-content,
   .modal-content {
     background: var(--color-text-light);
+    transition: background 2.5s;
   }
   ::-webkit-scrollbar {
     width: 8px;
@@ -49,4 +51,17 @@
     background: rgba(255, 255, 255, 0.18);
     border-radius: 12px;
   }
+  .header-scroll .navigation-link,
+  .header-scroll .black-logo {
+    color: var(--color-text-light);
+    transition: color 2.5s;
+  }
+}
+body {
+  background-color: var(--bg-body-light);
+  transition: background-color 1.5s;
+}
+.mobile-menu .mobile-menu-content {
+  background-color: var(--bg-btn-var1);
+  transition: background-color 1.5s;
 }
