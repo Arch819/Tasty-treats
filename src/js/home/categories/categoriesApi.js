@@ -20,7 +20,7 @@ export class CategoriesAPI {
     }
 
     async getRecipesCategory() {
-        const url = `${this.#BASE_URL}/recipes?category=${this.#categoryName}&perPage=9`;
+        const url = `${this.#BASE_URL}/recipes?category=${this.#categoryName}&page=1`;
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -36,7 +36,7 @@ export class CategoriesAPI {
     }
     
     async getAllRecipes() {
-        const url = `${this.#BASE_URL}/recipes?perPage=9`;
+        const url = `${this.#BASE_URL}/recipes?`;
 
         try {
             const response = await fetch(url);
@@ -54,6 +54,71 @@ export class CategoriesAPI {
 
 }
 //// ====================
+
+/**
+ * async getAllCategories() {
+        const url = `${this.#BASE_URL}/categories`;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(response.status);
+            }
+            const categories = await response.json();
+            return categories;
+        } catch (error) {
+            console.error("Помилка:", error);
+            return null;
+        }
+    }
+
+    async getRecipesCategory() {
+        const url = `${this.#BASE_URL}/recipes?category=${this.#categoryName}&page=1`;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(response.status);
+            }
+            const data = await response.json();
+            console.log("Дані відповіді:", data); // Вивести дані відповіді для налагодження
+            return data;
+        } catch (error) {
+            console.error("Помилка:", error);
+            return null;
+        }
+    }
+    
+    async getAllRecipes() {
+        const url = `${this.#BASE_URL}/recipes?`;
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(response.status);
+            }
+            const recipes = await response.json();
+            console.log("Отримані рецепти:", recipes); // Вивід рецептів для налагодження
+            return recipes;
+        } catch (error) {
+            console.error("Помилка:", error);
+            return null;
+    }
+}
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////  ===================        ====================         ===================          =============
 
 // getAllCategories() {
 //         const url = `${this.#BASE_URL}/categories`
