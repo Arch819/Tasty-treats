@@ -47,7 +47,7 @@
     display: none;
   }
   & .create-order-link svg {
-    stroke: var(--color-text-d);
+    fill: var(--bg-btn-var1);
   }
   & .switch {
     display: block;
@@ -172,13 +172,7 @@
 }
 
 ///modal
-// .backdrop {
-//   &.is-hidden {
-//     opacity: 0;
-//     visibility: hidden;
-//     pointer-events: none;
-//   }
-// }
+
 .modal-team-devel {
   background-color: var(--bg-body-light);
   border-radius: var(--border-radius);
