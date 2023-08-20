@@ -99,8 +99,6 @@
   vertical-align: middle;
   cursor: pointer;
   margin: 0;
-
-  
 }
 
 .header-navigation-list {
@@ -208,7 +206,9 @@
     right: 0;
 
     .switch {
-     
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
     }
   }
 
