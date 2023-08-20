@@ -12,7 +12,14 @@
   .logo {
     text-shadow: 0 4px 4px #ffffff1b;
   }
-  .list-category-btns .item-category-btn {
+  .create-order-link svg,
+  .open-modal-button svg {
+    fill: var(--color-text-d);
+  }
+  .mobile-menu .close-modal-button {
+    fill: var(--color-btn-var1);
+  }
+  .list-category-btns .category-btn {
     color: var(--color-categories-text-d);
   }
   label,
@@ -56,6 +63,10 @@
     color: var(--color-text-light);
     transition: color 2.5s;
   }
+  .header-scroll .create-order-link svg {
+    fill: var(--color-text-light);
+    transition: fill 2.5s;
+  }
 }
 body {
   background-color: var(--bg-body-light);
@@ -64,4 +75,8 @@ body {
 .mobile-menu .mobile-menu-content {
   background-color: var(--bg-btn-var1);
   transition: background-color 1.5s;
+}
+footer .create-order-link svg {
+  fill: var(--color-text-d);
+  stroke: transparent;
 }
