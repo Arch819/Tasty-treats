@@ -1,70 +1,75 @@
-import { renderPageFavorits } from './renderFavorites';
-import { renderCards } from './renderCardsFav';
+import { renderFavirites } from './renderFavorites';
+import { emptyRendering, getValuesOfStorage } from './config';
+import { handleFilter } from './handleClick';
+import { getValuesOfStorage } from './config';
 
 const conRef = document.querySelector('.favorites__empty');
-const favWrapRef = document.querySelector('.favorites__wrap');
 const favImgRef = document.querySelector('.favorites__img');
+const favoritesFilterRef = document.querySelector('.favorites__list-filter');
+export const favoritesCardsRef = document.querySelector(
+  '.favorites__list-cards'
+);
 
-const favorites = async () => {
-  // const storedData = localStorage.getItem('id');
-  // let arrayOfId = [];
+// -------------------------------------------основна функція та логіка сторінки Favorites--------------------------
 
-  // if (storedData) {
-  //   arrayOfId = JSON.parse(storedData);
-  // }
+const renderPageFavorites = async () => {
+  const keyOfLocalStorage = getValuesOfStorage('favorites'); // Беремо значення з localStorage
 
-  // if (!storedData || arrayOfId.length === 0) {
-  //   renderPageFavorits(conRef); // Рендеримо сторінку якщо з LocalStorage нічого не отримано
-  //   return;
-  // }
+  // =--------------------------------------LocalStorage не існує або порожній масив----------------------
+  if (!keyOfLocalStorage || keyOfLocalStorage.length === 0) {
+    emptyRendering(conRef);
+    return;
+  }
 
-  conRef.classList.remove('empty');
+  conRef.classList.remove('empty'); // Видаляємо клас empty
   favImgRef.style.display = 'block';
-  await renderCards(favWrapRef);
+
+  // ==---------------------------------------Рендеримо сторінку-----------------------------------
+  const data = await renderFavirites(
+    favoritesFilterRef,
+    favoritesCardsRef,
+    keyOfLocalStorage
+  );
+
   const cardContainer = document.querySelector('.favorites__list-cards');
 
-  cardContainer.addEventListener('click', event => {
-    const target = event.target.closest('.icon-button');
+  const handleHeartClick = evt => {
+    const target = evt.target.closest('.icon-button');
 
     if (target) {
-      const buttonId = target.id;
-      const storedData = localStorage.getItem('id');
+      const buttonId = target.id.slice(1);
+      const dataValue = target.getAttribute('data-category');
+      const StorageData = getValuesOfStorage('favorites');
       let arrayOfId = [];
 
-      if (storedData) {
-        arrayOfId = JSON.parse(storedData);
+      if (StorageData) {
+        arrayOfId = StorageData;
       }
 
-      if (arrayOfId.length === 0) {
-        renderPageFavorits(conRef);
-        return;
-      }
+      const index = arrayOfId.findIndex(el => el.id === buttonId);
 
-      if (arrayOfId.includes(buttonId)) {
-        arrayOfId = arrayOfId.filter(id => id !== buttonId);
+      if (index !== -1) {
+        arrayOfId.splice(index, 1);
       } else {
-        arrayOfId.push(buttonId);
+        arrayOfId.push({ id: buttonId, category: dataValue });
       }
 
-      localStorage.setItem('id', JSON.stringify(arrayOfId));
-      console.log(arrayOfId);
+      localStorage.setItem('favorites', JSON.stringify(arrayOfId));
 
       const heartIcon = target.querySelector('.favorites__heart');
       heartIcon.classList.toggle('heart-isActive');
     }
-  });
+  };
 
-  if (storedData) {
-    arrayOfId = JSON.parse(storedData);
-  }
+  // додаємо обробник подій на контейнер щоб обрати сердечко на всіх картках. Делегування подій---------------------------------
+  cardContainer.addEventListener('click', handleHeartClick);
 
-  arrayOfId.forEach(id => {
-    const heartIBtn = document.getElementById(`${id}`);
-    if (heartIBtn) {
-      const heartIcon = heartIBtn.querySelector('.favorites__heart');
-      heartIcon.classList.add('heart-isActive');
-    }
-  });
+  // ================================================callback для фільтра====================================
+
+  // ==============Додаємо обробник подій на фільтр===============
+
+  const filterRef = document.querySelector('.favorites__list-filter');
+  filterRef.addEventListener('click', handleFilter);
 };
 
-favorites();
+renderPageFavorites();
