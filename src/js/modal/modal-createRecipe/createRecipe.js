@@ -88,10 +88,10 @@ addIngredientBtn.addEventListener('click', () => {
 
 recipeForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const recipeName = document.getElementById('recipeName').value;
+  const recipeName = document.getElementById('recipeName').value.trim();
   const ingredientNames = document.querySelectorAll('.ingredient-name');
   const ingredientAmounts = document.querySelectorAll('.ingredient-amount');
-  const instructions = document.getElementById('instructions').value;
+  const instructions = document.getElementById('instructions').value.trim();
   
   
   modal.style.display = 'none';
@@ -102,15 +102,15 @@ recipeForm.addEventListener('submit', (event) => {
 recipeForm.addEventListener('submit', (event) => {
   event.preventDefault();
   
-  const recipeName = document.getElementById('recipeName').value;
+  const recipeName = document.getElementById('recipeName').value.trim();
   const ingredientNames = document.querySelectorAll('.ingredient-name');
   const ingredientAmounts = document.querySelectorAll('.ingredient-amount');
-  const instructions = document.getElementById('instructions').value;
+  const instructions = document.getElementById('instructions').value.trim();
   
   const ingredients = [];
-  for (let i = 0; i < ingredientNames.length; i++) {
-    const ingredientName = ingredientNames[i].value;
-    const ingredientAmount = ingredientAmounts[i].value;
+  for (let i = 0; i < ingredientNames.length; i += 1) {
+    const ingredientName = ingredientNames[i].value.trim();
+    const ingredientAmount = ingredientAmounts[i].value.trim();
     ingredients.push({ name: ingredientName, amount: ingredientAmount });
   }
   
