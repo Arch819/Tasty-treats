@@ -9,5 +9,6 @@ export const refs = {
     iconSun: document.querySelector('.icon-sun'),
     switcher: document.querySelector('.switch'),
     sliderEl: document.querySelectorAll('input[type=checkbox]'),
+    sliderEl: document.querySelectorAll('input[type=checkbox]'),
     bodyEl: document.querySelector('body'),
 };
