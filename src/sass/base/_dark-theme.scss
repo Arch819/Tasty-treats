@@ -19,8 +19,34 @@
   .mobile-menu .close-modal-button {
     fill: var(--color-btn-var1);
   }
+  .header-scroll .navigation-link,
+  .header-scroll .black-logo {
+    color: var(--color-text-light);
+    transition: color 2.5s;
+  }
+  .header-scroll .create-order-link svg {
+    fill: var(--color-text-light);
+    transition: fill 2.5s;
+  }
+
   .list-category-btns .category-btn {
     color: var(--color-categories-text-d);
+  }
+  .all-categories-btn,
+  .create-recipe-btn {
+    color: var(--color-input-placeholder-d);
+    border: var(--border-input-d);
+  }
+  .modal-content-create {
+    background-color: var(--bg-body-dark);
+  }
+  .input-create,
+  .ingredient-name,
+  .ingredient-amount,
+  .textarea-create {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
   }
   label,
   select,
@@ -72,15 +98,6 @@
   }
   .pag-btn-left-icon {
     fill: rgba(255, 255, 255, 0.5);
-  }
-  .header-scroll .navigation-link,
-  .header-scroll .black-logo {
-    color: var(--color-text-light);
-    transition: color 2.5s;
-  }
-  .header-scroll .create-order-link svg {
-    fill: var(--color-text-light);
-    transition: fill 2.5s;
   }
 }
 
