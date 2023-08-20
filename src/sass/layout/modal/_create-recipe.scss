@@ -1,67 +1,54 @@
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-}
 
-.modal-content {
-  margin: 15% auto;
-  padding: 30px;
-  border: 1px solid #888;
-  border-radius: 15px;
-  background: #fff;
-  max-width: 400px;
-  max-height: 80%;
-  overflow: auto;
-  position: relative;
-}
 
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
-}
+    <div id="myModal" class="modal-create">
+      <div class="modal-content-create">
+        <span class="close-create">&times;</span>
+        <form id="recipeForm">
+          <label class="label-recipe-name label-create" for="recipeName"
+            >Recipe name:</label
+          >
+          <input
+            class="input-create"
+            type="text"
+            id="recipeName"
+            name="recipeName"
+            required
+          />
 
-.close:hover,
-.close:focus {
-  color: var(--color-text-light);
-  text-decoration: none;
-  cursor: pointer;
-}
-.btn {
-  background-color: var(--bg-btn-var1);
-  color: var(--color-btn-var1);
-}
+          <div>
+            <label class="label-create">Ingredients:</label>
+            <div id="ingredients-create">
+              <div class="ingredient-create">
+                <input
+                  type="text"
+                  class="ingredient-name input-create"
+                  name="ingredient[]"
+                  required
+                />
+                <input
+                  type="text"
+                  class="ingredient-amount input-create"
+                  name="amount[]"
+                  placeholder="Quantity (g)"
+                  required
+                />
 
-.label-recipe-name {
-  text-transform: uppercase;
-  font-weight: bold;
-}
+                <button type="button" class="add-ingredient">+</button>
+              </div>
+            </div>
+          </div>
 
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-.create-recipe-btn {
-  padding: 8px 16px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  background: var(--bg-btn-var1);
-  color: var(--color-btn-var1);
-  font-family: Inter;
-  font-size: 12px;
-  font-weight: 500;
-}
-.create-recipe-btn:hover,
-.create-recipe-btn:focus {
-  color: var(--color-btn-var2);
-}
+          <label class="label-create" for="instructions">Instructions:</label>
+          <textarea
+            class="textarea-create"
+            id="instructions"
+            name="instructions"
+            rows="4"
+            required
+          ></textarea>
+
+          <button class="btn-create" type="submit">Save recipe</button>
+        </form>
+      </div>
+    </div>
+
