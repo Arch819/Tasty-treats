@@ -1,5 +1,6 @@
 import { favoritesCardsRef } from './favoritRefs';
 import { renderCards } from './renderFavorites';
+import { getValuesOfStorage } from './config';
 // ========================================змінюємао кнопку на активну====================================
 
 const checkFilterBtn = evt => {
@@ -16,6 +17,8 @@ const checkFilterBtn = evt => {
     evt.classList.add('favorites__active-btn');
   }
 };
+
+// ================================================callback для фільтра====================================
 
 const handleFilter = async evt => {
   const target = evt.target;
@@ -34,4 +37,34 @@ const handleFilter = async evt => {
   const data = await renderCards(favoritesCardsRef, arrayFromFilter);
 };
 
-export { checkFilterBtn, handleFilter };
+// ----------------------------------heart---------------------------------
+
+const handleHeartClick = evt => {
+  const target = evt.target.closest('.icon-button');
+
+  if (target) {
+    const buttonId = target.id.slice(1);
+    const dataValue = target.getAttribute('data-category');
+    const StorageData = getValuesOfStorage('favorites');
+    let arrayOfId = [];
+
+    if (StorageData) {
+      arrayOfId = StorageData;
+    }
+
+    const index = arrayOfId.findIndex(el => el.id === buttonId);
+
+    if (index !== -1) {
+      arrayOfId.splice(index, 1);
+    } else {
+      arrayOfId.push({ id: buttonId, category: dataValue });
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(arrayOfId));
+
+    const heartIcon = target.querySelector('.favorites__heart');
+    heartIcon.classList.toggle('heart-isActive');
+  }
+};
+
+export { checkFilterBtn, handleFilter, handleHeartClick };

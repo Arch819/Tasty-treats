@@ -10,9 +10,9 @@ export const renderCategories = async storageValue => {
     const arrayOfCategories = results.map(el => el.data.category);
     console.log(arrayOfCategories);
 
-    const markupCateg = markupCategory(arrayOfCategories);
-    console.log(markupCateg);
-    return markupCateg;
+    const markup = markupCategory(arrayOfCategories);
+    console.log(markup);
+    return markup;
   } catch (error) {
     console.log(error);
   }
@@ -20,12 +20,15 @@ export const renderCategories = async storageValue => {
 
 //----------рендер списку карток-----------------
 
-export const renderCards = async storageValue => {
+export const renderCards = async (storageValue, currentPage, PerPage) => {
   try {
     const results = await fetchRecipeDataForIds(storageValue.map(el => el.id));
-    const cardMarkupCard = renderCardsMarkup(results);
+    const startIndex = (currentPage - 1) * PerPage;
+    const endIndex = startIndex + PerPage;
+    const slicedResults = results.slice(startIndex, endIndex);
 
-    favoritesCardsRef.innerHTML = cardMarkupCard;
+    const cardMarkupCard = renderCardsMarkup(slicedResults);
+    return cardMarkupCard;
   } catch (error) {
     console.log(error);
   }
