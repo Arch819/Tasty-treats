@@ -1,4 +1,4 @@
-import { favoritesCardsRef } from './favorites';
+import { favoritesCardsRef } from './favoritRefs';
 import { renderCards } from './renderFavorites';
 // ========================================змінюємао кнопку на активну====================================
 
