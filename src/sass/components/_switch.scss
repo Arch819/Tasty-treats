@@ -1,3 +1,9 @@
+@mixin media($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
 .switch {
   input {
     display: none;
@@ -32,4 +38,38 @@ input:checked + .slider {
   &:before {
     transform: translate(26px, -50%);
   }
+}
+
+.switch .icon-moon {
+  fill: orange;
+  position: absolute;
+  top: 37px;
+  left: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  display: flex;
+
+  @include media(1270px) {
+    top: 30px;
+  }
+}
+
+.switch .icon-sun {
+  fill: orange;
+  position: absolute;
+  top: 37px;
+  right: 0;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  display: flex;
+
+  @include media(1270px) {
+    top: 30px;
+  }
+}
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
 }
