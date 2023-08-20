@@ -25,7 +25,7 @@
     flex-direction: column;
     overflow-y: auto;
 
-    .item-category-btn {
+    .category-btn {
         margin-bottom: 18px;
         display: inline-block;
         width: auto;
@@ -40,7 +40,7 @@
         cursor: pointer;
     }
 
-    .item-category-active-btn {
+    .category-btn.active {
         color: var(--bg-btn-var1);
     }
 }
