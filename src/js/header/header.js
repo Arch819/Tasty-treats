@@ -5,20 +5,25 @@ import { toggleModal, modalIsOpen } from "./_modal-window";
 
 
 const currentPath = window.location.pathname;
-console.log(currentPath);
+
+const navigationLinksArray = Array.from(refs.navigationLinks);
+const hasActiveLink = navigationLinksArray.some(link => link.getAttribute('href') === currentPath);
 
 
-refs.navigationLinks.forEach(function (link) {
-    if (link.getAttribute('href') === currentPath) {
-        link.classList.add('current-link');
-    }
-    else if (currentPath.length <= 1) {
-        refs.navigationLinks[0].classList.add('current-link')
-    }
-    else {
-        link.classList.remove('current-link');
-    }
-});
+
+
+if (!hasActiveLink) {
+    refs.navigationLinks[0].classList.add('current-link');
+} else {
+    refs.navigationLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('current-link');
+        } else {
+            link.classList.remove('current-link');
+        }
+    });
+}
+
 
 
 function onScrollHeader(px) {
