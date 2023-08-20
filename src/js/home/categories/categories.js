@@ -22,10 +22,9 @@ function handleGetRecipesCategory(event) {
     if (event.target.nodeName !== 'BUTTON') return;
 
     const nameCategory = event.target.textContent;
-    console.log(nameCategory);
     categoriesApiInstance.categoryName = nameCategory;
-    
     categoriesApiInstance.getRecipesCategory();
+    event.target.classList.toggle("item-category-active-btn");
     
 }
 

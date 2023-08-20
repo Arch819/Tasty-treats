@@ -11,10 +11,14 @@ export function createMarkupPopularRecipes(recipes) {
     <ul class="popular-recipe-list list">
       <li class="popular-recipe-item">
         <div class="popular-recipe-card">
-          <img class="card-image" src="${recipe.preview}" alt="${recipe.title}">
-          <div class="card-content">
-            <h3 class="card-heading">${truncateTitle(recipe.title)}</h3>
-            <p class="card-description">${truncateText(recipe.description)}</p>
+          <img class="popular-card-image" src="${recipe.preview}" alt="${
+        recipe.title
+      }">
+          <div class="popular-card-content">
+            <h3 class="popular-card-heading">${truncateTitle(recipe.title)}</h3>
+            <p class="popular-card-description">${truncateText(
+              recipe.description
+            )}</p>
           </div>
         </div>
       </li>
