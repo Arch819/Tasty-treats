@@ -1,11 +1,11 @@
 .favorites__wrap{
   width: 375px;
-  padding: 0 20px;
+  padding: 0 20px;  
+  overflow: hidden;
 }
 
 .favorites__img{
   display: none;
-  margin-bottom: 40px;
   width: 335px;
   height: 516px;
   background-image: url("../images/favorites/card.jpg");
@@ -27,6 +27,7 @@ background-image: url("../images/favorites/card@2x.jpg");
     justify-content: center;
     flex-direction: column;
     margin: 0 auto;
+    margin-bottom: 40px;
     height: 100%;
   }
 
@@ -46,6 +47,23 @@ background-image: url("../images/favorites/card@2x.jpg");
   .empty {
     height: 100vh;
     color: var(--color-btn-var2);
+  }
+
+  .favorites__list-filter {
+    display: flex;
+    gap: 12px;
+    white-space: nowrap;
+    margin-bottom: 24px;
+  }
+
+  .favorites__filter-btn {
+    padding: 14px 18px;
+    border-radius: 15px;
+    
+    outline: none;
+    background-color: var(--color-btn-var1);
+    border: 1px solid var(--border-input-l);
+    color: var(--color-categories-text-l);
   }
 
   .favorites__list-cards{
@@ -190,11 +208,11 @@ background-image: url("../images/favorites/card@2x.jpg");
 
       .favorites__empty{
         padding-top: 50px;
+        margin-bottom: 64px;
       }
 
     .favorites__img{
         display: block;
-        margin-bottom: 64px;
         width: 704px;
         height: 356px;
         background-image: url("../images/favorites/card-tablet.jpg");
@@ -218,6 +236,10 @@ background-image: url("../images/favorites/card@2x.jpg");
         width: 481px;
         font-size: 16px;
         line-height: 24px;
+      }
+
+      .favorites__list-filter{
+        margin-bottom: 32px;
       }
 
       .favorites__list-cards{
@@ -254,7 +276,6 @@ background-image: url("../images/favorites/card@2x.jpg");
       }
 
       .favorites__img{
-        margin-bottom: 64px;
         width: 1080px;
         height: 356px;
         background-image: url("../images/favorites/card-desk.jpg");
@@ -301,5 +322,10 @@ background-image: url("../images/favorites/card@2x.jpg");
   .heart-isActive {
     fill: white;
     opacity: 1;
+  }
+  
+  .favorites__active-btn{
+    color: var(--color-btn-var1);
+    background-color: var(--color-active-el);
   }
   
