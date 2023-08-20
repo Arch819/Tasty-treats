@@ -36,7 +36,6 @@
   @include media(768px) {
     padding-top: 28px;
   }
-
   @include media(1280px) {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -52,7 +51,8 @@
 @include media(1280px) {
   .header-scroll {
     background-color: #f5f5dc;
-    transition: background-color 2.5s;
+
+    transition: background-color 2.5s ease-in-out;
   }
   #header {
     position: fixed;
@@ -136,7 +136,7 @@
   letter-spacing: -0.64px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease;
 
   &:hover {
     transform: scale(1.2);
@@ -173,7 +173,6 @@
 /* Mobile-menu */
 
 .mobile-menu {
-  overflow: auto;
   position: fixed;
   top: 0;
   left: 0;
@@ -222,6 +221,10 @@
     text-align: center;
     margin-top: 200px;
   }
+}
+
+.modal-open {
+  overflow: hidden;
 }
 
 /* Світч */

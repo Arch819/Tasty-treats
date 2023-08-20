@@ -1,22 +1,19 @@
 import { refs } from "./refs";
 
-refs.openModalButton.addEventListener('click', toggleModal);
-refs.closeModalButton.addEventListener('click', toggleModal);
-refs.modulWindow.addEventListener('click', (event) => {
-    if (!event.target.closest('.mobile-menu-content')) {
-        toggleModal();
-    }
-});
-function toggleModal() {
 
-    refs.modulWindow.classList.toggle('is-visible');
-}
+import { toggleModal, modalIsOpen } from "./_modal-window";
+
 
 const currentPath = window.location.pathname;
+console.log(currentPath);
+
 
 refs.navigationLinks.forEach(function (link) {
     if (link.getAttribute('href') === currentPath) {
         link.classList.add('current-link');
+    }
+    else if (currentPath.length <= 1) {
+        refs.navigationLinks[0].classList.add('current-link')
     }
     else {
         link.classList.remove('current-link');
