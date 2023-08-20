@@ -17,7 +17,7 @@ const renderListOfCategories = listOfCategories => {
 
 // -----------------------отримує масив категорій і повертає markup списку-------------------------
 
-export const renderCategories = categories => {
+export const markupCategory = categories => {
   const markupCategory = renderListOfCategories(categories).join('');
   return markupCategory;
 };

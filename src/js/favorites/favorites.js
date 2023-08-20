@@ -1,4 +1,4 @@
-import { renderFavirites } from './renderFavorites';
+import { renderCategories, renderCards } from './renderFavorites';
 import { emptyRendering, getValuesOfStorage } from './config';
 import { handleFilter } from './handleClick';
 import { getValuesOfStorage } from './config';
@@ -24,11 +24,9 @@ const renderPageFavorites = async () => {
   favImgRef.style.display = 'block';
 
   // ==---------------------------------------Рендеримо сторінку-----------------------------------
-  const data = await renderFavirites(
-    favoritesFilterRef,
-    favoritesCardsRef,
-    keyOfLocalStorage
-  );
+  const data = await renderCategories(keyOfLocalStorage);
+  console.log(data);
+  favoritesFilterRef.innerHTML = data;
 
   const cardContainer = document.querySelector('.favorites__list-cards');
 

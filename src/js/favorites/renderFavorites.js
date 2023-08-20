@@ -1,23 +1,18 @@
 import { fetchRecipeDataForIds } from './fetchFavorites';
 import { renderCardsMarkup } from './cardElement';
-import { renderCategories } from './filterElement';
+import { markupCategory } from './filterElement';
 
-// -----------------------------рендер списку категорій та карток-------------------------------------
+// -----------------------------рендер списку категорій-------------------------------------
 
-export const renderFavirites = async (
-  favoritesFilterRef,
-  favoritesCardsRef,
-  storageValue
-) => {
+export const renderCategories = async storageValue => {
   try {
     const results = await fetchRecipeDataForIds(storageValue.map(el => el.id));
     const arrayOfCategories = results.map(el => el.data.category);
+    console.log(arrayOfCategories);
 
-    const markupCategory = renderCategories(arrayOfCategories);
-    const cardMarkupCard = renderCardsMarkup(results);
-
-    favoritesFilterRef.innerHTML = markupCategory;
-    favoritesCardsRef.innerHTML = cardMarkupCard;
+    const markupCateg = markupCategory(arrayOfCategories);
+    console.log(markupCateg);
+    return markupCateg;
   } catch (error) {
     console.log(error);
   }
@@ -25,7 +20,7 @@ export const renderFavirites = async (
 
 //----------рендер списку карток-----------------
 
-export const renderCards = async (favoritesCardsRef, storageValue) => {
+export const renderCards = async storageValue => {
   try {
     const results = await fetchRecipeDataForIds(storageValue.map(el => el.id));
     const cardMarkupCard = renderCardsMarkup(results);
