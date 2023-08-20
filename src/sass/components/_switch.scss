@@ -15,7 +15,7 @@
   display: inline-block;
   width: 46px;
   height: 20px;
-  background-color: #ccc;
+  background: linear-gradient(141.22deg, #a09ea0 9.4%, #cecdcd 91.91%);
   border-radius: 10px;
   transition: background-color 0.3s ease;
 
@@ -27,8 +27,9 @@
     border-radius: 50%;
     background-color: white;
     top: 50%;
-    transform: translate(1px, -50%);
+    transform: translate(2px, -50%);
     transition: transform 0.3s ease;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -72,4 +73,10 @@ input:checked + .slider {
   display: inline-flex;
   align-items: center;
   position: relative;
+
+  transition: transform 0.5s ease;
+
+  &:hover {
+    transform: scale(1.15);
+  }
 }
