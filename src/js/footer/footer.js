@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import team from '../../data/team.json';
 import { teamRender } from './teamRender';
 import { modalTeamRender } from './teamRender';
@@ -25,7 +26,7 @@ function fetchTeam(e) {
     return;
   }
   const findId = target.dataset.id;
-  teamItem = team.find(obj => obj.id === findId);
+  // teamItem = team.find(obj => obj.id === findId);
 
   setClassBackdropTeam(e);
 }
@@ -34,10 +35,16 @@ function setClassBackdropTeam(e) {
   document.addEventListener('keydown', onKeyClose);
   document.addEventListener('click', onClickClose);
 
-  onOpen();
-
-  modalTeam.innerHTML = modalTeamRender(teamItem);
-  modalTeam.addEventListener('click', onModalClick);
+  try {
+    if (!teamItem) {
+      throw new Error('data not available');
+    }
+    modalTeam.innerHTML = modalTeamRender(teamItem);
+    onOpen();
+    modalTeam.addEventListener('click', onModalClick);
+  } catch (error) {
+    Notiflix.Notify.failure(error.message);
+  }
 }
 
 function onOpen() {
