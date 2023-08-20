@@ -42,6 +42,7 @@ closeBtn.addEventListener('click', () => {
 window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     hideModal();
+    enableBodyScroll();
   }
 });
 
@@ -50,6 +51,7 @@ modal.addEventListener('click', (event) => {
   if (event.target === modal) {
     hideModal();
     clearForm();
+    enableBodyScroll();
   }
 });
 
@@ -125,8 +127,11 @@ recipeForm.addEventListener('submit', (event) => {
   
   saveRecipe(recipe);
 
+  
   hideModal();
   clearForm();
+  
+  
 });
 
 function saveRecipe(recipe) {

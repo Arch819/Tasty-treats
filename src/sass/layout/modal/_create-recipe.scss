@@ -51,6 +51,8 @@
   font-weight: 500;
   display: block;
   cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
 }
 .btn-create:hover,
 .btn-create:focus {
@@ -99,10 +101,11 @@
   margin-right: 3px;
 }
 // .ingredient-amount {
-//   width: 60px;
+//   width: 100px;
 // }
 .textarea-create {
-  padding: 14px 169px 14px 18px;
+  width: 100%;
+  padding: 14px 18px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
   margin-bottom: 5px;
