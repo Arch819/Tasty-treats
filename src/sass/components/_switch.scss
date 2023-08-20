@@ -15,9 +15,13 @@
   display: inline-block;
   width: 46px;
   height: 20px;
-  background: linear-gradient(141.22deg, #a09ea0 9.4%, #cecdcd 91.91%);
+  background-color: #ccc;
   border-radius: 10px;
   transition: background-color 0.3s ease;
+
+  /* Тень для внутренней "вжатости" */
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px); /* Смещение вниз для эффекта "вжатости" */
 
   &:before {
     content: '';
@@ -29,6 +33,7 @@
     top: 50%;
     transform: translate(2px, -50%);
     transition: transform 0.3s ease;
+
     // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 }
@@ -44,28 +49,28 @@ input:checked + .slider {
 .switch .icon-moon {
   fill: orange;
   position: absolute;
-  top: 37px;
+  top: 40px;
   left: 10px;
   transform: translate(-50%, -50%);
   z-index: 99;
   display: flex;
 
   @include media(1270px) {
-    top: 30px;
+    top: 32px;
   }
 }
 
 .switch .icon-sun {
   fill: orange;
   position: absolute;
-  top: 37px;
+  top: 40px;
   right: 0;
   transform: translate(-50%, -50%);
   z-index: 99;
   display: flex;
 
   @include media(1270px) {
-    top: 30px;
+    top: 32px;
   }
 }
 
