@@ -10,20 +10,21 @@
 }
 
 .modal-content-create {
-  margin: 15% auto;
   padding: 30px;
   border: 1px solid #888;
   border-radius: 15px;
   background: #fff;
-  max-width: 400px;
+  max-width: 550px;
   max-height: 60%;
   overflow-y: auto;
-  /* overflow: auto; */
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .close-create {
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: 10px;
   color: #aaa;
@@ -80,6 +81,8 @@
   display: block;
   cursor: pointer;
   border: 1px solid rgba(5, 5, 5, 0.2);
+  background: transparent;
+  margin-top: 15px;
 }
 .create-recipe-btn:hover,
 .create-recipe-btn:focus {
@@ -95,6 +98,9 @@
   margin-bottom: 5px;
   margin-right: 3px;
 }
+// .ingredient-amount {
+//   width: 60px;
+// }
 .textarea-create {
   padding: 14px 169px 14px 18px;
   border-radius: 15px;
