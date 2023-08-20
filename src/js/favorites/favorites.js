@@ -2,13 +2,12 @@ import { renderFavirites } from './renderFavorites';
 import { emptyRendering, getValuesOfStorage } from './config';
 import { handleFilter } from './handleClick';
 import { getValuesOfStorage } from './config';
-
-const conRef = document.querySelector('.favorites__empty');
-const favImgRef = document.querySelector('.favorites__img');
-const favoritesFilterRef = document.querySelector('.favorites__list-filter');
-export const favoritesCardsRef = document.querySelector(
-  '.favorites__list-cards'
-);
+import {
+  conRef,
+  favImgRef,
+  favoritesFilterRef,
+  favoritesCardsRef,
+} from './favoritRefs';
 
 // -------------------------------------------основна функція та логіка сторінки Favorites--------------------------
 
