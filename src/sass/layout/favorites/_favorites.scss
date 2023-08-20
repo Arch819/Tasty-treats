@@ -136,14 +136,16 @@ background-image: url("../images/favorites/card@2x.jpg");
     margin-bottom: 8px;
   }
   
-  .favorites__cards-text {
-    height: 32px;
-    overflow: hidden;
-    font-family: Inter;
-    font-size: 12px;
-    line-height: 16px;
-    color: var(--color-btn-var1);
+  .favorites__cards-text {   
+    color: #f8f8f8;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
     margin-bottom: 16px;
+    font-size: 12px;
+    line-height: 1.33;
+    display: -webkit-box;
+    overflow: hidden;
   }
   
   .favorites__rating-thumb {
@@ -323,7 +325,7 @@ background-image: url("../images/favorites/card@2x.jpg");
     fill: white;
     opacity: 1;
   }
-  
+
   .favorites__active-btn{
     color: var(--color-btn-var1);
     background-color: var(--color-active-el);
