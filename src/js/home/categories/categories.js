@@ -6,28 +6,48 @@ const categoriesApiInstance = new CategoriesAPI;
 
 const containerAllCategoriesEl = document.querySelector('.container-all-categories');
 const allCategoriesButton = containerAllCategoriesEl.firstElementChild;
-const listCategoryButtons = containerAllCategoriesEl.lastElementChild;
+const categoryButtons = containerAllCategoriesEl.lastElementChild;
+
 
 categoriesApiInstance.getAllCategories().then((data) => {
     const markup = createCategoriesButton(data);
-    listCategoryButtons.innerHTML = markup;
-    console.log("listCategoryButtons", listCategoryButtons);
-})
+    categoryButtons.innerHTML = markup;
+    console.log("categoryButtons", categoryButtons);
+});
 
 allCategoriesButton.addEventListener('click', handleGetAllRecipes);
-listCategoryButtons.addEventListener('click', handleGetRecipesCategory);
+categoryButtons.addEventListener('click', handleGetRecipesCategory);
+
+let activeCategoryButton = null; // Зберігатиме посилання на активну кнопку
 
 function handleGetRecipesCategory(event) {
 
     if (event.target.nodeName !== 'BUTTON') return;
 
+    const clickedButton = event.target;
+
+    if (activeCategoryButton) {
+        activeCategoryButton.classList.remove('active'); // Видаляємо клас з попередньої активної кнопки
+    }
+
+    clickedButton.classList.add('active'); // Додаємо клас до обраної кнопки
+    activeCategoryButton = clickedButton; // Оновлюємо активну кнопку
+
     const nameCategory = event.target.textContent;
     categoriesApiInstance.categoryName = nameCategory;
     categoriesApiInstance.getRecipesCategory();
-    event.target.classList.toggle("item-category-active-btn");
-    
+
 }
 
 function handleGetAllRecipes() {
     categoriesApiInstance.getAllRecipes();
+    const clickedButton = event.target;
+
+    if (activeCategoryButton) {
+        activeCategoryButton.classList.remove('active'); // Видаляємо клас з попередньої активної кнопки
+    }
+
+    clickedButton.classList.add('active'); // Додаємо клас до обраної кнопки
+    activeCategoryButton = clickedButton; // Оновлюємо активну кнопку
 }
+
