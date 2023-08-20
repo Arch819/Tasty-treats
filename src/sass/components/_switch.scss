@@ -1,3 +1,9 @@
+@mixin media($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
 .switch {
   input {
     display: none;
@@ -13,6 +19,10 @@
   border-radius: 10px;
   transition: background-color 0.3s ease;
 
+  /* Тень для внутренней "вжатости" */
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px); /* Смещение вниз для эффекта "вжатости" */
+
   &:before {
     content: '';
     position: absolute;
@@ -21,8 +31,10 @@
     border-radius: 50%;
     background-color: white;
     top: 50%;
-    transform: translate(1px, -50%);
+    transform: translate(2px, -50%);
     transition: transform 0.3s ease;
+
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -31,5 +43,45 @@ input:checked + .slider {
 
   &:before {
     transform: translate(26px, -50%);
+  }
+}
+
+.switch .icon-moon {
+  fill: orange;
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  display: flex;
+
+  @include media(1270px) {
+    top: 32px;
+  }
+}
+
+.switch .icon-sun {
+  fill: orange;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  display: flex;
+
+  @include media(1270px) {
+    top: 32px;
+  }
+}
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+
+  transition: transform 0.5s ease;
+
+  &:hover {
+    transform: scale(1.15);
   }
 }
