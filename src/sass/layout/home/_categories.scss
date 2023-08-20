@@ -1,7 +1,6 @@
 .container-all-categories {
     display: flex;
     flex-direction: column;
-    margin: 0px 64px 64px 0px;
 }
 
 .all-categories-btn{
@@ -19,7 +18,6 @@
     .all-categories-btn.active {
         background-color: var(--bg-btn-var1);
         color: var(--color-btn-var1);
-        // border: none;
     }
 
     .all-categories-btn:hover,
@@ -69,7 +67,7 @@
         height: 416px;
         margin-top: 30px;
 
-        .item-category-btn{
+        .category-btn{
             margin-bottom: 24px;
             font-size: 16px;
         }
@@ -82,7 +80,7 @@
         height: 416px;
         margin-top: 42px;
 
-        .item-category-btn{
+        .category-btn{
             margin-bottom: 24px;
             font-size: 16px;
             line-height: 1.25;
