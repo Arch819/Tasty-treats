@@ -1,3 +1,4 @@
+import { modal, recipeForm, ingredientsContainer } from './createRecipeRender.js';
 
 const recipeForm = document.getElementById('recipeForm');
 
