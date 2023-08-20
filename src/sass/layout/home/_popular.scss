@@ -1,16 +1,16 @@
-// .dark .card {
-//   background-color: #333;
-//   color: white;
-// }
-
 .popular-recipes-container {
   width: 235px;
-  outline: 1px solid tomato;
+  // outline: 1px solid tomato;
 }
 
 .popular-recipe-title {
   text-transform: uppercase;
   padding-bottom: 32px;
+  color: var(--color-text-light);
+}
+
+.dark .popular-recipe-title {
+  color: var(--color-text-d);
 }
 
 .popular-recipe-list:not(:last-child) {
@@ -22,30 +22,39 @@
 
 .popular-recipe-card {
   display: flex;
-  outline: 1px solid tomato;
+  // outline: 1px solid tomato;
 }
 
-.card-image {
-  width: 68;
-  height: 68;
+.popular-card-image {
+  width: 68px;
+  height: 68px;
   border-radius: 8px;
   margin-right: 16px;
 }
 
-.card-content {
+.popular-card-content {
 }
 
-.card-heading {
+.popular-card-heading {
   font-size: 14px;
   line-height: 18px;
   margin-bottom: 8px;
+  color: var(--color-text-light);
 }
 
-.card-description {
-  color: rgba(5, 5, 5, 0.800000011920929);
+.dark .popular-card-heading {
+  color: var(--color-text-d);
+}
+
+.popular-card-description {
+  color: var(--color-text-desc-l);
   font-size: 10px;
   line-height: 14px;
   align-self: flex-end;
+}
+
+.dark .popular-card-description {
+  color: var(--color-text-desc-d);
 }
 
 @media screen and (max-width: 768px) {

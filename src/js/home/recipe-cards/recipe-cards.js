@@ -10,8 +10,10 @@ const seachQueryAreasRef = document.querySelector('.area-selector');
 const selectQueryIngredientsRef = document.querySelector(
   '.ingredients-selector'
 );
+const btnResetFilterRef = document.querySelector('.reset-filter');
 
 const testyApiService = new TastyApiService();
+testyApiService.setLimitValue();
 const getLists = new GetLists();
 
 fetchListAreas();
@@ -26,6 +28,7 @@ searchQueryTitleRef.addEventListener('input', debounce(onSeachQueryTitle, 500));
 seachQueryTimeRef.addEventListener('change', onSeachQueryTime);
 seachQueryAreasRef.addEventListener('change', onSeachQueryAreas);
 selectQueryIngredientsRef.addEventListener('change', onSeachQueryIngredients);
+btnResetFilterRef.addEventListener('click', onResetFilter);
 
 function onSeachQueryTitle(evt) {
   //console.log(evt.target.value);
@@ -62,6 +65,20 @@ function onSeachQueryIngredients(evt) {
   testyApiService.resetPage();
   testyApiService.setSearchIngredient(inputQuery);
   fetchRecipesQuery();
+}
+
+function onResetFilter() {
+  testyApiService.resetCategory();
+  resetFilter();
+  galleryRecipesRef.innerHTML = '';
+  //fetchRecipesQuery();
+}
+
+function resetFilter() {
+  searchQueryTitleRef.value = '';
+  seachQueryTimeRef.value = '';
+  seachQueryAreasRef.value = '';
+  selectQueryIngredientsRef.value = '';
 }
 
 function clearRecipesContainer() {
