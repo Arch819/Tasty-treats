@@ -26,7 +26,7 @@ function fetchTeam(e) {
     return;
   }
   const findId = target.dataset.id;
-  // teamItem = team.find(obj => obj.id === findId);
+  teamItem = team.find(obj => obj.id === findId);
 
   setClassBackdropTeam(e);
 }
@@ -43,7 +43,7 @@ function setClassBackdropTeam(e) {
     onOpen();
     modalTeam.addEventListener('click', onModalClick);
   } catch (error) {
-    Notiflix.Notify.failure(error.message);
+    Notiflix.Report.failure(error.message);
   }
 }
 

@@ -112,6 +112,10 @@
   border: 2px solid #9bb537;
 }
 
+.text-align {
+  height: 16px;
+}
+
 .reset-filter {
   margin-left: auto;
   display: flex;
@@ -126,6 +130,10 @@
   border: none;
   /* display: none; */
   cursor: pointer;
+}
+
+.link-reset-svg {
+  fill: #9bb537;
 }
 
 .gallery-cards {
@@ -145,7 +153,11 @@
   }
 
   .gallery-cards {
-    margin-top: 44px;
+    margin-top: 28px; /* - 16px Reset btn */
+  }
+
+  .reset-filter {
+    margin-bottom: 14px;
   }
 }
 
@@ -173,3 +185,4 @@
 }
 
 @import './card-item';
+@import './pagination-btn';

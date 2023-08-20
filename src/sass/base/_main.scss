@@ -1,0 +1,21 @@
+.search-recipes__wrapp {
+  .sidebar {
+    margin-bottom: 44px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .search-recipes__wrapp {
+    display: flex;
+    gap: 32px;
+
+    .sidebar {
+      margin-bottom: 0;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .search-recipes__wrapp {
+    gap: 64px;
+  }
+}
