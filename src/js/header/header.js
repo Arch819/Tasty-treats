@@ -36,14 +36,20 @@ window.onscroll = function () {
     onScrollHeader(768);
 };
 
+
+
 refs.sliderEl.forEach(checkboxInput => {
     checkboxInput.addEventListener('change', () => {
-        if (!checkboxInput.checked) {
-            refs.iconMoon.classList.add('visibility-hidden');
-            refs.iconSun.classList.remove('visibility-hidden')
-        } else {
-            refs.iconMoon.classList.remove('visibility-hidden');
-            refs.iconSun.classList.add('visibility-hidden');
-        }
+        refs.iconMoon.forEach((iconMoon, idx) => {
+            const iconSun = refs.iconSun[idx];
+
+            if (!checkboxInput.checked) {
+                iconMoon.classList.add('visibility-hidden');
+                iconSun.classList.remove('visibility-hidden');
+            } else {
+                iconMoon.classList.remove('visibility-hidden');
+                iconSun.classList.add('visibility-hidden');
+            }
+        });
     });
-}); 
+});
