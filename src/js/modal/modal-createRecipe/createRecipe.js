@@ -124,7 +124,7 @@ recipeForm.addEventListener('submit', (event) => {
 
   hideModal();
   clearForm();
-  
+   enableBodyScroll();
 });
 
 function saveRecipe(recipe) {
