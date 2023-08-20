@@ -1,23 +1,31 @@
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
+<div id="myModal" class="modal-create">
+  <div class="modal-content-create">
+    <span class="close-create">&times;</span>
     <form id="recipeForm">
-      <label class="label-recipe-name" for="recipeName">Recipe name:</label>
-      <input type="text" id="recipeName" name="recipeName" required />
+      <label class="label-recipe-name label-create" for="recipeName"
+        >Recipe name:</label
+      >
+      <input
+        class="input-create"
+        type="text"
+        id="recipeName"
+        name="recipeName"
+        required
+      />
 
       <div>
-        <label>Ingredients:</label>
-        <div id="ingredients">
-          <div class="ingredient">
+        <label class="label-create">Ingredients:</label>
+        <div id="ingredients-create">
+          <div class="ingredient-create">
             <input
               type="text"
-              class="ingredient-name"
+              class="ingredient-name input-create"
               name="ingredient[]"
               required
             />
             <input
               type="text"
-              class="ingredient-amount"
+              class="ingredient-amount input-create"
               name="amount[]"
               placeholder="Quantity (g)"
               required
@@ -28,15 +36,16 @@
         </div>
       </div>
 
-      <label for="instructions">Instructions:</label>
+      <label class="label-create" for="instructions">Instructions:</label>
       <textarea
+        class="textarea-create"
         id="instructions"
         name="instructions"
         rows="4"
         required
       ></textarea>
 
-      <button class="btn" type="submit">Save recipe</button>
+      <button class="btn-create" type="submit">Save recipe</button>
     </form>
   </div>
 </div>

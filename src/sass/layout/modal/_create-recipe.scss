@@ -1,4 +1,4 @@
-.modal {
+.modal-create {
   display: none;
   position: fixed;
   z-index: 9999;
@@ -9,20 +9,22 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-content {
-  margin: 15% auto;
+.modal-content-create {
   padding: 30px;
   border: 1px solid #888;
   border-radius: 15px;
   background: #fff;
-  max-width: 400px;
-  max-height: 80%;
-  overflow: auto;
-  position: relative;
+  max-width: 550px;
+  max-height: 60%;
+  overflow-y: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.close {
-  position: absolute;
+.close-create {
+  position: fixed;
   top: 10px;
   right: 10px;
   color: #aaa;
@@ -30,38 +32,81 @@
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close-create:hover,
+.close-create:focus {
   color: var(--color-text-light);
   text-decoration: none;
   cursor: pointer;
 }
-.btn {
-  background-color: var(--bg-btn-var1);
-  color: var(--color-btn-var1);
+.btn-create {
+  padding: 14px 162px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  border: transparent;
+  background: #9bb537;
+  color: #f8f8f8;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-create:hover,
+.btn-create:focus {
+  color: #050505;
 }
 
 .label-recipe-name {
+  color: #050505;
+  font-size: 18px;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
+  line-height: 122%;
 }
 
-label {
+.label-create {
   display: block;
   margin-bottom: 5px;
 }
 .create-recipe-btn {
-  padding: 8px 16px;
+  padding: 14px 28px;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  background: var(--bg-btn-var1);
-  color: var(--color-btn-var1);
+  border-radius: 15px;
+  color: rgba(5, 5, 5, 0.5);
   font-family: Inter;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 500;
+  display: block;
+  cursor: pointer;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  background: transparent;
+  margin-top: 15px;
 }
 .create-recipe-btn:hover,
 .create-recipe-btn:focus {
-  color: var(--color-btn-var2);
+  background: #9bb537;
+  color: #f8f8f8;
+}
+.input-create,
+.ingredient-name,
+.ingredient-amount {
+  padding: 8px 12px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  margin-bottom: 5px;
+  margin-right: 3px;
+}
+// .ingredient-amount {
+//   width: 100px;
+// }
+.textarea-create {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  margin-bottom: 5px;
 }
