@@ -31,12 +31,12 @@ function clearForm() {
 
 openModalBtn.addEventListener('click', () => {
   showModal();
-  disableBodyScroll(); // Заборонити прокручування тіла
+  disableBodyScroll(); // Заборонити прокручування 
 });
 
 closeBtn.addEventListener('click', () => {
   hideModal();
-  enableBodyScroll(); // Дозволити прокручування тіла
+  enableBodyScroll(); // Дозволити прокручування 
 });
 
 window.addEventListener('keydown', (event) => {
@@ -88,21 +88,18 @@ addIngredientBtn.addEventListener('click', () => {
 
 recipeForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  // Додайте код для обробки введених даних з форми тут
-  // Наприклад, можна отримати дані з полів форми так:
+
   const recipeName = document.getElementById('recipeName').value;
   const ingredientNames = document.querySelectorAll('.ingredient-name');
   const ingredientAmounts = document.querySelectorAll('.ingredient-amount');
   const instructions = document.getElementById('instructions').value;
   
-  // Тут можна виконати подальші дії, наприклад, відправити дані на сервер або зберегти їх локально
-  
-  // Після обробки можна закрити модальне вікно
+
   modal.style.display = 'none';
 });
 
 
-// ... Код, який був наданий раніше ...
+
 
 recipeForm.addEventListener('submit', (event) => {
   event.preventDefault();
