@@ -1,20 +1,23 @@
-import { renderCards, renderFavirites } from './renderFavorites';
-import { empty } from './empty';
+import { renderFavirites } from './renderFavorites';
+import { emptyRendering, getValuesOfStorage } from './config';
+import { handleFilter } from './handleClick';
+import { getValuesOfStorage } from './config';
 
 const conRef = document.querySelector('.favorites__empty');
 const favImgRef = document.querySelector('.favorites__img');
 const favoritesFilterRef = document.querySelector('.favorites__list-filter');
-const favoritesCardsRef = document.querySelector('.favorites__list-cards');
+export const favoritesCardsRef = document.querySelector(
+  '.favorites__list-cards'
+);
 
 // -------------------------------------------основна функція та логіка сторінки Favorites--------------------------
 
 const renderPageFavorites = async () => {
-  const keyOfLocalStorage = JSON.parse(localStorage.getItem('favorites')); // Беремо значення з localStorage
+  const keyOfLocalStorage = getValuesOfStorage('favorites'); // Беремо значення з localStorage
 
   // =--------------------------------------LocalStorage не існує або порожній масив----------------------
   if (!keyOfLocalStorage || keyOfLocalStorage.length === 0) {
-    conRef.classList.add('empty'); // Не памятаю що він робить цей клас
-    conRef.innerHTML = empty(); //рендер пустої сторінки
+    emptyRendering(conRef);
     return;
   }
 
@@ -28,8 +31,6 @@ const renderPageFavorites = async () => {
     keyOfLocalStorage
   );
 
-  // conRef.insertAdjacentHTML('beforeend', data);
-
   const cardContainer = document.querySelector('.favorites__list-cards');
 
   const handleHeartClick = evt => {
@@ -38,11 +39,11 @@ const renderPageFavorites = async () => {
     if (target) {
       const buttonId = target.id.slice(1);
       const dataValue = target.getAttribute('data-category');
-      const storedData = localStorage.getItem('favorites');
+      const StorageData = getValuesOfStorage('favorites');
       let arrayOfId = [];
 
-      if (storedData) {
-        arrayOfId = JSON.parse(storedData);
+      if (StorageData) {
+        arrayOfId = StorageData;
       }
 
       const index = arrayOfId.findIndex(el => el.id === buttonId);
@@ -63,53 +64,7 @@ const renderPageFavorites = async () => {
   // додаємо обробник подій на контейнер щоб обрати сердечко на всіх картках. Делегування подій---------------------------------
   cardContainer.addEventListener('click', handleHeartClick);
 
-  // ============================================Зафарбовуємо сердечко якщо воно є localStorage===============================
-  // keyOfLocalStorage.forEach(({ id }) => {
-  //   const heartIBtn = document.getElementById(id);
-  //   if (heartIBtn) {
-  //     const heartIcon = heartIBtn.querySelector('.favorites__heart');
-  //     heartIcon.classList.add('heart-isActive');
-  //   }
-  // });
-
-  // ========================================змінюємао кнопку на активну====================================
-
-  const checkFilterBtn = evt => {
-    console.log(evt.classList);
-    if (evt.classList.contains('favorites__filter-btn')) {
-      // ==================================Знімаємо клас "active" з усіх кнопок
-      const activeButton = document.querySelector(
-        '.favorites__filter-btn.favorites__active-btn'
-      );
-      if (activeButton) {
-        activeButton.classList.remove('favorites__active-btn');
-      }
-
-      // ==============================================Додаємо клас "active" до натиснутої кнопки
-      evt.classList.add('favorites__active-btn');
-    }
-  };
-
   // ================================================callback для фільтра====================================
-
-  const handleFilter = async evt => {
-    // const favoritesRef = document.querySelector(".favorites");
-
-    const target = evt.target;
-    checkFilterBtn(target);
-    const filterValue = JSON.parse(localStorage.getItem('favorites'));
-    if (target.textContent === 'All categories') {
-      const data = await renderCards(favoritesCardsRef, filterValue);
-      return;
-    }
-    const arrayFromFilter = [];
-    filterValue.map(el => {
-      if (el.category === target.textContent) {
-        arrayFromFilter.push(el);
-      }
-    });
-    const data = await renderCards(favoritesCardsRef, arrayFromFilter);
-  };
 
   // ==============Додаємо обробник подій на фільтр===============
 
