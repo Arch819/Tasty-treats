@@ -5,8 +5,8 @@ export const refs = {
     navigationLinks: document.querySelectorAll(
         '.header-wrapper .header-navigation-list li a'
     ),
-    iconMoon: document.querySelector('.icon-moon'),
-    iconSun: document.querySelector('.icon-sun'),
+    iconMoon: document.querySelectorAll('.icon-moon'),
+    iconSun: document.querySelectorAll('.icon-sun'),
     switcher: document.querySelector('.switch'),
     sliderEl: document.querySelectorAll('input[type=checkbox]'),
     bodyEl: document.querySelector('body'),

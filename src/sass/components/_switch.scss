@@ -49,11 +49,15 @@ input:checked + .slider {
 .switch .icon-moon {
   fill: orange;
   position: absolute;
-  top: 40px;
+  top: 32px;
   left: 10px;
   transform: translate(-50%, -50%);
   z-index: 99;
   display: flex;
+
+  @include media(768px) {
+    top: 40px;
+  }
 
   @include media(1270px) {
     top: 32px;
@@ -63,11 +67,15 @@ input:checked + .slider {
 .switch .icon-sun {
   fill: orange;
   position: absolute;
-  top: 40px;
+  top: 32px;
   right: 0;
   transform: translate(-50%, -50%);
   z-index: 99;
   display: flex;
+
+  @include media(768px) {
+    top: 40px;
+  }
 
   @include media(1270px) {
     top: 32px;
