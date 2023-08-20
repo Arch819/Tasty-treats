@@ -88,16 +88,14 @@ addIngredientBtn.addEventListener('click', () => {
 
 recipeForm.addEventListener('submit', (event) => {
   event.preventDefault();
-
   const recipeName = document.getElementById('recipeName').value;
   const ingredientNames = document.querySelectorAll('.ingredient-name');
   const ingredientAmounts = document.querySelectorAll('.ingredient-amount');
   const instructions = document.getElementById('instructions').value;
   
-
+  
   modal.style.display = 'none';
 });
-
 
 
 
@@ -124,10 +122,8 @@ recipeForm.addEventListener('submit', (event) => {
   
   saveRecipe(recipe);
 
-  
   hideModal();
   clearForm();
-  
   
 });
 
