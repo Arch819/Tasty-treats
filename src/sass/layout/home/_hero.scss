@@ -1,0 +1,283 @@
+.hero__wrap {
+  //   padding-right: 0;
+    overflow: hidden;
+    padding-bottom: 300px;
+}
+
+.swiper-wrap {
+  padding-right: 0;
+}
+
+// .hero-titel {
+//   color: #050505;
+//   font-family: Inter;
+//   font-size: 26px;
+//   font-style: normal;
+//   font-weight: 600;
+//   line-height: 120%;
+//   /* 31.2px */
+//   text-transform: uppercase;
+// }
+
+.hero {
+  // width: 335px;
+  margin-bottom: 14px;
+}
+.first-words {
+  color: #050505;
+
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  // line-height: 120%;
+}
+.words {
+  color: #9bb537;
+
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.text {
+  width: 335px;
+  margin-bottom: 28px;
+  margin-top: 14px;
+  
+  color: #050505;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    /* 128.571% */
+}
+
+.btn-h {
+  display: inline-flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid #9bb537;
+
+}
+.phone {
+}
+.hero-button {
+  color: #050505;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  padding: 14px 28px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+// .swiper {
+//   min-width: 320px;
+//   height: auto;
+// }
+
+// .swiper-wrapper {
+//   min-width: 0;
+//   // gap: 8px;
+// }
+
+.swiper-slide {
+  display: flex;
+  min-width: 0;
+}
+.event {
+  display: flex;
+  gap: 8px;
+}
+.swiper-container {
+  // display: flex;
+  // flex-direction: column;
+  // gap: 4px;
+
+  width: 515px;
+
+//   width: 496px;
+//   height: 302px;
+}
+
+.img-item {
+  height: 280px;
+  border-radius: var(--border-radius);
+}
+.cook-img {
+  display: block;
+
+  width: 80px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.preview-img {
+  display: flex;
+
+  width: 200px;
+  background-color: var(--color-btn-var2);
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.preview-deash {
+  display: block;
+  height: 150px;
+  width: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.el-cook {
+  border-radius: var(--border-radius);
+}
+.el-name {
+}
+
+.el-title {
+  max-width: 160px;
+  margin-bottom: 8px;
+  color: rgba(248, 248, 248, 0.6);
+  text-align: center;
+  font-size: 10px;
+
+  font-weight: 500;
+  line-height: 1.4;
+  /* 140% */
+  text-transform: uppercase;
+}
+
+.el-text {
+  color: rgba(248, 248, 248, 0.2);
+  font-size: 8px;
+  line-height: 1.2;
+}
+.delish-img {
+  display: block;
+  width: 185px;
+  background-size: 564px;
+  background-position: 30%;
+  background-color: var(--color-btn-var2);
+}
+
+.swiper-container {
+
+  position: relative;
+}
+.swiper-pagination {
+  margin: 24px 0 0 155px;
+  // width: 100px;
+  // height: 50px;
+  border: 1px solid #000;
+  
+}
+span.swiper-pagination-bullet {
+  opacity: 1;
+  background-color: var(--color-btn-var2);
+}
+
+span.swiper-pagination-bullet-active {
+  background: var(--bg-btn-var1);
+  opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .first-words {
+    color: #050505;
+
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    // line-height: 120%;
+    // /* 43.2px */
+    // text-transform: uppercase;
+  }
+  .words {
+    color: #9bb537;
+
+    font-size: 36px;
+
+    font-weight: 400;
+  }
+  .text {
+    width: 408px;
+    margin-top: 16px;
+  }
+  .event {
+    gap: 16px;
+  }
+    .img-item {
+      height: 442px;
+    }
+
+  .btn-h {
+    display: inline-flex;
+    padding: 14px 28px;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    border-radius: 15px;
+    // border: 1px solid #9BB537;
+  }
+  .swiper-container {
+    width: 871px;
+    // height: 468px;
+    padding-top: 64px;
+  }
+  .cook-img {
+    width: 137px;
+  }
+  .preview-img {
+    width: 351px;
+  }
+  .preview-deash {
+    height: 262px;
+    width: 262px;
+  }
+  .el-title {
+    width: 276px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .el-text {
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .delish-img {
+    background-size: 863px;
+    width: 351px;
+  }
+  .swiper-pagination {
+      margin-left: 300px;
+  
+  }
+}
+
+@media screen and (min-width: 1280px) {
+
+  .hero__wrap {
+    display: flex;
+    gap: 23px;
+    align-items: center;
+  }
+  .text-content {
+    // padding-top: 100px;
+  }
+  
+  .preview-deash {
+    height: 271px;
+    width: 304px;
+  }
+}
