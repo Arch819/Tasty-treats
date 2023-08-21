@@ -40,18 +40,32 @@ window.onscroll = function () {
 
 
 
-refs.sliderEl.forEach(checkboxInput => {
-    checkboxInput.addEventListener('change', () => {
-        refs.iconMoon.forEach((iconMoon, idx) => {
-            const iconSun = refs.iconSun[idx];
+// if (checkboxInput.checked) {
+//     iconMoon.classList.add('visibility-hidden');
+//     iconSun.classList.remove('visibility-hidden');
+// }
 
-            if (!checkboxInput.checked) {
-                iconMoon.classList.add('visibility-hidden');
-                iconSun.classList.remove('visibility-hidden');
-            } else {
-                iconMoon.classList.remove('visibility-hidden');
-                iconSun.classList.add('visibility-hidden');
-            }
-        });
+refs.sliderEl.forEach((checkboxInput, idx) => {
+
+    const iconMoon = refs.iconMoon[idx];
+    const iconSun = refs.iconSun[idx];
+
+
+
+
+    if (checkboxInput.checked) {
+        console.log(checkboxInput.checked);
+        iconMoon.classList.remove('visibility-hidden');
+        iconSun.classList.add('visibility-hidden');
+    }
+
+    checkboxInput.addEventListener('change', () => {
+        if (!checkboxInput.checked) {
+            iconMoon.classList.add('visibility-hidden');
+            iconSun.classList.remove('visibility-hidden');
+        } else {
+            iconMoon.classList.remove('visibility-hidden');
+            iconSun.classList.add('visibility-hidden');
+        }
     });
 });
