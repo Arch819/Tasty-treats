@@ -91,7 +91,12 @@ const orderModal = () => {
         name: form.name.value.trim(),
         phone: form.phone.value.trim(),
         email: form.email.value.trim(),
+
         comment: form.comment.value.trim(),
+
+        comment: form.comment.value.trim()
+
+
       };
       if (
         formData.name === '' ||
@@ -110,10 +115,7 @@ const orderModal = () => {
             comment:${formData.comment},
         }`);
 
-      Notiflix.Report.success(
-        'Your order has successfully been sent. Thank you!',
-        'OK'
-      );
+      Notiflix.Report.success("Your order has successfully been sent. Thank you!", "OK");
 
       form.reset();
 
