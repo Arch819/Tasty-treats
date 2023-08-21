@@ -1,20 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
-p {
-  margin: 0;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  color: var(--color-text-light);
-}
-
 .cards {
   display: inline-flex;
   border: 2px solid black;
@@ -37,8 +20,8 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: opacity var(--timing-function) 250ms,
-    visibility var(--timing-function) 250ms;
+  // transition: opacity var(--timing-function) 250ms,
+    // visibility var(--timing-function) 250ms;
 }
 
 .backdrop.is-hidden {
