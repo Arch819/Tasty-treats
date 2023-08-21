@@ -69,12 +69,13 @@ addIngredientBtn.addEventListener('click', () => {
   ingredientAmountInput.type = 'text';
   ingredientAmountInput.classList.add('ingredient-amount');
   ingredientAmountInput.name = 'amount[]';
-  ingredientAmountInput.placeholder = 'Quantity (g)';
+    ingredientAmountInput.placeholder = 'Quantity (g)';
   ingredientAmountInput.required = true;
   
   const removeIngredientBtn = document.createElement('button');
   removeIngredientBtn.type = 'button';
   removeIngredientBtn.textContent = '-';
+  removeIngredientBtn.classList.add('remove-ingredient-create');
   removeIngredientBtn.addEventListener('click', () => {
     ingredientsContainer.removeChild(newIngredientDiv);
   });
