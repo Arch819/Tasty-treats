@@ -145,8 +145,7 @@
 .el-cook {
   border-radius: var(--border-radius);
 }
-.el-name {
-}
+
 
 .el-title {
   max-width: 160px;
@@ -199,6 +198,9 @@ span.swiper-pagination-bullet-active {
   .hero {
     padding-top: 68px;
   }
+  .text-content {
+    width: 446px;
+  }
   .first-words {
     color: #050505;
 
@@ -217,7 +219,7 @@ span.swiper-pagination-bullet-active {
     font-weight: 400;
   }
   .text {
-    width: 408px;
+    min-width: 408px;
     margin-top: 16px;
   }
   .event {
@@ -274,14 +276,17 @@ span.swiper-pagination-bullet-active {
   .hero {
       padding-top: 148px;
     }
+.text-content {
+  min-width: 446px;
+}
 
   .hero__wrap {
     display: flex;
     gap: 23px;
     align-items: center;
   }
-  .text-content {
-    // padding-top: 100px;
+  .text {
+    min-width: 408px;
   }
   
   .preview-deash {
