@@ -6,7 +6,11 @@
   .navigation-link,
   .black-logo,
   .card-heading,
-  .card-button {
+  .card-button,
+  .first-words,
+  .text,
+  .btn-h,
+  .submit-btn[disabled] {
     color: var(--color-text-d);
   }
   .logo {
@@ -28,6 +32,15 @@
     fill: var(--color-text-light);
     transition: fill 2.5s;
   }
+  .order-modal {
+    background-color: var(--color-btn-var2);
+    border: var(--border-input-d);
+  }
+  .order-form-input,
+  .order-form-comment {
+    border: var(--border-input-d);
+    color: var(--color-text-desc-d);
+  }
 
   .list-category-btns .category-btn {
     color: var(--color-categories-text-d);
@@ -47,6 +60,10 @@
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: rgba(255, 255, 255, 0.5);
+    outline: none;
+    &:focus {
+      border: 1px solid var(--color-active-el);
+    }
   }
   label,
   select,
@@ -109,12 +126,15 @@ body {
   background-color: var(--bg-btn-var1);
   transition: background-color 1.5s;
 }
-footer .create-order-link svg {
+footer .create-order-link svg,
+.close svg {
   fill: var(--color-text-d);
   stroke: transparent;
 }
-.time-selector,
-.area-selector,
-.ingredients-selector {
+input,
+textarea {
+  background-color: transparent;
+}
+.btn-h {
   background-color: transparent;
 }
