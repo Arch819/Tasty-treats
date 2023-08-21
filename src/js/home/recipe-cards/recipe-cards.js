@@ -111,8 +111,8 @@ function fetchRecipesQuery() {
         return;
       }
       clearRecipesContainer();
-      addToFavorites();
       renderGallery(data.results);
+      addToFavorites();
       loaderIndicatorRef.classList.add('is-hidden-pgn');
       btnPaginationBarRef.classList.remove('is-hidden-pgn');
     })
