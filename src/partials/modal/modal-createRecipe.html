@@ -1,0 +1,61 @@
+<div id="myModal" class="modal-create">
+  <div class="modal-content-create">
+    <span class="close-create">&times;</span>
+    <form class="recipe-form" id="recipeForm">
+      <label class="label-recipe-name label-create" for="recipeName"
+        >Recipe name:</label
+      >
+      <input
+        class="input-create"
+        type="text"
+        id="recipeName"
+        name="recipeName"
+        required
+      />
+
+      <div class="ingredient-create-container">
+        <div class="label-flex">
+          <label class="label-create">Ingredients:</label>
+          <label class="label-create label-quantity">Quantity (g):</label>
+        </div>
+        <div id="ingredients-create">
+          <div class="ingredient-create">
+            <input
+              type="text"
+              class="ingredient-name input-create"
+              name="ingredient[]"
+              required
+            />
+
+            <input
+              type="text"
+              class="ingredient-amount input-create"
+              name="amount[]"
+              placeholder="Quantity (g)"
+              required
+            />
+
+            <button type="button" class="add-ingredient">+</button>
+            <!-- <svg class="plus-button-svg" width="10" height="10">
+    <use
+      href="./images/sprite.svg#scroll-to-top_icon"
+      class="plus-button-icon"
+    ></use>
+  </svg> -->
+          </div>
+        </div>
+      </div>
+
+      <label class="label-create" for="instructions">Instructions:</label>
+      <textarea
+        class="textarea-create"
+        id="instructions"
+        name="instructions"
+        rows="4"
+        required
+      ></textarea>
+
+      <button class="btn-create" type="submit">Save recipe</button>
+    </form>
+  </div>
+</div>

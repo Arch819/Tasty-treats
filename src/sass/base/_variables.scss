@@ -2,41 +2,38 @@
   //*light
   //background
   --bg-body-light: #ffffff;
-  --bg-btn-var1: #9BB537;
+  --bg-btn-var1: #9bb537;
   --bg-btn-var2: transparent;
 
   //color
   --color-text-light: #050505;
-  --color-text-desc-l: rgba(5, 5, 5, 0.80);
-  --color-categories-text-l: rgba(5, 5, 5, 0.30);
+  --color-text-desc-l: rgba(5, 5, 5, 0.8);
+  --color-categories-text-l: rgba(5, 5, 5, 0.3);
 
-  --color-input-placeholder-l: rgba(5, 5, 5, 0.50);
-  --color-active-el: #9BB537;
+  --color-input-placeholder-l: rgba(5, 5, 5, 0.5);
+  --color-active-el: #9bb537;
 
-  --color-btn-var1: #F8F8F8;
+  --color-btn-var1: #f8f8f8;
   --color-btn-var2: #050505;
 
   // border
-  --border-input-l:1px solid rgba(5, 5, 5, 0.20);
+  --border-input-l: 1px solid rgba(5, 5, 5, 0.2);
   --border-radius: 15px;
-  --border-btn-var2: border: 1px solid #9BB537;
+  --border-btn-var2: 1px solid #9bb537;
 
   //*dark
-   //background
-   --bg-body-dark: #1e1e1e;
+  //background
+  --bg-body-dark: #1e1e1e;
 
-   //color
-   --color-text-d: #ffffff;
-   --color-text-desc-d: rgba(255, 255, 255, 0.80);
-   --color-categories-text-d: rgba(255, 255, 255, 0.30);
+  //color
+  --color-text-d: #ffffff;
+  --color-text-desc-d: rgba(255, 255, 255, 0.8);
+  --color-categories-text-d: rgba(255, 255, 255, 0.3);
 
-   --color-input-placeholder-d: rgba(255, 255, 255, 0.50);
+  --color-input-placeholder-d: rgba(255, 255, 255, 0.5);
 
-   //border
-  --border-input-d:1px solid rgba(255, 255, 255, 0.20);
-
-
-
+  //border
+  --border-input-d: 1px solid rgba(255, 255, 255, 0.2);
 
   //?transition
   --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);

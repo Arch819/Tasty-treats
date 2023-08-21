@@ -1,46 +1,57 @@
-const openModalButton = document.querySelector('.open-modal-button');
-const modulWindow = document.querySelector('.mobile-menu');
-const mobileMenuContent = document.querySelector('.mobile-menu-content');
-const closeModalButton = document.querySelector('.close-modal-button');
-const input = document.querySelector('.mobile-menu input');
+import { refs } from "./refs";
+
+
+import { toggleModal, modalIsOpen } from "./_modal-window";
+
+
+const currentPath = window.location.pathname;
+
+const navigationLinksArray = Array.from(refs.navigationLinks);
+const hasActiveLink = navigationLinksArray.some(link => link.getAttribute('href') === currentPath);
 
 
 
 
-
-
-openModalButton.addEventListener('click', toggleModal);
-closeModalButton.addEventListener('click', toggleModal);
-modulWindow.addEventListener('click', (event) => {
-    if (!event.target.closest('.mobile-menu-content')) {
-        toggleModal();
-    }
-});
-
-function toggleModal() {
-    modulWindow.classList.toggle('is-hidden');
+if (!hasActiveLink) {
+    refs.navigationLinks[0].classList.add('current-link');
+} else {
+    refs.navigationLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('current-link');
+        } else {
+            link.classList.remove('current-link');
+        }
+    });
 }
 
 
-const svgList = document.querySelector('.svg-list');
-const switcher = document.querySelector('.switch');
-const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+function onScrollHeader(px) {
+    const screenSize = window.screen.width;
+    if (screenSize >= px) {
+        scrollY <= 70
+            ? document.getElementById('header').classList.remove('header-scroll')
+            : document.getElementById('header').classList.add('header-scroll');
+    }
+}
+window.onscroll = function () {
+    onScrollHeader(768);
+};
 
 
-// function handleMediaQuery(event) {
-//     if (event.matches) {
-//         // Добавляем элемент в главное меню
-//         svgList.replaceChild(switcher, openModalButton);
-//     } else {
-//         // Возвращаем openModalButton в svgList
-//         svgList.replaceChild(switcher, openModalButton);
-//     }
-// }
 
-// // Добавляем слушатель для изменения медиа-запроса
-// mediaQuery.addEventListener('change', handleMediaQuery);
+refs.sliderEl.forEach(checkboxInput => {
+    checkboxInput.addEventListener('change', () => {
+        refs.iconMoon.forEach((iconMoon, idx) => {
+            const iconSun = refs.iconSun[idx];
 
-// // Инициализируем обработку медиа-запроса
-// handleMediaQuery(mediaQuery);
-
-
+            if (!checkboxInput.checked) {
+                iconMoon.classList.add('visibility-hidden');
+                iconSun.classList.remove('visibility-hidden');
+            } else {
+                iconMoon.classList.remove('visibility-hidden');
+                iconSun.classList.add('visibility-hidden');
+            }
+        });
+    });
+});

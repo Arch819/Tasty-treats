@@ -4,35 +4,80 @@
   }
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-a {
-  text-decoration: none;
-}
-
-button {
-  border: none;
+.open-modal-button {
   background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 
-.container {
-  min-width: 320px;
-  max-width: 375px;
-  padding: 20px 20px 0 20px;
-  margin: 0 auto;
+.create-order-link {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &:hover > svg {
+    fill: rgb(56, 165, 19);
+  }
+}
+
+.logo,
+.navigation-link,
+.create-order-link,
+.switch,
+.open-modal-button {
+  padding-top: 20px;
 
   @include media(768px) {
-    padding: 28px 32px 0 32px;
-    max-width: 768px;
+    padding-top: 28px;
   }
+  @include media(1280px) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
 
-  @include media(1024px) {
-    max-width: 1200px;
-    padding: 40px 100px 0 100px;
+.header-navigation-list li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@include media(1280px) {
+  .header-scroll {
+    background-color: #f5f5dc;
+
+    transition: background-color 2.5s ease-in-out;
   }
+  #header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+}
+
+.navigation-link {
+  font-size: 12px;
+
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.mobile-menu .header-navigation-list li:first-child a {
+  color: var(--bg-body-light);
+}
+
+.mobile-menu .header-navigation-list li:nth-child(2) a {
+  color: var(--color-btn-var1); /* Стиль для второй ссылки */
 }
 
 .svg-list {
@@ -45,10 +90,15 @@ button {
   display: none;
 }
 
+.navigation-link.current-link {
+  color: var(--color-active-el);
+}
+
 .switch {
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
+  margin: 0;
 }
 
 .header-navigation-list {
@@ -75,21 +125,22 @@ button {
   }
 }
 
-.navigation-link {
-  font-size: 12px;
-  color: #f8f8f8;
-  font-family: Inter;
-}
-
 .logo {
-  color: #9bb537;
+  color: var(--bg-btn-var1);
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 18px;
-
+  display: flex;
+  align-items: center;
   letter-spacing: -0.64px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 
   @include media(768px) {
     font-size: 18px;
@@ -111,38 +162,47 @@ button {
   }
 
   .navigation-link {
-    color: #050505;
+    color: var(--color-btn-var2);
   }
 }
 
 .black-logo {
-  color: #050505;
+  color: var(--color-text-light);
 }
 
 /* Mobile-menu */
 
-.is-hidden {
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 47, 66, 0.4);
+  transform: translate(100%);
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-}
 
-.mobile-menu {
-  width: 100%;
-  height: 100%;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.2);
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  position: absolute;
-  top: 0;
-  left: 0;
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(0);
+    z-index: 100;
+  }
 
   .mobile-menu-content {
-    background-color: #9bb537;
+    background-color: var(--bg-btn-var1);
     width: 52vw;
     height: 100vh;
     padding: 20px;
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
 
     .switch {
       position: absolute;
@@ -154,6 +214,7 @@ button {
   .close-modal-button {
     display: flex;
     margin-left: auto;
+    fill: #f8f8f8;
   }
 
   .header-navigation {
@@ -162,40 +223,8 @@ button {
   }
 }
 
+.modal-open {
+  overflow: hidden;
+}
+
 /* Світч */
-
-.switch {
-  input {
-    display: none;
-  }
-}
-
-.slider {
-  position: relative;
-  display: inline-block;
-  width: 46px;
-  height: 20px;
-  background-color: #ccc;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
-
-  &:before {
-    content: '';
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: white;
-    top: 50%;
-    transform: translate(1px, -50%);
-    transition: transform 0.3s ease;
-  }
-}
-
-input:checked + .slider {
-  background-color: #9bb537;
-
-  &:before {
-    transform: translate(26px, -50%);
-  }
-}

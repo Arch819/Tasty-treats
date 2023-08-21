@@ -1,14 +1,55 @@
-import { renderPageFavorits } from './renderFavorites';
+import { renderCategories, renderCards } from './renderFavorites';
+import { emptyRendering, getValuesOfStorage } from './config';
+import { handleFilter, handleHeartClick } from './handleClick';
+import {
+  conRef,
+  favoritesFilterRef,
+  favoritesCardsRef,
+  paginationRef,
+} from './favoritRefs';
+import { renderQuantityOfPages } from './quantyityOfPages';
 
-const conRef = document.querySelector('.favorites__wrap');
-console.log(conRef);
+const PER_PAGE = 12;
+let page = 1;
 
-const favorites = () => {
-  const keyOfLocalStorage = localStorage.getItem('setting');
-  if (!keyOfLocalStorage) {
-    renderPageFavorits(conRef); // Рендеримо сторінку якщо з LocalStorage нічого не отримано
+// -------------------------------------------основна функція та логіка сторінки Favorites--------------------------
+
+const renderPageFavorites = async () => {
+  const keyOfLocalStorage = getValuesOfStorage('favorites'); // Беремо значення з localStorage
+  paginationRef.style.display = 'none';
+
+  // =--------------------------------------LocalStorage не існує або порожній масив----------------------
+  if (!keyOfLocalStorage || keyOfLocalStorage.length === 0) {
+    emptyRendering(conRef);
     return;
   }
+
+  // перевіряємо довжину значення з LocalStorage-------------------------
+  if (keyOfLocalStorage.length < PER_PAGE) {
+    paginationRef.style.display = 'none';
+  } else {
+    const dataPages = renderQuantityOfPages(PER_PAGE, page);
+    const test = document.querySelector('.pagination-bar');
+    test.firstElementChild.insertAdjacentHTML('beforeend', dataPages.join(''));
+
+    paginationRef.style.display = 'flex';
+  }
+
+  // ==---------------------------------------Рендеримо сторінку-----------------------------------
+  const dataCategories = await renderCategories(keyOfLocalStorage);
+  const dataCards = await renderCards(keyOfLocalStorage, page, PER_PAGE);
+  favoritesFilterRef.innerHTML = dataCategories;
+  favoritesCardsRef.innerHTML = dataCards;
+
+  const cardContainer = document.querySelector('.favorites__list-cards');
+
+  // додаємо обробник подій на контейнер щоб обрати сердечко на всіх картках. Делегування подій---------------------------------
+  cardContainer.addEventListener('click', handleHeartClick);
+
+  // ==============Додаємо обробник подій на фільтр===============
+
+  const filterRef = document.querySelector('.favorites__list-filter');
+  filterRef.addEventListener('click', handleFilter);
 };
 
-favorites();
+renderPageFavorites();
