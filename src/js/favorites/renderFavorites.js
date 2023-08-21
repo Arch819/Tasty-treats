@@ -1,36 +1,36 @@
 import { fetchRecipeDataForIds } from './fetchFavorites';
 import { renderCardsMarkup } from './cardElement';
-import { renderCategories } from './filterElement';
+import { markupCategory } from './filterElement';
 
-// -----------------------------рендер списку категорій та карток-------------------------------------
+// -----------------------------рендер списку категорій-------------------------------------
+// ПРиймає масив об'єктів і повертає markup елементу категорій
 
-export const renderFavirites = async (
-  favoritesFilterRef,
-  favoritesCardsRef,
-  storageValue
-) => {
+export const renderCategories = async storageValue => {
   try {
     const results = await fetchRecipeDataForIds(storageValue.map(el => el.id));
     const arrayOfCategories = results.map(el => el.data.category);
+    console.log(arrayOfCategories);
 
-    const markupCategory = renderCategories(arrayOfCategories);
-    const cardMarkupCard = renderCardsMarkup(results);
-
-    favoritesFilterRef.innerHTML = markupCategory;
-    favoritesCardsRef.innerHTML = cardMarkupCard;
+    const markup = markupCategory(arrayOfCategories);
+    console.log(markup);
+    return markup;
   } catch (error) {
     console.log(error);
   }
 };
 
 //----------рендер списку карток-----------------
+// ПРиймає масив об'єктів, дійсну сторінку, скільки карток на сторінці і повертає markup елементу карток
 
-export const renderCards = async (favoritesCardsRef, storageValue) => {
+export const renderCards = async (storageValue, currentPage, PerPage) => {
   try {
     const results = await fetchRecipeDataForIds(storageValue.map(el => el.id));
-    const cardMarkupCard = renderCardsMarkup(results);
+    const startIndex = (currentPage - 1) * PerPage;
+    const endIndex = startIndex + PerPage;
+    const slicedResults = results.slice(startIndex, endIndex);
 
-    favoritesCardsRef.innerHTML = cardMarkupCard;
+    const cardMarkupCard = renderCardsMarkup(slicedResults);
+    return cardMarkupCard;
   } catch (error) {
     console.log(error);
   }

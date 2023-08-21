@@ -4,8 +4,76 @@
       <div class="favorites__img"></div>
     </div>
     <div class="favorites">
-      <ul class="favorites__list-filter"></ul>
+      <div class="custom-scroll-container">
+        <div class="custom-scroll-content">
+          <ul class="favorites__list-filter"></ul>
+        </div>
+      </div>
+
       <ul class="favorites__list-cards grid-container"></ul>
+      <div class="pagination-bar">
+        <div class="pag-btn-block">
+          <button
+            id="pag-btn-start"
+            class="gag-btn-black"
+            type="button"
+            aria-label="first page"
+          >
+            <span class="icon-wrap">
+              <svg class="pag-btn-left-icon" width="20" height="20">
+                <use href="./images/sprite.svg#icon-arrow"></use>
+              </svg>
+            </span>
+            <span class="icon-wrap overlap">
+              <svg class="pag-btn-left-icon" width="20" height="20">
+                <use href="./images/sprite.svg#icon-arrow"></use>
+              </svg>
+            </span>
+          </button>
+          <button
+            id="pag-btn-prev"
+            class="gag-btn-black"
+            type="button"
+            aria-label="previous page"
+          >
+            <svg class="pag-btn-left-icon" width="20" height="20">
+              <use href="./images/sprite.svg#icon-arrow"></use>
+            </svg>
+          </button>
+        </div>
+
+        <div class="pag-btn-block">
+          <button
+            id="pag-btn-next"
+            class="pag-btn-green"
+            type="button"
+            aria-label="next page"
+          >
+            <svg class="pag-btn-right-icon-next" width="20" height="20">
+              <use href="./images/sprite.svg#icon-arrow"></use>
+            </svg>
+          </button>
+          <button
+            id="pag-btn-last"
+            class="pag-btn-green"
+            type="button"
+            aria-label="last page"
+          >
+            <span class="icon-container">
+              <span class="icon-wrap-right">
+                <svg class="pag-btn-right-icon" width="20" height="20">
+                  <use href="./images/sprite.svg#icon-arrow"></use>
+                </svg>
+              </span>
+              <span class="icon-wrap-right overlap-right">
+                <svg class="pag-btn-right-icon" width="20" height="20">
+                  <use href="./images/sprite.svg#icon-arrow"></use>
+                </svg>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>

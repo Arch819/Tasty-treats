@@ -1,5 +1,6 @@
 import { favoritesCardsRef } from './favoritRefs';
 import { renderCards } from './renderFavorites';
+import { getValuesOfStorage } from './config';
 // ========================================змінюємао кнопку на активну====================================
 
 const checkFilterBtn = evt => {
@@ -17,12 +18,17 @@ const checkFilterBtn = evt => {
   }
 };
 
+// ================================================callback для фільтра====================================
+const PER_PAGE = 12;
+const page = 1;
+
 const handleFilter = async evt => {
   const target = evt.target;
   checkFilterBtn(target);
-  const filterValue = JSON.parse(localStorage.getItem('favorites'));
+  const filterValue = getValuesOfStorage('favorites');
   if (target.textContent === 'All categories') {
-    const data = await renderCards(favoritesCardsRef, filterValue);
+    const data = await renderCards(filterValue, page, PER_PAGE);
+    favoritesCardsRef.innerHTML = data;
     return;
   }
   const arrayFromFilter = [];
@@ -31,7 +37,38 @@ const handleFilter = async evt => {
       arrayFromFilter.push(el);
     }
   });
-  const data = await renderCards(favoritesCardsRef, arrayFromFilter);
+  const data = await renderCards(arrayFromFilter, page, PER_PAGE);
+  favoritesCardsRef.innerHTML = data;
 };
 
-export { checkFilterBtn, handleFilter };
+// ----------------------------------heart---------------------------------
+
+const handleHeartClick = evt => {
+  const target = evt.target.closest('.icon-button');
+
+  if (target) {
+    const buttonId = target.id.slice(1);
+    const dataValue = target.getAttribute('data-category');
+    const StorageData = getValuesOfStorage('favorites');
+    let arrayOfId = [];
+
+    if (StorageData) {
+      arrayOfId = StorageData;
+    }
+
+    const index = arrayOfId.findIndex(el => el.id === buttonId);
+
+    if (index !== -1) {
+      arrayOfId.splice(index, 1);
+    } else {
+      arrayOfId.push({ id: buttonId, category: dataValue });
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(arrayOfId));
+
+    const heartIcon = target.querySelector('.favorites__heart');
+    heartIcon.classList.toggle('heart-isActive');
+  }
+};
+
+export { handleFilter, handleHeartClick };
