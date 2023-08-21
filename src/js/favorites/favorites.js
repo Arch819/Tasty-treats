@@ -1,7 +1,6 @@
 import { renderCategories, renderCards } from './renderFavorites';
 import { emptyRendering, getValuesOfStorage } from './config';
 import { handleFilter, handleHeartClick } from './handleClick';
-import { getValuesOfStorage } from './config';
 import {
   conRef,
   favImgRef,
@@ -9,10 +8,14 @@ import {
   favoritesCardsRef,
 } from './favoritRefs';
 
+const PER_PAGE = 12;
+let page = 1;
+
 // -------------------------------------------основна функція та логіка сторінки Favorites--------------------------
 
 const renderPageFavorites = async () => {
   const keyOfLocalStorage = getValuesOfStorage('favorites'); // Беремо значення з localStorage
+  console.log(keyOfLocalStorage);
 
   // =--------------------------------------LocalStorage не існує або порожній масив----------------------
   if (!keyOfLocalStorage || keyOfLocalStorage.length === 0) {
@@ -24,12 +27,9 @@ const renderPageFavorites = async () => {
   if (keyOfLocalStorage.length >= 12) {
   }
 
-  conRef.classList.remove('empty'); // Видаляємо клас empty
-  favImgRef.style.display = 'block';
-
   // ==---------------------------------------Рендеримо сторінку-----------------------------------
   const dataCategories = await renderCategories(keyOfLocalStorage);
-  const dataCards = await renderCards(keyOfLocalStorage, 2, 2);
+  const dataCards = await renderCards(keyOfLocalStorage, page, PER_PAGE);
 
   favoritesFilterRef.innerHTML = dataCategories;
   favoritesCardsRef.innerHTML = dataCards;

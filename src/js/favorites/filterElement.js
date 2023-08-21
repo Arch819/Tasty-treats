@@ -1,7 +1,7 @@
 // -------------------------------------------------отримує масив всіх категорій та повертає розмітку-------------------------
 
 const renderListOfCategories = listOfCategories => {
-  const zeroMarkup = `<li><button type="button" class="favorites__filter-btn">All categories</button></li>`;
+  const zeroMarkup = `<li><button type="button" class="favorites__filter-btn favorites__active-btn">All categories</button></li>`;
   const uniqueArray = [];
   for (const item of listOfCategories) {
     if (!uniqueArray.includes(item)) {

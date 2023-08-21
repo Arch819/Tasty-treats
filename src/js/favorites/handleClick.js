@@ -19,13 +19,16 @@ const checkFilterBtn = evt => {
 };
 
 // ================================================callback для фільтра====================================
+const PER_PAGE = 12;
+const page = 1;
 
 const handleFilter = async evt => {
   const target = evt.target;
   checkFilterBtn(target);
-  const filterValue = JSON.parse(localStorage.getItem('favorites'));
+  const filterValue = getValuesOfStorage('favorites');
   if (target.textContent === 'All categories') {
-    const data = await renderCards(favoritesCardsRef, filterValue);
+    const data = await renderCards(filterValue, page, PER_PAGE);
+    favoritesCardsRef.innerHTML = data;
     return;
   }
   const arrayFromFilter = [];
@@ -34,7 +37,8 @@ const handleFilter = async evt => {
       arrayFromFilter.push(el);
     }
   });
-  const data = await renderCards(favoritesCardsRef, arrayFromFilter);
+  const data = await renderCards(arrayFromFilter, page, PER_PAGE);
+  favoritesCardsRef.innerHTML = data;
 };
 
 // ----------------------------------heart---------------------------------
@@ -67,4 +71,4 @@ const handleHeartClick = evt => {
   }
 };
 
-export { checkFilterBtn, handleFilter, handleHeartClick };
+export { handleFilter, handleHeartClick };

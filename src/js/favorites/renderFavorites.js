@@ -3,6 +3,7 @@ import { renderCardsMarkup } from './cardElement';
 import { markupCategory } from './filterElement';
 
 // -----------------------------рендер списку категорій-------------------------------------
+// ПРиймає масив об'єктів і повертає markup елементу категорій
 
 export const renderCategories = async storageValue => {
   try {
@@ -19,6 +20,7 @@ export const renderCategories = async storageValue => {
 };
 
 //----------рендер списку карток-----------------
+// ПРиймає масив об'єктів, дійсну сторінку, скільки карток на сторінці і повертає markup елементу карток
 
 export const renderCards = async (storageValue, currentPage, PerPage) => {
   try {
