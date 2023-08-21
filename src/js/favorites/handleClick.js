@@ -1,7 +1,10 @@
-import { favoritesCardsRef } from './favoritRefs';
+import { favoritesCardsRef, paginationRef } from './favoritRefs';
 import { renderCards } from './renderFavorites';
 import { getValuesOfStorage } from './config';
+import { renderQuantityOfPages } from './quantyityOfPages';
 // ========================================змінюємао кнопку на активну====================================
+const PER_PAGE = 12;
+let page = 1;
 
 const checkFilterBtn = evt => {
   if (evt.classList.contains('favorites__filter-btn')) {
@@ -19,26 +22,58 @@ const checkFilterBtn = evt => {
 };
 
 // ================================================callback для фільтра====================================
-const PER_PAGE = 12;
-const page = 1;
 
 const handleFilter = async evt => {
   const target = evt.target;
   checkFilterBtn(target);
   const filterValue = getValuesOfStorage('favorites');
+
+  // ===================================================перевіряємо якщо натиснули на All category====================================
   if (target.textContent === 'All categories') {
+    page = 1; //скидаємо сторінку
+    const totalPageCount = Math.ceil(filterValue.length / PER_PAGE);
+    updatePagination(totalPageCount); // оновлюємо пагінацію
+
     const data = await renderCards(filterValue, page, PER_PAGE);
     favoritesCardsRef.innerHTML = data;
     return;
   }
-  const arrayFromFilter = [];
-  filterValue.map(el => {
-    if (el.category === target.textContent) {
-      arrayFromFilter.push(el);
-    }
-  });
-  const data = await renderCards(arrayFromFilter, page, PER_PAGE);
-  favoritesCardsRef.innerHTML = data;
+
+  // фільтруємо масив і залишаємо ті які співпадають з натиснутою категорією
+  const arrayFromFilter = filterValue.filter(
+    el => el.category === target.textContent
+  );
+
+  if (arrayFromFilter.length !== 0) {
+    page = 1; // Скидаємо сторінку натисканні на кнопку категорії
+    const totalPageCount = Math.ceil(arrayFromFilter.length / PER_PAGE);
+    updatePagination(totalPageCount);
+
+    const data = await renderCards(arrayFromFilter, page, PER_PAGE);
+    favoritesCardsRef.innerHTML = data;
+  }
+};
+
+// ===============Оновлюємо пагінацію=============
+const updatePagination = pageCount => {
+  if (pageCount === 1) {
+    paginationRef.style.display = 'none';
+    return;
+  }
+  const dataPages = renderQuantityOfPages(pageCount, PER_PAGE);
+  paginationRef.firstElementChild.innerHTML = dataPages.join('');
+  paginationRef.style.display = 'flex';
+};
+
+const handlePaginationClick = async evt => {
+  if (evt.target.classList.contains('pag-btn-number')) {
+    page = Number(evt.target.textContent);
+
+    const filterValue = getValuesOfStorage('favorites');
+    console.log(filterValue);
+    const data = await renderCards(filterValue, page, PER_PAGE);
+    favoritesCardsRef.innerHTML = data;
+  }
 };
 
 // ----------------------------------heart---------------------------------
@@ -71,4 +106,8 @@ const handleHeartClick = evt => {
   }
 };
 
-export { handleFilter, handleHeartClick };
+favoritesCardsRef.addEventListener('click', handleFilter);
+
+paginationRef.addEventListener('click', handlePaginationClick);
+
+export { handleFilter, handleHeartClick, handlePaginationClick };

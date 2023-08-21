@@ -1,7 +1,6 @@
-export const renderQuantityOfPages = (quantity, perPage) => {
-  const roundedPage = Math.ceil(quantity / perPage);
+export const renderQuantityOfPages = quantity => {
   const arrOfPagBtn = [];
-  for (let i = 1; i <= roundedPage; i += 1) {
+  for (let i = 1; i <= quantity; i += 1) {
     arrOfPagBtn.push(createPaginationEl(i));
   }
   return arrOfPagBtn;

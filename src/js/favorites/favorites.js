@@ -24,17 +24,6 @@ const renderPageFavorites = async () => {
     return;
   }
 
-  // перевіряємо довжину значення з LocalStorage-------------------------
-  if (keyOfLocalStorage.length < PER_PAGE) {
-    paginationRef.style.display = 'none';
-  } else {
-    const dataPages = renderQuantityOfPages(PER_PAGE, page);
-    const test = document.querySelector('.pagination-bar');
-    test.firstElementChild.insertAdjacentHTML('beforeend', dataPages.join(''));
-
-    paginationRef.style.display = 'flex';
-  }
-
   // ==---------------------------------------Рендеримо сторінку-----------------------------------
   const dataCategories = await renderCategories(keyOfLocalStorage);
   const dataCards = await renderCards(keyOfLocalStorage, page, PER_PAGE);
@@ -42,6 +31,23 @@ const renderPageFavorites = async () => {
   favoritesCardsRef.innerHTML = dataCards;
 
   const cardContainer = document.querySelector('.favorites__list-cards');
+
+  // перевіряємо довжину значення з LocalStorage-------------------------
+
+  const pageCount = keyOfLocalStorage.length;
+
+  if (pageCount < PER_PAGE) {
+    paginationRef.style.display = 'none';
+  } else {
+    const dataPages = renderQuantityOfPages(pageCount, PER_PAGE);
+    const pagBarRef = document.querySelector('.pagination-bar');
+    pagBarRef.firstElementChild.insertAdjacentHTML(
+      'beforeend',
+      dataPages.join('')
+    );
+
+    paginationRef.style.display = 'flex';
+  }
 
   // додаємо обробник подій на контейнер щоб обрати сердечко на всіх картках. Делегування подій---------------------------------
   cardContainer.addEventListener('click', handleHeartClick);
