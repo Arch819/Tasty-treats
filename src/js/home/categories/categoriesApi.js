@@ -2,7 +2,6 @@ export class CategoriesAPI {
 
     //https://tasty-treats-backend.p.goit.global/api/recipes?category=Beef&page=1&limit=6&time=160&area=Irish&ingredients=640c2dd963a319ea671e3796
     #BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
-    #categoryName = '';
 
     async getAllCategories() {
         const url = `${this.#BASE_URL}/categories`;

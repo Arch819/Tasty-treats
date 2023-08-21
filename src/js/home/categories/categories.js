@@ -9,7 +9,16 @@ const categoriesApiInstance = new CategoriesAPI;
 const containerAllCategoriesEl = document.querySelector('.container-all-categories');
 const allCategoriesButton = containerAllCategoriesEl.firstElementChild;
 const categoryButtons = containerAllCategoriesEl.lastElementChild;
-const galleryRecipesRef = document.querySelector('.js-gallery');
+
+const galleryRecipesRef = document.querySelector('.js-gallery'); // відображення картинок
+
+// фільтр пошуку
+const searchQueryTitleRef = document.querySelector('.input-search');
+const seachQueryTimeRef = document.querySelector('.time-selector');
+const seachQueryAreasRef = document.querySelector('.area-selector');
+const selectQueryIngredientsRef = document.querySelector(
+  '.ingredients-selector'
+);
 
 const tastyApiService = new TastyApiService(); // створення екзепляру для запиту даних за класом Ігоря
 tastyApiService.setLimitValue();
@@ -40,8 +49,8 @@ function handleGetRecipesCategory(event) {
 
     const clickedButton = event.target;
 
-    tastyApiService.resetPage();  // скидаємо page 
-
+    tastyApiService.resetPage();
+    
     if (activeCategoryButton) {
         activeCategoryButton.classList.remove('active');// Видаляємо клас з попередньої активної кнопки 
     }
@@ -52,15 +61,17 @@ function handleGetRecipesCategory(event) {
     const nameCategory = event.target.textContent.trim();
 
     tastyApiService.category = nameCategory;
-    console.log(nameCategory);
+    // console.log(nameCategory);
     tastyApiService.fetchRecipes()
         .then((data) => {
             console.log(data);
             const markup = createMarkup(data.results);
             galleryRecipesRef.innerHTML = markup;
             
-        });
-
+        })
+        // .catch(() => {
+        //     Notify.failure(errorWarningText.textContent);
+        // });
 
 }
 
@@ -83,5 +94,8 @@ function handleGetAllRecipes(event) {
             console.log(data);
             const markup = createMarkup(data.results);
             galleryRecipesRef.innerHTML = markup;
-        });
+        })
+        // .catch((err) => {
+        //     Notify.failure(err);
+        // });
 }
