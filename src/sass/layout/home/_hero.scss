@@ -1,7 +1,9 @@
+.hero {
+  padding-top: 88px;
+}
 .hero__wrap {
   //   padding-right: 0;
     overflow: hidden;
-    padding-bottom: 300px;
 }
 
 .swiper-wrap {
@@ -19,8 +21,8 @@
 //   text-transform: uppercase;
 // }
 
-.hero {
-  // width: 335px;
+.hero-title{
+  text-transform: uppercase;
   margin-bottom: 14px;
 }
 .first-words {
@@ -40,7 +42,7 @@
 }
 
 .text {
-  width: 335px;
+  max-width: 335px;
   margin-bottom: 28px;
   margin-top: 14px;
   
@@ -194,6 +196,9 @@ span.swiper-pagination-bullet-active {
 }
 
 @media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 68px;
+  }
   .first-words {
     color: #050505;
 
@@ -266,6 +271,9 @@ span.swiper-pagination-bullet-active {
 }
 
 @media screen and (min-width: 1280px) {
+  .hero {
+      padding-top: 148px;
+    }
 
   .hero__wrap {
     display: flex;
