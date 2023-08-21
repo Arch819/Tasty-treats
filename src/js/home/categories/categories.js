@@ -21,23 +21,13 @@ categoriesApiInstance.getAllCategories().then((data) => {
     categoryButtons.innerHTML = markup;
 });
 
-// function fetchRecipesQuery() {
-//   testyApiService
-//     .fetchRecipes()
-//     .then(data => {
-//       console.log('fetchRecipesQuery', data.results);
-//       renderGallery(data.results);
-//     })
-//     .catch(err => console.log(err));
-// }
-
-tastyApiService.fetchRecipes()   // запит за всіма рецептами
- .then((data) => {
-    console.log(data);
-     const markup = createMarkup(data.results);
-     galleryRecipesRef.innerHTML = markup;
+// tastyApiService.fetchRecipes()   // запит за всіма рецептами
+//  .then((data) => {
+//     console.log(data);
+//      const markup = createMarkup(data.results);
+//      galleryRecipesRef.innerHTML = markup;
      
-});
+// });
 
 allCategoriesButton.addEventListener('click', handleGetAllRecipes);
 categoryButtons.addEventListener('click', handleGetRecipesCategory);
@@ -61,10 +51,6 @@ function handleGetRecipesCategory(event) {
 
     const nameCategory = event.target.textContent.trim();
 
-    //    мій запит на бекенд
-    // categoriesApiInstance.categoryName = nameCategory;
-    // categoriesApiInstance.getRecipesCategory().then(data => console.log(data));
-
     tastyApiService.category = nameCategory;
     console.log(nameCategory);
     tastyApiService.fetchRecipes()
@@ -83,6 +69,7 @@ function handleGetAllRecipes(event) {
     const clickedButton = event.target;
 
     tastyApiService.resetPage();
+    tastyApiService.category = '';
 
     if (activeCategoryButton) {
         activeCategoryButton.classList.remove('active'); // Видаляємо клас з попередньої активної кнопки
@@ -90,9 +77,6 @@ function handleGetAllRecipes(event) {
 
     clickedButton.classList.add('active');// Додаємо клас до обраної кнопки
     activeCategoryButton = clickedButton; // Оновлюємо активну кнопку
-
-    //мій запит на бек
-    // categoriesApiInstance.getAllRecipes();
 
     tastyApiService.fetchRecipes()
         .then((data) => {
