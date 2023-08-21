@@ -3,6 +3,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { createMarkup } from './recipe-cardsRender';
 import { TastyApiService } from './recipe-cardsApi';
 import { GetLists } from './lists-service';
+import { addToFavorites } from './add-to-favorites';
 
 const galleryRecipesRef = document.querySelector('.js-gallery');
 const searchQueryTitleRef = document.querySelector('.input-search');
@@ -91,12 +92,12 @@ function resetFilter() {
 function clearRecipesContainer() {
   galleryRecipesRef.innerHTML = '';
 }
-
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function fetchRecipesQuery() {
   testyApiService
     .fetchRecipes()
     .then(data => {
-      console.log('fetchRecipesQuery', data.results);
+      //console.log('fetchRecipesQuery', data.results);
       //data.results.length === 0 - !data.results -
       if (data.results.length === 0) {
         Notify.failure('Something went wrong. Please try again!');
@@ -104,6 +105,7 @@ function fetchRecipesQuery() {
       }
       clearRecipesContainer();
       renderGallery(data.results);
+      addToFavorites();
     })
     .catch(err => console.log(err));
 }

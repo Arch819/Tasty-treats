@@ -50,34 +50,38 @@
   z-index: 1;
 }
 
-// -
+// - - - - - - - - (-)
 // .icon-unchecked,
 // .icon-checked {
 //   display: none;
 // }
 
 // input
-// .card-checkbox {
-//   position: absolute;
-//   top: 16px;
-//   right: 16px;
-//   opacity: 0;
-//   width: 22px;
-//   height: 22px;
-//   cursor: pointer;
-// }
+.card-checkbox {
+  position: absolute;
+  top: 0px; //16px;
+  right: 0px; //16px;
+  opacity: 0;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
 
 // label - card-checkbox-label
-// .card-checkbox-label .unchecked-heart,
-// .card-checkbox:checked ~ .card-checkbox-label .checked-heart {
-//   display: inline;
-// }
+.card-checkbox-label .unchecked-heart,
+.card-checkbox:checked ~ .card-checkbox-label .checked-heart {
+  display: inline;
+}
 
-// .card-checkbox-label .checked-heart,
-// .card-checkbox:checked ~ .card-checkbox-label .unchecked-heart {
-//   display: none;
-// }
-
+.card-checkbox-label .checked-heart,
+.card-checkbox:checked ~ .card-checkbox-label .unchecked-heart {
+  display: none;
+}
+///
+svg {
+  cursor: pointer;
+}
+///
 .card-content {
   width: 303px;
   position: absolute;
