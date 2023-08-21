@@ -14,17 +14,83 @@
   border: 1px solid #888;
   border-radius: 15px;
   background: #fff;
-  max-width: 550px;
-  max-height: 60%;
+
+  width: 100%;
   overflow-y: auto;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  max-height: 80vh;
+}
+@media screen and (max-width: 374px) {
+  .modal-content-create {
+    width: calc(100% - 30px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .ingredient-create {
+    flex-direction: column;
+  }
+  .label-quantity {
+    display: none;
+  }
+  .label-create {
+    margin-top: 7px;
+  }
+  .textarea-create {
+    height: 80px;
+  }
+  .add-ingredient {
+    margin-bottom: 5px;
+  }
+  .recipe-form {
+    overflow: auto;
+  }
 }
 
+@media screen and (min-width: 375px) {
+  .modal-content-create {
+    width: 335px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .ingredient-create {
+    flex-direction: column;
+  }
+  .label-quantity {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .modal-content-create {
+    width: 400px;
+    padding: 40px 40px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .modal-content-create {
+    width: 500px;
+    height: 415px;
+  }
+  .ingredient-create {
+    flex-direction: row;
+  }
+  .label-quantity {
+    display: block;
+  }
+}
+
+.recipe-form {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.ingredient-create {
+  display: flex;
+}
 .close-create {
-  position: fixed;
+  position: absolute;
   top: 10px;
   right: 10px;
   color: #aaa;
@@ -39,7 +105,7 @@
   cursor: pointer;
 }
 .btn-create {
-  padding: 14px 162px;
+  padding: 14px 16px;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
@@ -68,8 +134,10 @@
 }
 
 .label-create {
-  display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+}
+.label-create:not(:last-child) {
+  margin-right: 120px;
 }
 .create-recipe-btn {
   padding: 14px 28px;
@@ -97,16 +165,28 @@
   padding: 8px 12px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   margin-right: 3px;
+  margin-top: 8px;
 }
-// .ingredient-amount {
-//   width: 100px;
-// }
+.ingredient-amount {
+  width: 120px;
+}
 .textarea-create {
-  width: 100%;
   padding: 14px 18px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  resize: none; /* Заборонити зміну розміру */
+
+  box-sizing: border-box;
+}
+.label-flex {
+  display: flex;
+}
+.add-ingredient,
+.remove-ingredient-create {
+  height: 25px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
