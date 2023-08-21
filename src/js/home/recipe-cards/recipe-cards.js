@@ -41,6 +41,7 @@ selectQueryIngredientsRef.addEventListener('change', onSeachQueryIngredients);
 btnResetFilterRef.addEventListener('click', onResetFilter);
 
 function onSeachQueryTitle(evt) {
+  evt.preventDefault();
   //console.log(evt.target.value);
   const inputQuery = evt.target.value.trim();
   if (inputQuery === '') return;
@@ -107,6 +108,7 @@ function fetchRecipesQuery() {
       if (data.results.length === 0) {
         Notify.failure('Something went wrong. Please try again!');
         loaderIndicatorRef.classList.add('is-hidden-pgn');
+        btnPaginationBarRef.classList.remove('is-hidden-pgn');
         return;
       }
       clearRecipesContainer();
