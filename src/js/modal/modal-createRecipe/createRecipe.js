@@ -31,23 +31,22 @@ function clearForm() {
 
 openModalBtn.addEventListener('click', () => {
   showModal();
-  disableBodyScroll(); // Заборонити прокручування 
+  disableBodyScroll(); // Заборонити прокручування
 });
 
 closeBtn.addEventListener('click', () => {
   hideModal();
-  enableBodyScroll(); // Дозволити прокручування 
+  enableBodyScroll(); // Дозволити прокручування
 });
 
-window.addEventListener('keydown', (event) => {
+window.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
     hideModal();
     enableBodyScroll();
   }
 });
 
-
-modal.addEventListener('click', (event) => {
+modal.addEventListener('click', event => {
   if (event.target === modal) {
     hideModal();
     clearForm();
@@ -58,20 +57,20 @@ modal.addEventListener('click', (event) => {
 addIngredientBtn.addEventListener('click', () => {
   const newIngredientDiv = document.createElement('div');
   newIngredientDiv.classList.add('ingredient-create');
-  
+
   const ingredientNameInput = document.createElement('input');
   ingredientNameInput.type = 'text';
   ingredientNameInput.classList.add('ingredient-name');
   ingredientNameInput.name = 'ingredient[]';
   ingredientNameInput.required = true;
-  
+
   const ingredientAmountInput = document.createElement('input');
   ingredientAmountInput.type = 'text';
   ingredientAmountInput.classList.add('ingredient-amount');
   ingredientAmountInput.name = 'amount[]';
     ingredientAmountInput.placeholder = 'Quantity (g)';
   ingredientAmountInput.required = true;
-  
+
   const removeIngredientBtn = document.createElement('button');
   removeIngredientBtn.type = 'button';
   removeIngredientBtn.textContent = '-';
@@ -79,53 +78,50 @@ addIngredientBtn.addEventListener('click', () => {
   removeIngredientBtn.addEventListener('click', () => {
     ingredientsContainer.removeChild(newIngredientDiv);
   });
-  
+
   newIngredientDiv.appendChild(ingredientNameInput);
   newIngredientDiv.appendChild(ingredientAmountInput);
   newIngredientDiv.appendChild(removeIngredientBtn);
-  
+
   ingredientsContainer.appendChild(newIngredientDiv);
 });
 
-recipeForm.addEventListener('submit', (event) => {
+recipeForm.addEventListener('submit', event => {
   event.preventDefault();
   const recipeName = document.getElementById('recipeName').value.trim();
   const ingredientNames = document.querySelectorAll('.ingredient-name');
   const ingredientAmounts = document.querySelectorAll('.ingredient-amount');
   const instructions = document.getElementById('instructions').value.trim();
-  
-  
+
   modal.style.display = 'none';
 });
 
-
-
-recipeForm.addEventListener('submit', (event) => {
+recipeForm.addEventListener('submit', event => {
   event.preventDefault();
-  
+
   const recipeName = document.getElementById('recipeName').value.trim();
   const ingredientNames = document.querySelectorAll('.ingredient-name');
   const ingredientAmounts = document.querySelectorAll('.ingredient-amount');
   const instructions = document.getElementById('instructions').value.trim();
-  
+
   const ingredients = [];
   for (let i = 0; i < ingredientNames.length; i += 1) {
     const ingredientName = ingredientNames[i].value.trim();
     const ingredientAmount = ingredientAmounts[i].value.trim();
     ingredients.push({ name: ingredientName, amount: ingredientAmount });
   }
-  
+
   const recipe = {
     name: recipeName,
     ingredients: ingredients,
-    instructions: instructions
+    instructions: instructions,
   };
-  
+
   saveRecipe(recipe);
 
   hideModal();
   clearForm();
-   enableBodyScroll();
+  enableBodyScroll();
 });
 
 function saveRecipe(recipe) {
@@ -133,8 +129,3 @@ function saveRecipe(recipe) {
   recipes.push(recipe);
   localStorage.setItem('recipes', JSON.stringify(recipes));
 }
-
-
-
-
-
