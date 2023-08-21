@@ -61,7 +61,7 @@ function handleGetRecipesCategory(event) {
     const nameCategory = event.target.textContent.trim();
 
     tastyApiService.category = nameCategory;
-    console.log(nameCategory);
+    // console.log(nameCategory);
     tastyApiService.fetchRecipes()
         .then((data) => {
             console.log(data);
