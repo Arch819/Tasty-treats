@@ -13,6 +13,9 @@ const selectQueryIngredientsRef = document.querySelector(
   '.ingredients-selector'
 );
 const btnResetFilterRef = document.querySelector('.reset-filter');
+const loaderIndicatorRef = document.querySelector('.loader');
+const btnPaginationBarRef = document.querySelector('.pagination-bar');
+console.log(btnPaginationBarRef);
 
 Notify.init({
   position: 'center-center',
@@ -94,6 +97,8 @@ function clearRecipesContainer() {
 }
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function fetchRecipesQuery() {
+  loaderIndicatorRef.classList.remove('is-hidden');
+  btnPaginationBarRef.classList.add('is-hidden');
   testyApiService
     .fetchRecipes()
     .then(data => {
@@ -101,11 +106,14 @@ function fetchRecipesQuery() {
       //data.results.length === 0 - !data.results -
       if (data.results.length === 0) {
         Notify.failure('Something went wrong. Please try again!');
+        loaderIndicatorRef.classList.add('is-hidden');
         return;
       }
       clearRecipesContainer();
-      renderGallery(data.results);
       addToFavorites();
+      renderGallery(data.results);
+      loaderIndicatorRef.classList.add('is-hidden');
+      btnPaginationBarRef.classList.remove('is-hidden');
     })
     .catch(err => console.log(err));
 }
@@ -163,7 +171,7 @@ function backToFirst() {
   pageOneBtn.textContent = 1;
   pageTwoBtn.textContent = 2;
   pageThreeBtn.textContent = 3;
-  galleryRecipesRef.innerHTML = '';
+  //galleryRecipesRef.innerHTML = '';
   fetchRecipesQuery();
 }
 
@@ -191,7 +199,7 @@ function loadLastPage() {
   pageThreeBtn.textContent = pageNumb;
   pageTwoBtn.textContent = pageNumb - 1;
   pageOneBtn.textContent = pageNumb - 2;
-  galleryRecipesRef.innerHTML = '';
+  //galleryRecipesRef.innerHTML = '';
   testyApiService.setCurrentPage(pageNumb);
   fetchRecipesQuery();
 }
@@ -225,7 +233,7 @@ function loadPrevPage() {
   //prevPage = pageNumb - 1;
   testyApiService.decrementPage();
   // loadPage(prevPage);
-  galleryRecipesRef.innerHTML = '';
+  //galleryRecipesRef.innerHTML = '';
   fetchRecipesQuery();
 }
 
