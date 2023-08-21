@@ -9,13 +9,14 @@ import {
 } from './favoritRefs';
 import { renderQuantityOfPages } from './quantyityOfPages';
 
-const PER_PAGE = 2;
+const PER_PAGE = 12;
 let page = 1;
 
 // -------------------------------------------основна функція та логіка сторінки Favorites--------------------------
 
 const renderPageFavorites = async () => {
   const keyOfLocalStorage = getValuesOfStorage('favorites'); // Беремо значення з localStorage
+  paginationRef.style.display = 'none';
 
   // =--------------------------------------LocalStorage не існує або порожній масив----------------------
   if (!keyOfLocalStorage || keyOfLocalStorage.length === 0) {
@@ -30,6 +31,8 @@ const renderPageFavorites = async () => {
     const dataPages = renderQuantityOfPages(PER_PAGE, page);
     const test = document.querySelector('.pagination-bar');
     test.firstElementChild.insertAdjacentHTML('beforeend', dataPages.join(''));
+
+    paginationRef.style.display = 'flex';
   }
 
   // ==---------------------------------------Рендеримо сторінку-----------------------------------
