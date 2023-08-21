@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text-light);
+}
+
+.cards {
+  display: inline-flex;
+  border: 2px solid black;
+}
+
+.open-modal {
+  padding: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity var(--timing-function) 250ms,
+    visibility var(--timing-function) 250ms;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 531px;
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 15px;
+}
+
+.black {
+  background-color: #050505;
+}
+
+.modal__title {
+  color: #050505;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px; /* 122.222% */
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  display: block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__video {
+  overflow: hidden;
+  height: 250px;
+  border-radius: 8px;
+  background: linear-gradient(
+      0deg,
+      rgba(5, 5, 5, 0.4) 0%,
+      rgba(5, 5, 5, 0.4) 100%
+    ),
+    lightgray -34.64px -20px / 109.993% 120% no-repeat;
+  margin-bottom: 16px;
+}
+
+.frame-video {
+  width: 100%;
+  height: 100%;
+}
+
+.info-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.tag-list {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 60%;
+  gap: 8px;
+}
+
+.tag-item {
+  border-radius: 35px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  padding: 8px 16px;
+  color: #050505;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 116.667% */
+}
+
+.rating {
+  display: flex;
+  margin-left: auto;
+}
+
+.rating-value {
+  margin-right: 6px;
+}
+
+.rating-body {
+  display: flex;
+  position: relative;
+  margin-right: 8px;
+}
+
+.rating-body::before {
+  content: '★★★★★';
+}
+
+.rating-items {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating-item {
+  flex: 0 0 20%;
+  height: 100%;
+}
+
+.time {
+  color: rgba(5, 5, 5, 0.5);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px; /* 128.571% */
+}
+
+.ingredient-list {
+  margin-bottom: 32px;
+  max-height: 230px;
+  overflow: auto;
+  /* overflow: hidden; */
+}
+
+.ingredient-list:hover {
+  overflow: auto;
+}
+
+.ingredient-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 8px 0;
+  border-bottom: 1px solid rgba(5, 5, 5, 0.1);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+}
+
+.ingredient {
+  color: #050505;
+}
+
+.ingredient-value {
+  color: rgba(5, 5, 5, 0.5);
+}
+
+.instructions {
+  color: rgba(5, 5, 5, 0.8);
+  font-size: 14px;
+  font-style: normal;
+  line-height: 18px; /* 128.571% */
+  margin-bottom: 32px;
+  max-height: 162px;
+  overflow: auto;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.modal-button {
+  padding: 14px 28px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid #9bb537;
+  background: transparent;
+  color: #050505;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.modal-button.color {
+  background: #9bb537;
+  color: #ffffff;
+  margin-right: 16px;
+}
+
+.modal-button:hover,
+.modal-button:focus {
+  background: #9bb537;
+  color: #ffffff;
+}
+
+.modal-button.color:hover,
+.modal-button.color:focus {
+  color: #050505;
+}
+
+.icon-close {
+  fill: #050505;
+}
