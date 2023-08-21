@@ -1,3 +1,196 @@
+<button class="give-rating-btn" id="give-rating" type="button">
+  Give a rating
+</button>
+
+<div class="add-rating-backdrop">
+  <div class="add-rating-modal">
+    <svg
+      id="add-rating-close-btn"
+      class="add-rating-close-icon"
+      width="20"
+      height="20"
+    >
+      <use href="./images/sprite.svg#icon-close-x"></use>
+    </svg>
+    <h3 class="add-rating-title">Rating</h3>
+
+    <div class="form__item">
+      <div class="form__label">
+        New rating
+        <div class="rating rating_set">
+          <div class="rating__body">
+            <div class="rating__active"></div>
+            <div class="rating_items">
+              <input
+                type="radio"
+                name="rating"
+                id=""
+                class="rating__item"
+                value="1"
+              /><input
+                type="radio"
+                name="rating"
+                id=""
+                class="rating__item"
+                value="2"
+              /><input
+                type="radio"
+                name="rating"
+                id=""
+                class="rating__item"
+                value="3"
+              /><input
+                type="radio"
+                name="rating"
+                id=""
+                class="rating__item"
+                value="4"
+              /><input
+                type="radio"
+                name="rating"
+                id=""
+                class="rating__item"
+                value="5"
+              />
+            </div>
+          </div>
+          <div class="rating__value">3.6</div>
+        </div>
+      </div>
+      <form class="add-rating-form">
+        <div class="add-rating-flex-container">
+          <p class="js-rating-choosed">0.0</p>
+          <fieldset class="starability-slot">
+            <input type="radio" id="star1" name="rating" value="1" required />
+            <label for="star1" title="Poor"></label>
+
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2" title="Fair"></label>
+
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3" title="Good"></label>
+
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4" title="Excellent"></label>
+
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5" title="Outstanding"></label>
+          </fieldset>
+        </div>
+
+        <input
+          required
+          type="email"
+          name="email"
+          class="add-rating-email"
+          placeholder="Enter email"
+        />
+        <button type="submit" class="add-rating-submit-btn">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- <button class="give-rating-btn" id="give-rating" type="button">
+  Give a rating
+</button>
+rating-backdrop visible 
+<div class="rating-backdrop">
+  <div id="rating-modal-js" class="rating-modal-container">
+    <div class="rating-modal">
+      <button class="btn-close-rating btn">
+        <svg class="rating-close-icon" height="24" width="24">
+          <use
+            class="rating-close-icon-svg"
+            href="./images/sprite.svg#icon-close-x"
+          ></use>
+        </svg>
+      </button>
+      <div class="rating-block">
+        <div class="rating-block-star">
+          <h2 class="block-star-txt">Rating</h2>
+          <div class="rating-star">
+            <p class="rating_value">0.0</p>
+            <input
+              type="radio"
+              id="star1"
+              name="rating"
+              value="1"
+              class="star-input"
+            />
+            <label for="star1" class="star-label">
+              <svg class="star-rating" viewBox="0 0 24 24">
+                <use href="./images/sprite.svg#icon-star-grey"></use>
+              </svg>
+            </label>
+            <input
+              type="radio"
+              id="star2"
+              name="rating"
+              value="2"
+              class="star-input"
+            />
+            <label for="star2" class="star-label">
+              <svg class="star-rating" viewBox="0 0 24 24">
+                <use href="./images/sprite.svg#icon-star-grey"></use>
+              </svg>
+            </label>
+            <input
+              type="radio"
+              id="star3"
+              name="rating"
+              value="3"
+              class="star-input"
+            />
+            <label for="star3" class="star-label">
+              <svg class="star-rating" viewBox="0 0 24 24">
+                <use href="./images/sprite.svg#icon-star-grey"></use>
+              </svg>
+            </label>
+            <input
+              type="radio"
+              id="star4"
+              name="rating"
+              value="4"
+              class="star-input"
+            />
+            <label for="star4" class="star-label">
+              <svg class="star-rating" viewBox="0 0 24 24">
+                <use href="./images/sprite.svg#icon-star-grey"></use>
+              </svg>
+            </label>
+            <input
+              type="radio"
+              id="star5"
+              name="rating"
+              value="5"
+              class="star-input"
+            />
+            <label for="star5" class="star-label">
+              <svg class="star-rating" viewBox="0 0 24 24">
+                <use href="./images/sprite.svg#icon-star-grey"></use>
+              </svg>
+            </label>
+          </div>
+        </div>
+        <p class="rating-block-txt"></p>
+      </div>
+      <div class="rating-email">
+        <input
+          type="email"
+          id="email-1"
+          name="email"
+          placeholder="Enter your email"
+          class="order-form-input rating-form-input email-form-valid input-js email-rating"
+          required
+        />
+        <button type="submit" class="rating-email-btn submit-btn" disabled>
+          Send
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Файли для роботи:
     Стилі:
       sass\layout\modal\_modal-rating.scss - стілі блоку;
@@ -12,11 +205,12 @@
 
       -->
 
-<!-- Додавання рейтингу окремому рецепту - https://tasty-treats-backend.p.goit.global/api/recipes/ -->
+  <!-- Додавання рейтингу окремому рецепту - https://tasty-treats-backend.p.goit.global/api/recipes/ -->
 
-<!--  Вікно містить в собі радіокнопки, описову частину й обовʼязкове поле для введення користувачем email.
+  <!--  Вікно містить в собі радіокнопки, описову частину й обовʼязкове поле для введення користувачем email.
       Всі поля форми повинні валідуватись. По click на кнопку Send, у разі введення користувачем валідних значень,
       запит про додавання рейтингу відправляється на бекенд. 
       У разі отримання успішної відповіді з бекенду  - модальне вікно з формою додавання рейтингу необхідно 
       закрити. У разі отримання помилки з бекенду  - текст помилки необхідно візуалізувати користувачу у 
       вигляді нотіфікацїї -->
+</div>
