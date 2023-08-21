@@ -135,7 +135,9 @@
 
 .label-create {
   margin-bottom: 8px;
-  margin-right: 94px;
+}
+.label-create:not(:last-child) {
+  margin-right: 120px;
 }
 .create-recipe-btn {
   padding: 14px 28px;
