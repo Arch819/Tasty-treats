@@ -97,8 +97,8 @@ function clearRecipesContainer() {
 }
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function fetchRecipesQuery() {
-  loaderIndicatorRef.classList.remove('is-hidden');
-  btnPaginationBarRef.classList.add('is-hidden');
+  loaderIndicatorRef.classList.remove('is-hidden-pgn');
+  btnPaginationBarRef.classList.add('is-hidden-pgn');
   testyApiService
     .fetchRecipes()
     .then(data => {
@@ -106,14 +106,14 @@ function fetchRecipesQuery() {
       //data.results.length === 0 - !data.results -
       if (data.results.length === 0) {
         Notify.failure('Something went wrong. Please try again!');
-        loaderIndicatorRef.classList.add('is-hidden');
+        loaderIndicatorRef.classList.add('is-hidden-pgn');
         return;
       }
       clearRecipesContainer();
       addToFavorites();
       renderGallery(data.results);
-      loaderIndicatorRef.classList.add('is-hidden');
-      btnPaginationBarRef.classList.remove('is-hidden');
+      loaderIndicatorRef.classList.add('is-hidden-pgn');
+      btnPaginationBarRef.classList.remove('is-hidden-pgn');
     })
     .catch(err => console.log(err));
 }
