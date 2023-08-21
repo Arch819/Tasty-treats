@@ -9,10 +9,8 @@ export const renderCategories = async storageValue => {
   try {
     const results = await fetchRecipeDataForIds(storageValue.map(el => el.id));
     const arrayOfCategories = results.map(el => el.data.category);
-    console.log(arrayOfCategories);
 
     const markup = markupCategory(arrayOfCategories);
-    console.log(markup);
     return markup;
   } catch (error) {
     console.log(error);
