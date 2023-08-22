@@ -94,8 +94,9 @@ const addRatingEmail = document.querySelector('.add-rating-email');
 const opnElements = document.getElementsByClassName('js-rating');
 for (const opn of opnElements) {
     opn.addEventListener('click', () => {
-        modal.style.display = 'block';
-        backdrop.style.display = 'block';
+        // modal.style.display = 'block';
+      backdrop.style.display = 'block';
+      backdrop.style.zIndex = '9999';
     });
 // console.log(opn)
 // console.log()
@@ -114,73 +115,24 @@ for (const opn of opnElements) {
     el.style.display = 'none';
   }
 });
-// // EVENT LISTENERS
-// [closeModalBtn].forEach(el => {
-//   if (el) {
-//     el.addEventListener('click', closeRecipe);
-//   }
-// });
-
+// EVENT LISTENERS
 document.addEventListener('keydown', evt => {
   if (evt.key === 'Escape') {
-    closeRecipe();
+
     onClose();
+    console.log(' text `click esc`')
   }
 });
 
-// if (starField) {
-//   starField.addEventListener('click', starRatingChanger);
-// }
-
 if (form) {
   form.addEventListener('submit', submitRating);
+  console.log("форма закрита")
 }
 
-if (closeModalBtn) {
+if (closeModalBtn||Escape) {
   closeModalBtn.addEventListener('click', onClose);
+  console.log('X')
 }
-
-
-// // Функція для зміни кольору іконок
-// function changeColorOfStars() {
-//   let icons = document.querySelectorAll('.icon-star-modal');
-//   for (let i = 0; i < icons.length; i += 1) {
-//     if (i < stars) {
-//       icons[i].style.fill = '#FFA500';
-//     } else {
-//       icons[i].style.fill = '#ffffff1a';
-//     }
-//   }
-// }
-// // changeColorOfStars()
-//     giveRatingBtn = document.getElementById('give-rating');
-//     if (giveRatingBtn) {
-//         giveRatingBtn.addEventListener('click', function () {
-//             backdrop.style.display = 'block';
-//         });
-//     }
-//     return giveRatingBtn;
-// // MODAL-CLOSING
-// function closeRecipe() {
-//   document.body.style.overflow = 'auto';
-// }
-// function starRatingChanger() {
-//   const selectedRadioButton = starField.querySelector(
-//     'input[name="rating"]:checked'
-//   );
-
-//   const mail = addRatingEmail.value;
-//   const data = {
-//     rating: selectedRadioButton ? parseFloat(selectedRadioButton.value) : 0,
-//     email: mail,
-//   };
-
-//   if (selectedRadioButton !== null) {
-//     starChoosed.textContent = ${selectedRadioButton.value}.0;
-//   } else {
-//     starChoosed.textContent = '0.0';
-//   }
-// }
 function onClose() {
   // form.reset();
   backdrop.style.display = 'none';
