@@ -10,7 +10,6 @@ export default function renderRecipe({
   youtube,
   tags,
   ingredients,
-  category,
   thumb,
 }) {
   return `
