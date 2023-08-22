@@ -4,11 +4,10 @@ import { popularRecipesUrl } from './popularApi';
 
 function createRecipeMarkup(recipe, index) {
   return `<li
-      class="popular-recipe-item"
-      tabindex="${index}"
-      data-recipe-id="${recipe._id}"
+      class="popular-recipe-item js-card-button"
+      data-id="${recipe._id}"
     >
-      <a class="popular-recipe-card">
+      <div class="popular-recipe-card">
         <img
           class="popular-card-image"
           src="${recipe.preview}"
@@ -20,7 +19,7 @@ function createRecipeMarkup(recipe, index) {
             ${recipe.description}
           </p>
         </div>
-      </a>
+      </div>
     </li>`;
 }
 
