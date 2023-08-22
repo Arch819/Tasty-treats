@@ -3,6 +3,17 @@ import renderRecipe from './modal-recipeRender';
 
 let favorites = [];
 
+const refs = {
+  iconClose: document.querySelector('.icon-close'),
+  closeBtn: document.querySelector('.close-modal'),
+  bodyEl: document.querySelector('body'),
+  modalWindow: document.querySelector('.modal'),
+  modalEl: document.querySelector('.modal-content'),
+  backdropEl: document.querySelector('.js-backdrop'),
+  cardsEl: document.querySelector('.search-recipes'),
+  favoriteBtn: document.querySelector('.js-favorite'),
+};
+
 function hasArrElement(arr, id) {
   const resolt = arr.filter(item => item.id === id);
   return resolt.length;
@@ -33,61 +44,40 @@ function addToFavorite(event) {
   event.target.textContent = 'Remove from favorites';
 }
 
-const bodyEl = document.querySelector('body');
-const modalWindow = document.querySelector('.modal');
-const modalEl = document.querySelector('.modal-content');
-const backdropEl = document.querySelector('.js-backdrop');
-const cardsEl = document.querySelector('.search-recipes');
-cardsEl.addEventListener('click', openModalRecipe);
+refs.cardsEl.addEventListener('click', openModalRecipe);
 
 function openModalRecipe(e) {
   if (e.target.classList.contains('js-card-button')) {
-    toggleDarkTheme();
     let id = e.target.dataset.id;
     fetchRecipe(id).then(obj => {
-      modalEl.innerHTML = renderRecipe(obj);
-      const closeBtn = document.querySelector('.close-modal');
-      backdropEl.classList.remove('is-hidden');
+      refs.modalEl.innerHTML = renderRecipe(obj);
+      themeSwitcher();
+      refs.backdropEl.classList.remove('is-hidden');
       document.body.classList.add('no-scroll');
-      closeBtn.addEventListener('click', closeModal);
-      backdropEl.addEventListener('click', closeOnEscape);
+      refs.closeBtn.addEventListener('click', closeModal);
+      refs.backdropEl.addEventListener('click', closeOnEscape);
       document.addEventListener('keydown', closeOnBackdrop);
-      const favoriteBtn = document.querySelector('.js-favorite');
       const savedFavirites = JSON.parse(localStorage.getItem('favorites'));
-
-      const coverVideoEl = document.querySelector('.cover-video');
       const videoIcon = document.querySelector('.icon-video');
       videoIcon.addEventListener('click', hideCoverVideo);
-
-      function hideCoverVideo() {
-        setTimeout(() => {
-          coverVideoEl.classList.add('is-hidden');
-        }, 300);
-        document
-          .getElementById('v1')
-          .contentWindow.postMessage(
-            '{"event":"command","func":"playVideo","args":""}',
-            '*'
-          );
-      }
 
       if (
         JSON.parse(
           localStorage.getItem('favorites') && hasArrElement(savedFavirites, id)
         )
       ) {
-        favoriteBtn.textContent = 'Remove from favorites';
+        refs.favoriteBtn.textContent = 'Remove from favorites';
       }
-      favoriteBtn.addEventListener('click', addToFavorite);
+      refs.favoriteBtn.addEventListener('click', addToFavorite);
     });
   }
 }
 
 function closeModal() {
   document.body.classList.remove('no-scroll');
-  backdropEl.classList.add('is-hidden');
+  refs.backdropEl.classList.add('is-hidden');
   document.removeEventListener('keydown', closeOnBackdrop);
-  backdropEl.removeEventListener('click', closeOnEscape);
+  refs.backdropEl.removeEventListener('click', closeOnEscape);
   document
     .getElementById('v1')
     .contentWindow.postMessage(
@@ -109,10 +99,34 @@ function closeOnBackdrop(e) {
   }
 }
 
-function toggleDarkTheme() {
-  if (bodyEl.classList.contains('dark')) {
-    modalWindow.classList.add('black');
-  } else {
-    modalWindow.classList.remove('black');
+function hideCoverVideo() {
+  const coverVideoEl = document.querySelector('.cover-video');
+  setTimeout(() => {
+    coverVideoEl.classList.add('is-hidden');
+  }, 300);
+  document
+    .getElementById('v1')
+    .contentWindow.postMessage(
+      '{"event":"command","func":"playVideo","args":""}',
+      '*'
+    );
+}
+
+function themeSwitcher() {
+  refs.modalWindow.classList.remove('dark-theme');
+  if (refs.bodyEl.classList.contains('dark')) {
+    refs.modalWindow.classList.add('dark-theme');
   }
 }
+
+// function toggleDarkTheme() {
+//   if (refs.bodyEl.classList.contains('dark')) {
+//     refs.modalWindow.classList.add('black-modal');
+//     refs.iconClose.classList.add('black-closeBtn');
+//     refs.iconClose.classList.add('black-value');
+//   } else {
+//     refs.modalWindow.classList.remove('black-modal');
+//     refs.iconClose.classList.remove('black-closeBtn');
+//     refs.iconClose.classList.remove('black-value');
+//   }
+// }
