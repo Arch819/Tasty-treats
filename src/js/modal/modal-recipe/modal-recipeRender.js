@@ -7,6 +7,7 @@ export default function renderRecipe({
   youtube,
   tags,
   ingredients,
+  category,
 }) {
   return `
 
@@ -42,7 +43,7 @@ export default function renderRecipe({
                 </p>
             </div>
             <div class="modal-buttons">
-                <button type="button" class="modal-button color js-favorite " data-id=${_id}>Add to favorite</button>
+                <button type="button" class="modal-button color js-favorite " data-id=${_id} data-category=${category}>Add to favorite</button>
                 <button type="button" class="modal-button js-rating">Give a rating</button>
             </div>`;
 }

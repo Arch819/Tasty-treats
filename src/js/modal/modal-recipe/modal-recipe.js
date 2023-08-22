@@ -2,14 +2,26 @@ import fetchRecipe from './modal-recipeApi';
 import renderRecipe from './modal-recipeRender';
 
 let favorites = [];
+console.log(!!favorites.length);
 
-function addToFavorite(e) {
-  e.target.textContent = 'Add to favorite';
-  const id = e.target.dataset.id;
-  const savedFavirites = JSON.parse(localStorage.getItem('favorite'));
-  if (savedFavirites && savedFavirites.includes(id)) {
-    const arr = savedFavirites.filter(item => item !== id);
-    localStorage.setItem('favorite', JSON.stringify(arr));
+function hasArrElement(arr, id) {
+  const resolt = arr.filter(item => item.id === id);
+  return resolt.length;
+}
+
+function addToFavorite(event) {
+  event.target.textContent = 'Add to favorite';
+  const id = event.target.dataset.id;
+
+  const obj = {
+    id: event.target.dataset.id,
+    category: event.target.dataset.category,
+  };
+
+  const savedFavirites = JSON.parse(localStorage.getItem('favorites'));
+  if (savedFavirites && hasArrElement(savedFavirites, id)) {
+    const arr = savedFavirites.filter(item => item.id !== id);
+    localStorage.setItem('favorites', JSON.stringify(arr));
     favorites = [];
     return;
   }
@@ -17,9 +29,9 @@ function addToFavorite(e) {
     favorites = [...savedFavirites];
   }
 
-  favorites.push(id);
-  localStorage.setItem('favorite', JSON.stringify(favorites));
-  e.target.textContent = 'Remove from favorites';
+  favorites.push(obj);
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+  event.target.textContent = 'Remove from favorites';
 }
 
 const bodyEl = document.querySelector('body');
@@ -39,14 +51,14 @@ function openModalRecipe(e) {
       backdropEl.classList.remove('is-hidden');
       document.body.classList.add('no-scroll');
       closeBtn.addEventListener('click', closeModal);
-      backdropEl.addEventListener('click', closeModal);
+      backdropEl.addEventListener('click', closeOnEscape);
       document.addEventListener('keydown', closeOnBackdrop);
       const favoriteBtn = document.querySelector('.js-favorite');
+      const savedFavirites = JSON.parse(localStorage.getItem('favorites'));
 
       if (
         JSON.parse(
-          localStorage.getItem('favorite') &&
-            JSON.parse(localStorage.getItem('favorite')).includes(id)
+          localStorage.getItem('favorites') && hasArrElement(savedFavirites, id)
         )
       ) {
         favoriteBtn.textContent = 'Remove from favorites';
@@ -60,13 +72,20 @@ function closeModal() {
   document.body.classList.remove('no-scroll');
   backdropEl.classList.add('is-hidden');
   document.removeEventListener('keydown', closeOnBackdrop);
-  backdropEl.removeEventListener('click', closeModal);
+  backdropEl.removeEventListener('click', closeOnEscape);
   document
     .getElementById('v1')
     .contentWindow.postMessage(
       '{"event":"command","func":"stopVideo","args":""}',
       '*'
     );
+}
+
+function closeOnEscape(e) {
+  if (e.target !== e.currentTarget) {
+    return;
+  }
+  closeModal();
 }
 
 function closeOnBackdrop(e) {
