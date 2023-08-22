@@ -41,6 +41,7 @@ selectQueryIngredientsRef.addEventListener('change', onSeachQueryIngredients);
 btnResetFilterRef.addEventListener('click', onResetFilter);
 
 function onSeachQueryTitle(evt) {
+  evt.preventDefault();
   //console.log(evt.target.value);
   const inputQuery = evt.target.value.trim();
   if (inputQuery === '') return;
