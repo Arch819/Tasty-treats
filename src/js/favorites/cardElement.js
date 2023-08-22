@@ -15,17 +15,17 @@ const createRatingStars = rating => {
 
 // Створюємо розмітку рейтингу=------------------------
 const renderRating = value => {
-  return `<div class='rating'>
-              <div class="rating__body">
-                <div class="rating__active"><div class='favorites__cards-rating'>${value}</div>${createRatingStars(
+  return `<div class='favorites__rating'>
+              <div class="favorites__rating-body">
+                <div class="favorites__rating-active"><div class='favorites__cards-rating'>${value}</div>${createRatingStars(
     value
   )}</div>
-                <div class="rating__items">
-                  <input type="radio" class="rating__item" value="1" name="rating">
-                  <input type="radio" class="rating__item" value="2" name="rating">
-                  <input type="radio" class="rating__item" value="3" name="rating">
-                  <input type="radio" class="rating__item" value="4" name="rating">
-                  <input type="radio" class="rating__item" value="5" name="rating">
+                <div class="favorites__rating-items">
+                  <input type="radio" class="favorites__rating-item" value="1" name="rating">
+                  <input type="radio" class="favorites__rating-item" value="2" name="rating">
+                  <input type="radio" class="favorites__rating-item" value="3" name="rating">
+                  <input type="radio" class="favorites__rating-item" value="4" name="rating">
+                  <input type="radio" class="favorites__rating-item" value="5" name="rating">
                 </div>
               </div>
   
