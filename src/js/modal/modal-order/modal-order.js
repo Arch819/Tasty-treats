@@ -15,7 +15,8 @@ const orderModal = () => {
   // refs.buttonToSimulateClick.addEventListener('click', toggleModal);
   refs.openModalBtn.forEach(button => {
     button.addEventListener('click', toggleModal);
-  });
+  }
+  );
 
   refs.closeModalBtn.addEventListener('click', event => {
     event.stopPropagation();
