@@ -1,3 +1,5 @@
+import '../header/header';
+import '../header/_switch-themes';
 import { renderCategories, renderCards } from './renderFavorites';
 import { emptyRendering, getValuesOfStorage } from './config';
 import { handleFilter, handleHeartClick } from './handleClickFunctions';
@@ -72,3 +74,8 @@ renderPageFavorites();
 // ];
 
 // localStorage.setItem('favorites', JSON.stringify(test));
+import '../footer/footer';
+//*modal
+import '../modal/modal-order/modal-order';
+import '../modal/modal-rating/modal-rating';
+import '../modal/modal-recipe/modal-recipe';
