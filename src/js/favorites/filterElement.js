@@ -1,7 +1,7 @@
 // -------------------------------------------------отримує масив всіх категорій та повертає розмітку-------------------------
 
 const renderListOfCategories = listOfCategories => {
-  const zeroMarkup = `<li><button type="button" class="favorites__filter-btn">All categories</button></li>`;
+  const zeroMarkup = `<li><button type="button" class="favorites__filter-btn favorites__active-btn">All categories</button></li>`;
   const uniqueArray = [];
   for (const item of listOfCategories) {
     if (!uniqueArray.includes(item)) {
@@ -17,7 +17,7 @@ const renderListOfCategories = listOfCategories => {
 
 // -----------------------отримує масив категорій і повертає markup списку-------------------------
 
-export const renderCategories = categories => {
+export const markupCategory = categories => {
   const markupCategory = renderListOfCategories(categories).join('');
   return markupCategory;
 };

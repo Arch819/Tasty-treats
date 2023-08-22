@@ -21,7 +21,8 @@
     "axios": "^1.4.0",
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.6"
+    "notiflix": "^3.2.6",
+    "swiper": "^10.2.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",

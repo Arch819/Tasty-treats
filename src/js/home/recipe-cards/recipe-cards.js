@@ -1,7 +1,9 @@
 import debounce from 'lodash.debounce';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { createMarkup } from './recipe-cardsRender';
 import { TastyApiService } from './recipe-cardsApi';
 import { GetLists } from './lists-service';
+import { addToFavorites } from './add-to-favorites';
 
 const galleryRecipesRef = document.querySelector('.js-gallery');
 const searchQueryTitleRef = document.querySelector('.input-search');
@@ -11,6 +13,13 @@ const selectQueryIngredientsRef = document.querySelector(
   '.ingredients-selector'
 );
 const btnResetFilterRef = document.querySelector('.reset-filter');
+const loaderIndicatorRef = document.querySelector('.loader');
+const btnPaginationBarRef = document.querySelector('.pagination-bar');
+console.log(btnPaginationBarRef);
+
+Notify.init({
+  position: 'center-center',
+});
 
 const testyApiService = new TastyApiService();
 testyApiService.setLimitValue();
@@ -35,7 +44,7 @@ function onSeachQueryTitle(evt) {
   //console.log(evt.target.value);
   const inputQuery = evt.target.value.trim();
   if (inputQuery === '') return;
-  clearRecipesContainer();
+  //clearRecipesContainer();
   testyApiService.resetPage();
   testyApiService.setSearchTitle(inputQuery);
   fetchRecipesQuery();
@@ -44,7 +53,7 @@ function onSeachQueryTitle(evt) {
 function onSeachQueryTime(evt) {
   //console.log(evt.target.value);
   const inputQuery = evt.target.value;
-  clearRecipesContainer();
+  //clearRecipesContainer();
   testyApiService.resetPage();
   testyApiService.setSearchTime(inputQuery);
   fetchRecipesQuery();
@@ -53,7 +62,7 @@ function onSeachQueryTime(evt) {
 function onSeachQueryAreas(evt) {
   //console.log(evt.target.value);
   const inputQuery = evt.target.value;
-  clearRecipesContainer();
+  //clearRecipesContainer();
   testyApiService.resetPage();
   testyApiService.setSearchArea(inputQuery);
   fetchRecipesQuery();
@@ -62,7 +71,7 @@ function onSeachQueryAreas(evt) {
 function onSeachQueryIngredients(evt) {
   //console.log(evt.target.value);
   const inputQuery = evt.target.value;
-  clearRecipesContainer();
+  //clearRecipesContainer();
   testyApiService.resetPage();
   testyApiService.setSearchIngredient(inputQuery);
   fetchRecipesQuery();
@@ -71,7 +80,8 @@ function onSeachQueryIngredients(evt) {
 function onResetFilter() {
   testyApiService.resetCategory();
   resetFilter();
-  galleryRecipesRef.innerHTML = '';
+  //galleryRecipesRef.innerHTML = '';
+  //clearRecipesContainer();
   fetchRecipesQuery();
 }
 
@@ -85,13 +95,25 @@ function resetFilter() {
 function clearRecipesContainer() {
   galleryRecipesRef.innerHTML = '';
 }
-
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function fetchRecipesQuery() {
+  loaderIndicatorRef.classList.remove('is-hidden');
+  btnPaginationBarRef.classList.add('is-hidden');
   testyApiService
     .fetchRecipes()
     .then(data => {
       //console.log('fetchRecipesQuery', data.results);
+      //data.results.length === 0 - !data.results -
+      if (data.results.length === 0) {
+        Notify.failure('Something went wrong. Please try again!');
+        loaderIndicatorRef.classList.add('is-hidden');
+        return;
+      }
+      clearRecipesContainer();
+      addToFavorites();
       renderGallery(data.results);
+      loaderIndicatorRef.classList.add('is-hidden');
+      btnPaginationBarRef.classList.remove('is-hidden');
     })
     .catch(err => console.log(err));
 }
@@ -149,7 +171,7 @@ function backToFirst() {
   pageOneBtn.textContent = 1;
   pageTwoBtn.textContent = 2;
   pageThreeBtn.textContent = 3;
-  galleryRecipesRef.innerHTML = '';
+  //galleryRecipesRef.innerHTML = '';
   fetchRecipesQuery();
 }
 
@@ -177,7 +199,7 @@ function loadLastPage() {
   pageThreeBtn.textContent = pageNumb;
   pageTwoBtn.textContent = pageNumb - 1;
   pageOneBtn.textContent = pageNumb - 2;
-  galleryRecipesRef.innerHTML = '';
+  //galleryRecipesRef.innerHTML = '';
   testyApiService.setCurrentPage(pageNumb);
   fetchRecipesQuery();
 }
@@ -194,7 +216,7 @@ function loadNextPage() {
   // nextPage = pageNumb + 1;
   testyApiService.incrementPage();
   //loadPage(nextPage);
-  galleryRecipesRef.innerHTML = '';
+  //galleryRecipesRef.innerHTML = '';
   fetchRecipesQuery();
 }
 
@@ -211,28 +233,28 @@ function loadPrevPage() {
   //prevPage = pageNumb - 1;
   testyApiService.decrementPage();
   // loadPage(prevPage);
-  galleryRecipesRef.innerHTML = '';
+  //galleryRecipesRef.innerHTML = '';
   fetchRecipesQuery();
 }
 
 function loadfirstPage() {
   const pageNumb = parseInt(pageOneBtn.textContent);
   testyApiService.setCurrentPage(pageNumb);
-  galleryRecipesRef.innerHTML = '';
+  //galleryRecipesRef.innerHTML = '';
   fetchRecipesQuery();
 }
 
 function loadPageTwo() {
   const pageNumb = parseInt(pageTwoBtn.textContent);
   testyApiService.setCurrentPage(pageNumb);
-  galleryRecipesRef.innerHTML = '';
+  //galleryRecipesRef.innerHTML = '';
   fetchRecipesQuery();
 }
 
 function loadPageThree() {
   const pageNumb = parseInt(pageThreeBtn.textContent);
   testyApiService.setCurrentPage(pageNumb);
-  galleryRecipesRef.innerHTML = '';
+  //galleryRecipesRef.innerHTML = '';
   fetchRecipesQuery();
 }
 

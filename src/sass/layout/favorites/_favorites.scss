@@ -321,6 +321,10 @@ background-image: url("../images/favorites/card@2x.jpg");
     margin: 1px;
     opacity: 0;
   }
+
+  .favorites-pagination-bar{
+    gap: 8px;
+  }
   
   .heart-isActive {
     fill: white;
@@ -331,4 +335,6 @@ background-image: url("../images/favorites/card@2x.jpg");
     color: var(--color-btn-var1);
     background-color: var(--color-active-el);
   }
+  
+
   
