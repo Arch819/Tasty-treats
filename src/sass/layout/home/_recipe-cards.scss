@@ -219,5 +219,7 @@
 @import './pagination-btn';
 
 .is-hidden-pgn {
-  display: none;
+  //display: none;
+  //visibility: hidden;
+  opacity: 0;
 }
