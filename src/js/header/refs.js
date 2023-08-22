@@ -3,7 +3,7 @@ export const refs = {
     modulWindow: document.querySelector('.mobile-menu'),
     closeModalButton: document.querySelector('.close-modal-button'),
     navigationLinks: document.querySelectorAll(
-        '.header-wrapper .header-navigation-list li a'
+        '.header-navigation-list li a'
     ),
     iconMoon: document.querySelectorAll('.icon-moon'),
     iconSun: document.querySelectorAll('.icon-sun'),
