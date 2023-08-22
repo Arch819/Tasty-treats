@@ -22,8 +22,9 @@
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
-    "react": "^18.2.0",
-    "swiper": "^10.2.0"
+    "swiper": "^10.2.0",
+    "tui-pagination": "^3.4.1"
+
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
