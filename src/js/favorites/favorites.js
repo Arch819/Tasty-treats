@@ -1,6 +1,6 @@
 import { renderCategories, renderCards } from './renderFavorites';
 import { emptyRendering, getValuesOfStorage } from './config';
-import { handleFilter, handleHeartClick } from './handleClick';
+import { handleFilter, handleHeartClick } from './handleClickFunctions';
 import {
   conRef,
   favoritesFilterRef,
@@ -24,7 +24,7 @@ const renderPageFavorites = async () => {
     return;
   }
 
-  // ==---------------------------------------Рендеримо сторінку-----------------------------------
+  // ---------------------------------------Рендеримо сторінку-----------------------------------
   const dataCategories = await renderCategories(keyOfLocalStorage);
   const dataCards = await renderCards(keyOfLocalStorage, page, PER_PAGE);
   favoritesFilterRef.innerHTML = dataCategories;
@@ -59,3 +59,16 @@ const renderPageFavorites = async () => {
 };
 
 renderPageFavorites();
+
+// const test = [
+//   { id: '6462a8f74c3d0ddd28897fc2', category: 'Seafood' },
+//   { id: '6462a8f74c3d0ddd28897fde', category: 'Dessert' },
+//   { id: '6462a8f74c3d0ddd28897feb', category: 'Chicken' },
+//   { id: '6462a8f74c3d0ddd28897fc1', category: 'Dessert' },
+//   { id: '6462a8f74c3d0ddd28897fb9', category: 'Lamb' },
+//   { id: '6462a8f74c3d0ddd28897fbc', category: 'Beef' },
+//   { id: '6462a8f74c3d0ddd28897fbf', category: 'Chicken' },
+//   { id: '6462a8f74c3d0ddd288980d4', category: 'Soup' },
+// ];
+
+// localStorage.setItem('favorites', JSON.stringify(test));

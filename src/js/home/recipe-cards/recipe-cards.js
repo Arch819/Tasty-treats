@@ -15,7 +15,25 @@ const selectQueryIngredientsRef = document.querySelector(
 const btnResetFilterRef = document.querySelector('.reset-filter');
 const loaderIndicatorRef = document.querySelector('.loader');
 const btnPaginationBarRef = document.querySelector('.pagination-bar');
-console.log(btnPaginationBarRef);
+//console.log(btnPaginationBarRef);
+
+//  - Pagination -
+const backToFirstPage = document.querySelector('#pag-btn-start');
+const pageOneBtn = document.querySelector('#pag-btn-1');
+const pageTwoBtn = document.querySelector('#pag-btn-2');
+const pageThreeBtn = document.querySelector('#pag-btn-3');
+const lastPageBtn = document.querySelector('#pag-btn-last');
+const nextPagePagBtn = document.querySelector('#pag-btn-next');
+const buttonNumered = document.querySelectorAll('.pag-btn-number');
+const previousPageButton = document.querySelector('#pag-btn-prev');
+
+backToFirstPage.addEventListener('click', backToFirst);
+lastPageBtn.addEventListener('click', loadLastPage);
+nextPagePagBtn.addEventListener('click', loadNextPage);
+previousPageButton.addEventListener('click', loadPrevPage);
+pageOneBtn.addEventListener('click', loadfirstPage);
+pageTwoBtn.addEventListener('click', loadPageTwo);
+pageThreeBtn.addEventListener('click', loadPageThree);
 
 Notify.init({
   position: 'center-center',
@@ -41,8 +59,8 @@ selectQueryIngredientsRef.addEventListener('change', onSeachQueryIngredients);
 btnResetFilterRef.addEventListener('click', onResetFilter);
 
 function onSeachQueryTitle(evt) {
-  evt.preventDefault();
-  //console.log(evt.target.value);
+  //evt.preventDefault();
+  //console.log('inputTitle:', evt.target.value);
   const inputQuery = evt.target.value.trim();
   if (inputQuery === '') return;
   //clearRecipesContainer();
@@ -114,6 +132,8 @@ function fetchRecipesQuery() {
       clearRecipesContainer();
       renderGallery(data.results);
       addToFavorites();
+      changeButtonColor();
+      testyApiService.incrementPage;
       loaderIndicatorRef.classList.add('is-hidden-pgn');
       btnPaginationBarRef.classList.remove('is-hidden-pgn');
     })
@@ -151,22 +171,22 @@ function fetchListIngredients() {
 }
 
 //  - Pagination -
-const backToFirstPage = document.querySelector('#pag-btn-start');
-const pageOneBtn = document.querySelector('#pag-btn-1');
-const pageTwoBtn = document.querySelector('#pag-btn-2');
-const pageThreeBtn = document.querySelector('#pag-btn-3');
-const lastPageBtn = document.querySelector('#pag-btn-last');
-const nextPagePagBtn = document.querySelector('#pag-btn-next');
-const buttonNumered = document.querySelectorAll('.pag-btn-number');
-const previousPageButton = document.querySelector('#pag-btn-prev');
+// const backToFirstPage = document.querySelector('#pag-btn-start');
+// const pageOneBtn = document.querySelector('#pag-btn-1');
+// const pageTwoBtn = document.querySelector('#pag-btn-2');
+// const pageThreeBtn = document.querySelector('#pag-btn-3');
+// const lastPageBtn = document.querySelector('#pag-btn-last');
+// const nextPagePagBtn = document.querySelector('#pag-btn-next');
+// const buttonNumered = document.querySelectorAll('.pag-btn-number');
+// const previousPageButton = document.querySelector('#pag-btn-prev');
 
-backToFirstPage.addEventListener('click', backToFirst);
-lastPageBtn.addEventListener('click', loadLastPage);
-nextPagePagBtn.addEventListener('click', loadNextPage);
-previousPageButton.addEventListener('click', loadPrevPage);
-pageOneBtn.addEventListener('click', loadfirstPage);
-pageTwoBtn.addEventListener('click', loadPageTwo);
-pageThreeBtn.addEventListener('click', loadPageThree);
+// backToFirstPage.addEventListener('click', backToFirst);
+// lastPageBtn.addEventListener('click', loadLastPage);
+// nextPagePagBtn.addEventListener('click', loadNextPage);
+// previousPageButton.addEventListener('click', loadPrevPage);
+// pageOneBtn.addEventListener('click', loadfirstPage);
+// pageTwoBtn.addEventListener('click', loadPageTwo);
+// pageThreeBtn.addEventListener('click', loadPageThree);
 
 function backToFirst() {
   testyApiService.resetPage();
@@ -263,6 +283,7 @@ function loadPageThree() {
 function changeButtonColor() {
   buttonNumered.forEach(button => {
     const pageNumb = parseInt(button.textContent);
+    //console.log(pageNumb);
     //console.log('btn:', pageNumb, 'currentPage', testyApiService.currentPage);
     if (testyApiService.currentPage === pageNumb) {
       button.classList.add('pag-btn-on-hover');

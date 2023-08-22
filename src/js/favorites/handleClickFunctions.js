@@ -1,7 +1,12 @@
-import { favoritesCardsRef, paginationRef } from './favoritRefs';
+import {
+  favoritesCardsRef,
+  paginationRef,
+  favoritesListCardsThumb,
+} from './favoritRefs';
 import { renderCards } from './renderFavorites';
 import { getValuesOfStorage } from './config';
 import { renderQuantityOfPages } from './quantyityOfPages';
+import { emptyItem } from './empty';
 // ========================================змінюємао кнопку на активну====================================
 const PER_PAGE = 12;
 let page = 1;
@@ -50,7 +55,11 @@ const handleFilter = async evt => {
     updatePagination(totalPageCount);
 
     const data = await renderCards(arrayFromFilter, page, PER_PAGE);
+    favoritesCardsRef.style.justifyContent = 'start';
     favoritesCardsRef.innerHTML = data;
+  } else {
+    favoritesCardsRef.style.justifyContent = 'center';
+    favoritesCardsRef.innerHTML = emptyItem();
   }
 };
 
@@ -105,9 +114,5 @@ const handleHeartClick = evt => {
     heartIcon.classList.toggle('heart-isActive');
   }
 };
-
-favoritesCardsRef.addEventListener('click', handleFilter);
-
-paginationRef.addEventListener('click', handlePaginationClick);
 
 export { handleFilter, handleHeartClick, handlePaginationClick };
