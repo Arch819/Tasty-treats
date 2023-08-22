@@ -91,14 +91,19 @@ const form = document.querySelector('.add-rating-form');
 // const starChoosed = document.querySelector('.js-rating-choosed');
 // const starField = document.querySelector('.starability-slot');
 const addRatingEmail = document.querySelector('.add-rating-email');
-const opnModal = function () {
-
-    modal.style.display = 'block';
-    backdrop.style.display = 'block';
-  ;
+const opnElements = document.getElementsByClassName('js-rating');
+for (const opn of opnElements) {
+    opn.addEventListener('click', () => {
+        modal.style.display = 'block';
+        backdrop.style.display = 'block';
+    });
+// console.log(opn)
+// console.log()
+// opn.addEventListener('click', () => {modal.style.display = 'block';
+//   backdrop.style.display = 'block';
 };
-const opn = document.querySelector('.give-rating-btn')
-opn.addEventListener('click', opnModal);
+    
+
 
 // console.log(opn);
 // console.log(opn.currentTurget);
