@@ -38,7 +38,7 @@ export class TastyApiService {
     return fetch(url)
       .then(response => response.json())
       .then(data => {
-        this.incrementPage();
+        //this.incrementPage(); // ->...-cards.js
         return data;
       });
   }
