@@ -15,7 +15,7 @@ const selectQueryIngredientsRef = document.querySelector(
 const btnResetFilterRef = document.querySelector('.reset-filter');
 const loaderIndicatorRef = document.querySelector('.loader');
 const btnPaginationBarRef = document.querySelector('.pagination-bar');
-//console.log(btnPaginationBarRef);
+const formFilters = document.querySelector('.filter-form');
 
 //  - Pagination -
 const backToFirstPage = document.querySelector('#pag-btn-start');
@@ -57,6 +57,11 @@ seachQueryTimeRef.addEventListener('change', onSeachQueryTime);
 seachQueryAreasRef.addEventListener('change', onSeachQueryAreas);
 selectQueryIngredientsRef.addEventListener('change', onSeachQueryIngredients);
 btnResetFilterRef.addEventListener('click', onResetFilter);
+formFilters.addEventListener('submit', onForm);
+
+function onForm(evt) {
+  evt.preventDefault();
+}
 
 function onSeachQueryTitle(evt) {
   //evt.preventDefault();
