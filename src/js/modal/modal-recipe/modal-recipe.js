@@ -2,7 +2,6 @@ import fetchRecipe from './modal-recipeApi';
 import renderRecipe from './modal-recipeRender';
 
 let favorites = [];
-console.log(!!favorites.length);
 
 function hasArrElement(arr, id) {
   const resolt = arr.filter(item => item.id === id);
@@ -38,11 +37,11 @@ const bodyEl = document.querySelector('body');
 const modalWindow = document.querySelector('.modal');
 const modalEl = document.querySelector('.modal-content');
 const backdropEl = document.querySelector('.js-backdrop');
-const cardsEl = document.querySelector('.js-gallery');
+const cardsEl = document.querySelector('.search-recipes');
 cardsEl.addEventListener('click', openModalRecipe);
 
 function openModalRecipe(e) {
-  if (e.target.classList.value === 'card-button') {
+  if (e.target.classList.value === 'js-card-button') {
     toggleDarkTheme();
     let id = e.target.dataset.id;
     fetchRecipe(id).then(obj => {
@@ -55,6 +54,22 @@ function openModalRecipe(e) {
       document.addEventListener('keydown', closeOnBackdrop);
       const favoriteBtn = document.querySelector('.js-favorite');
       const savedFavirites = JSON.parse(localStorage.getItem('favorites'));
+
+      const coverVideoEl = document.querySelector('.cover-video');
+      const videoIcon = document.querySelector('.icon-video');
+      videoIcon.addEventListener('click', hideCoverVideo);
+
+      function hideCoverVideo() {
+        setTimeout(() => {
+          coverVideoEl.classList.add('is-hidden');
+        }, 300);
+        document
+          .getElementById('v1')
+          .contentWindow.postMessage(
+            '{"event":"command","func":"playVideo","args":""}',
+            '*'
+          );
+      }
 
       if (
         JSON.parse(
