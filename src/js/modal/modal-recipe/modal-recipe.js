@@ -41,7 +41,7 @@ const cardsEl = document.querySelector('.search-recipes');
 cardsEl.addEventListener('click', openModalRecipe);
 
 function openModalRecipe(e) {
-  if (e.target.classList.value === 'js-card-button') {
+  if (e.target.classList.contains('js-card-button')) {
     toggleDarkTheme();
     let id = e.target.dataset.id;
     fetchRecipe(id).then(obj => {
