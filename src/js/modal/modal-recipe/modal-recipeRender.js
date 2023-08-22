@@ -43,10 +43,6 @@ export default function renderRecipe({
                 <p class="instructions">
                 ${instructions}
                 </p>
-            </div>
-            <div class="modal-buttons">
-                <button type="button" class="modal-button color js-favorite " data-id=${_id}>Add to favorite</button>
-                <button type="button" class="modal-button js-rating">Give a rating</button>
             </div>`;
 }
 
