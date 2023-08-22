@@ -3,7 +3,7 @@ const modal = document.getElementById('myModal');
 const closeBtn = document.querySelector('.close-create');
 const recipeForm = document.getElementById('recipeForm');
 const ingredientsContainer = document.getElementById('ingredients-create');
-const addIngredientBtn = document.querySelector('.add-ingredient');
+const addIngredientIcon = document.querySelector('.add-ingredient-icon');
 
 function disableBodyScroll() {
   document.body.style.overflow = 'hidden';
@@ -54,7 +54,7 @@ modal.addEventListener('click', event => {
   }
 });
 
-addIngredientBtn.addEventListener('click', () => {
+addIngredientIcon.addEventListener('click', () => {
   const newIngredientDiv = document.createElement('div');
   newIngredientDiv.classList.add('ingredient-create');
 
