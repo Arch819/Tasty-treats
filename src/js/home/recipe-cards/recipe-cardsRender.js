@@ -35,10 +35,10 @@ export function createMarkup(recipes) {
   <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9937 4.70783C9.16096 2.5652 6.10475 1.98884 3.80845 3.95085C1.51215 5.91285 1.18887 9.19323 2.99216 11.5137C4.49148 13.443 9.02894 17.5121 10.5161 18.8291C10.6825 18.9764 10.7656 19.0501 10.8627 19.0791C10.9474 19.1043 11.04 19.1043 11.1247 19.0791C11.2218 19.0501 11.305 18.9764 11.4713 18.8291C12.9585 17.5121 17.4959 13.443 18.9952 11.5137C20.7985 9.19323 20.5147 5.89221 18.179 3.95085C15.8432 2.00948 12.8264 2.5652 10.9937 4.70783Z" fill="#F8F8F8"/>
 </svg>`;
 
-  function generateHeart(id) {
+  function generateHeart(id, category) {
     return `
     <div class="heart-block" id="${id}">
-      <input type="checkbox" class="card-checkbox" id="${id}" aria-label="card-checkbox-for-recipe-N${id}" />
+      <input type="checkbox" class="card-checkbox" id="${id}" data-category="${category}"aria-label="card-checkbox-for-recipe-N${id}" />
       <label for="${id}" class="card-checkbox-label">
         <span class="unchecked-heart">${heartIconGrey}</span>
         <span class="checked-heart">${heartIconWhite}</span>
@@ -53,7 +53,7 @@ export function createMarkup(recipes) {
             <img class="card-image" src="${recipe.preview}" alt="${
         recipe.title
       }">
-            ${generateHeart(recipe._id)}
+            ${generateHeart(recipe._id, recipe.category)}
             <div class="card-content">
               <h3 class="card-heading">${recipe.title}</h3>
               <p class="card-description">${recipe.description}</p>
