@@ -12,9 +12,7 @@ export default function renderRecipe({
   ingredients,
   thumb,
 }) {
-  return `
-
-                        <h2 class="modal__title">${title}</h2>
+  return ` <h2 class="modal__title">${title}</h2>
 
             <div class="modal__video">
                         <div class="cover-video" style="background-image: url(${thumb})">
