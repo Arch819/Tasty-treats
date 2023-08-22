@@ -15,7 +15,7 @@ const selectQueryIngredientsRef = document.querySelector(
 const btnResetFilterRef = document.querySelector('.reset-filter');
 const loaderIndicatorRef = document.querySelector('.loader');
 const btnPaginationBarRef = document.querySelector('.pagination-bar');
-console.log(btnPaginationBarRef);
+//console.log(btnPaginationBarRef);
 
 //  - Pagination -
 const backToFirstPage = document.querySelector('#pag-btn-start');
@@ -284,7 +284,7 @@ function changeButtonColor() {
   buttonNumered.forEach(button => {
     const pageNumb = parseInt(button.textContent);
     //console.log(pageNumb);
-    console.log('btn:', pageNumb, 'currentPage', testyApiService.currentPage);
+    //console.log('btn:', pageNumb, 'currentPage', testyApiService.currentPage);
     if (testyApiService.currentPage === pageNumb) {
       button.classList.add('pag-btn-on-hover');
     } else {
