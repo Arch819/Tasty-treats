@@ -11,6 +11,7 @@ export default function renderRecipe({
   tags,
   ingredients,
   thumb,
+  category,
 }) {
   return ` <h2 class="modal__title">${title}</h2>
 
@@ -43,7 +44,12 @@ export default function renderRecipe({
                 <p class="instructions">
                 ${instructions}
                 </p>
-            </div>`;
+            </div>
+                <div class="modal-buttons">
+      <button type="button" class="modal-button color js-favorite " data-id=${_id} data-category=${category}>Add to favorite</button>
+      <button type="button" class="modal-button js-rating">Give a rating</button>
+    </div>
+            `;
 }
 
 function markupTags(arr) {

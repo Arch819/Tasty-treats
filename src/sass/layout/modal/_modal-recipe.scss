@@ -22,15 +22,30 @@
   top: 20px;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 531px;
+  width: 335px;
   background-color: var(--bg-body-light);
-  padding: 32px;
+  padding: 40px 20px;
   border-radius: 15px;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   color: var(--color-btn-var2);
 }
+
+// .modal {
+//   position: absolute;
+//   top: 20px;
+//   left: 50%;
+//   transform: translate(-50%, 0);
+//   width: 531px;
+//   background-color: var(--bg-body-light);
+//   padding: 32px;
+//   border-radius: 15px;
+//   font-size: 14px;
+//   font-style: normal;
+//   font-weight: 400;
+//   color: var(--color-btn-var2);
+// }
 
 .icon-close {
   fill: var(--color-btn-var2);
@@ -46,8 +61,8 @@
 
 .close-modal {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 14px;
+  right: 14px;
   width: 24px;
   height: 24px;
   display: block;
