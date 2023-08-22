@@ -31,7 +31,9 @@ background-image: url("../images/favorites/card@2x.jpg");
     height: 100%;
   }
 
-  .favorites__empty img {
+  .favorites__empty-img {
+    width: 65px;
+    height: 58px;
     margin-bottom: 24px;
   }
   
@@ -69,7 +71,19 @@ background-image: url("../images/favorites/card@2x.jpg");
   .favorites__list-cards{
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap:24px;
+  }
+
+  .favorites__list-cards-thumb{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 768px){
+    .favorites__list-cards{
+      min-height: 100vh;
+    }
   }
 
   .favorites__cards-item {
@@ -167,14 +181,14 @@ background-image: url("../images/favorites/card@2x.jpg");
     color: var(--color-btn-var1);
   }
   
-  .rating {
+  .favorites__rating {
     display: flex;
     align-items: center;
     font-size: 18px;
     gap: 4px;
   }
   
-  .rating__active {
+  .favorites__rating-active {
     display: flex;
     gap: 4px;
     align-items: center;
@@ -230,7 +244,7 @@ background-image: url("../images/favorites/card@2x.jpg");
     }
   }
 
-      .favorites__empty img {
+      .favorites__empty-img {
         margin-top: 64px;
         margin-bottom: 32px;
       }
@@ -249,14 +263,16 @@ background-image: url("../images/favorites/card@2x.jpg");
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        gap: 16px;
+        gap:16px;
+        min-height: 244px;
       }
 
       .favorites__cards-item img {
         width: 224px;
+        height: 244px;
       }
 
-      .rating__active{
+      .favorites__rating-active{
         gap: 2px;
       }
 
@@ -277,6 +293,10 @@ background-image: url("../images/favorites/card@2x.jpg");
     .favorites__empty{
         padding-top: 100px;
       }
+      .favorites__list-cards{
+        gap: 32px 16px;
+        min-height: 287px;
+      }
 
       .favorites__img{
         width: 1080px;
@@ -292,13 +312,17 @@ background-image: url("../images/favorites/card@2x.jpg");
       background-image: url("../images/favorites/card-desk@2x.jpg");
     }
   }
+  .favorites__cards-item{
+    height: 287px;
+  }
 
   .favorites__cards-item img {
     width: 258px;
+    height: 287px;
   }
   }
   
-  .rating__body {
+  .favorites__rating-body {
     position: relative;
   }
   
@@ -311,13 +335,13 @@ background-image: url("../images/favorites/card@2x.jpg");
     
   }
   
-  .rating__items {
+  .favorites__rating-items {
     position: absolute;
     top: 0;
     right: 0;
   }
   
-  .rating__item {
+  .favorites__rating-item {
     margin: 1px;
     opacity: 0;
   }
