@@ -63,7 +63,7 @@ export function createMarkup(recipes) {
                 <p class="card-rating">${recipe.rating}</p>
                 <div class="eating-stars">${generateStars(recipe.rating)}</div>
               </div>
-              <button class="card-button" data-id="${
+              <button class="card-button js-card-button" data-id="${
                 recipe._id
               }">See recipe</button>
             </div>
