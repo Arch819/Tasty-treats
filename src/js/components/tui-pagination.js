@@ -26,4 +26,4 @@ const options = {
   },
 };
 const pagination = new Pagination(container, options);
-console.log(pagination);
+export { pagination };
