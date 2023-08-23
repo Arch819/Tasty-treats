@@ -151,7 +151,7 @@ function fetchListAreas() {
     .fetchListAreas()
     .then(data => {
       //console.log('getLists', data);
-      markup = data
+      const markup = data
         .map(area => {
           return `<option value="${area.name}" class="area">${area.name}</option>`;
         })
@@ -166,7 +166,7 @@ function fetchListIngredients() {
     .fetchListIngredients()
     .then(data => {
       //console.log('ingredient', data);
-      markup = data
+      const markup = data
         .map(ingredient => {
           return `<option value="${ingredient._id}" class="area">${ingredient.name}</option>`;
         })
