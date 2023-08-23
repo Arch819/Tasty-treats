@@ -1,5 +1,5 @@
-import '../header/header';
-import '../header/_switch-themes';
+// import '../header/header';
+// import '../header/_switch-themes';
 import { renderCategories, renderCards } from './renderFavorites';
 import { emptyRendering, getValuesOfStorage } from './config';
 import { handleFilter, handleHeartClick } from './handleClickFunctions';
@@ -9,16 +9,17 @@ import {
   favoritesCardsRef,
   paginationRef,
 } from './favoritRefs';
+import { paginationFav } from './favPagination';
 import { renderQuantityOfPages } from './quantyityOfPages';
-
-const PER_PAGE = 12;
+let totalPage = 20;
+const PER_PAGE = 13;
 let page = 1;
 
 // -------------------------------------------основна функція та логіка сторінки Favorites--------------------------
 
 const renderPageFavorites = async () => {
   const keyOfLocalStorage = getValuesOfStorage('favorites'); // Беремо значення з localStorage
-  paginationRef.style.display = 'none';
+  // paginationRef.style.display = 'none';
 
   // =--------------------------------------LocalStorage не існує або порожній масив----------------------
   if (!keyOfLocalStorage || keyOfLocalStorage.length === 0) {
@@ -36,20 +37,19 @@ const renderPageFavorites = async () => {
 
   // перевіряємо довжину значення з LocalStorage-------------------------
 
-  const pageCount = keyOfLocalStorage.length;
+  const pageCount = Math.ceil(keyOfLocalStorage.length / PER_PAGE);
 
-  if (pageCount < PER_PAGE) {
-    paginationRef.style.display = 'none';
-  } else {
-    const dataPages = renderQuantityOfPages(pageCount, PER_PAGE);
-    const pagBarRef = document.querySelector('.pagination-bar');
-    pagBarRef.firstElementChild.insertAdjacentHTML(
-      'beforeend',
-      dataPages.join('')
-    );
+  // if (pageCount < PER_PAGE) {
+  //   paginationRef.style.display = 'none';
+  // } else {
+  //   const dataPages = renderQuantityOfPages(pageCount, PER_PAGE);
+  //   paginationRef.firstElementChild.insertAdjacentHTML(
+  //     'beforeend',
+  //     dataPages.join('')
+  //   );
 
-    paginationRef.style.display = 'flex';
-  }
+  // paginationRef.style.display = 'flex';
+  // }
 
   // додаємо обробник подій на контейнер щоб обрати сердечко на всіх картках. Делегування подій---------------------------------
   cardContainer.addEventListener('click', handleHeartClick);
@@ -61,6 +61,8 @@ const renderPageFavorites = async () => {
 };
 
 renderPageFavorites();
+
+paginationFav(totalPage, 1);
 
 // const test = [
 //   { id: '6462a8f74c3d0ddd28897fc2', category: 'Seafood' },

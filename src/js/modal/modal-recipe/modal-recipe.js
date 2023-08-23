@@ -44,7 +44,7 @@ function addToFavorite(event) {
   event.target.textContent = 'Remove from favorites';
 }
 
-refs.cardsEl.addEventListener('click', openModalRecipe);
+// refs.cardsEl.addEventListener('click', openModalRecipe);
 
 function openModalRecipe(e) {
   if (e.target.classList.contains('js-card-button')) {

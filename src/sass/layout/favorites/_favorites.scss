@@ -346,9 +346,7 @@ background-image: url("../images/favorites/card@2x.jpg");
     opacity: 0;
   }
 
-  .favorites-pagination-bar{
-    gap: 8px;
-  }
+  
   
   .heart-isActive {
     fill: white;
@@ -360,5 +358,93 @@ background-image: url("../images/favorites/card@2x.jpg");
     background-color: var(--color-active-el);
   }
   
+// ==================================================fav-pagination-======================
+.favorites__pagination{
+  display: flex;
+  justify-content: center;
+    gap: 8px;
+}  
 
+.favorites__pagination-item{  
+  display: flex;
+  justify-content: center;
+    align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border:solid 1px var(--color-categories-text-l);
+  cursor: pointer;  
+}
+
+.favorites__pagination-item:active{
+  background-color: var(--color-active-el);
+  border: solid 1px transparent;
+}
+
+.favorites__pag-container{
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-text-light);
+}
+
+.favorites__start-arrow-first,
+.favorites__start-arrow-second,
+.favorites__prew-arrow{
+    width: 24px;
+    height: 24px;
+    transform: rotate(180deg);
+    fill: var(--color-btn-var1);
+    opacity: 0.5;
+  }
+  .favorites__start-arrow-second{
+    position: absolute;
+    top: 10px;
+    left: 14px;
+  }
+
+  .favorites__start-arrow-first{
+    position: absolute;
+    top: 10px;
+    left: 6;
+  }
+  .favorites__prew-arrow{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .favorites__next-arrow{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+    fill: var(--color-btn-var1);
+    opacity: 0.5;
+  }
+
+  .favorites__end-arrow-first,
+  .favorites__end-arrow-second{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    
+    fill: var(--color-btn-var1);
+    opacity: 0.5;
+  }
+
+  .favorites__end-arrow-first{
+    top: 10px;
+    left: 6px;
+  }
+  .favorites__end-arrow-second{
+    top: 10px;
+    left: 14px;
+  }
+
+  .favorites__pag-page{
+    color: var(--color-btn-var2)
+  }
   

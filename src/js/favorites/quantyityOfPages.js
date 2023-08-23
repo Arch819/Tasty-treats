@@ -7,5 +7,7 @@ export const renderQuantityOfPages = quantity => {
 };
 
 const createPaginationEl = num => {
-  return `<div class="pag-btn-block pag-btn-block-container"><button id="pag-btn-1" class="pag-btn-white pag-btn-number" type="button" aria-label="page 1">${num}</button></div>`;
+  return `<div class="pag-btn-block pag-btn-block-container">
+  <button id="pag-btn-1" class="pag-btn-white pag-btn-number" type="button" aria-label="page 1">${num}</button>
+  </div>`;
 };
