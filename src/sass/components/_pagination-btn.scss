@@ -1,0 +1,47 @@
+.tui-pagination {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  height: 44px;
+  font-size: 0;
+}
+.tui-page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  border-radius: 50%;
+  color: var(--color-text-light);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 122.222%;
+  border: 1px solid var(--color-categories-text-l);
+}
+.tui-page-btn:active {
+  background-color: var(--bg-btn-var1);
+}
+.tui-prev {
+  margin-left: 8px;
+  margin-right: 24px;
+}
+.tui-next {
+  margin-left: 24px;
+  margin-right: 8px;
+}
+.tui-first,
+.tui-prev {
+  background-color: var(--color-text-light);
+  border: var(--bg-btn-var2);
+  font-size: 0;
+}
+.tui-page-btn.tui-is-selected {
+  border-color: var(--bg-btn-var1);
+  background-color: var(--bg-btn-var1);
+}
+.tui-next,
+.tui-last {
+  background-color: var(--bg-btn-var1);
+  border: var(--bg-btn-var2);
+  font-size: 0;
+}

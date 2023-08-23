@@ -3,7 +3,9 @@
 }
 .hero__wrap {
   //   padding-right: 0;
-    overflow: hidden;
+  //   overflow: hidden;
+  // padding-bottom: 60px;  
+  // position: relative;
 }
 
 .swiper-wrap {
@@ -65,8 +67,7 @@
   border: 1px solid #9bb537;
 
 }
-.phone {
-}
+
 .hero-button {
   color: #050505;
   font-family: Inter;
@@ -99,6 +100,7 @@
   gap: 8px;
 }
 .swiper-container {
+  height: px;
   // display: flex;
   // flex-direction: column;
   // gap: 4px;
@@ -173,15 +175,13 @@
   background-color: var(--color-btn-var2);
 }
 
-.swiper-container {
 
-  position: relative;
-}
+
 .swiper-pagination {
-  margin: 24px 0 0 155px;
-  // width: 100px;
-  // height: 50px;
-  border: 1px solid #000;
+ 
+ position: reletive !important;
+ margin-top: 20px;
+  
   
 }
 span.swiper-pagination-bullet {
@@ -267,7 +267,7 @@ span.swiper-pagination-bullet-active {
     width: 351px;
   }
   .swiper-pagination {
-      margin-left: 300px;
+      // margin-left: 300px;
   
   }
 }
