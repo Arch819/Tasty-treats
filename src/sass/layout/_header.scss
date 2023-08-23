@@ -90,21 +90,11 @@
   display: none;
 }
 
-.navigation-link.current-link {
-  color: var(--color-active-el);
-}
-
 .switch {
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
   margin: 0;
-}
-
-.header-navigation-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 
 .header-wrapper {
@@ -225,6 +215,16 @@
 
 .modal-open {
   overflow: hidden;
+}
+
+.header-navigation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .navigation-link.current-link {
+    color: var(--color-active-el);
+  }
 }
 
 /* Світч */

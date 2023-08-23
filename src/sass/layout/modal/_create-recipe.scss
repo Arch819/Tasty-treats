@@ -13,7 +13,7 @@
   padding: 20px;
   border: 1px solid #888;
   border-radius: 15px;
-  background: #fff;
+  background: var(--color-text-d);
 
   width: 100%;
   overflow-y: auto;
@@ -29,7 +29,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     height: calc(100% - 80px);
-    position: absolute; /* Змініть на position: fixed; */
+    position: absolute;
     overflow: auto;
   }
   .ingredient-create {
@@ -112,8 +112,8 @@
   align-items: center;
   border-radius: 15px;
   border: transparent;
-  background: #9bb537;
-  color: #f8f8f8;
+  background: var(--color-active-el);
+  color: var(--color-btn-var1);
   font-family: Inter;
   font-size: 14px;
   font-weight: 500;
@@ -124,11 +124,11 @@
 }
 .btn-create:hover,
 .btn-create:focus {
-  color: #050505;
+  color: var(--color-text-light);
 }
 
 .label-recipe-name {
-  color: #050505;
+  color: var(--color-text-light);
   font-size: 18px;
   text-transform: uppercase;
   font-weight: 600;
@@ -146,27 +146,27 @@
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  color: rgba(5, 5, 5, 0.5);
+  color: var(--color-input-placeholder-l);
   font-family: Inter;
   font-size: 18px;
   font-weight: 500;
   display: block;
   cursor: pointer;
-  border: 1px solid rgba(5, 5, 5, 0.2);
+  border: var(--border-input-l);
   background: transparent;
   margin-top: 15px;
 }
 .create-recipe-btn:hover,
 .create-recipe-btn:focus {
-  background: #9bb537;
-  color: #f8f8f8;
+  background: var(--bg-btn-var1);
+  color: var(--color-btn-var1);
 }
 .input-create,
 .ingredient-name,
 .ingredient-amount {
   padding: 8px 12px;
   border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
+  border: var(--border-input-l);
   margin-bottom: 8px;
   margin-right: 3px;
   margin-top: 8px;
@@ -177,26 +177,36 @@
 .textarea-create {
   padding: 14px 18px;
   border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
+  border: var(--border-input-l);
   margin-bottom: 15px;
   margin-top: 8px;
-  resize: none; /* Заборонити зміну розміру */
+  resize: none;
 
   box-sizing: border-box;
 }
 .label-flex {
   display: flex;
 }
-.add-ingredient,
-.remove-ingredient-create {
+.add-ingredient {
   height: 25px;
   margin-top: auto;
   margin-bottom: auto;
 }
 .plus-button-svg {
   fill: var(--color-input-placeholder-l);
-  display: inline-block; /* Додайте цей рядок */
+  display: inline-block;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 3px;
+}
+.remove-ingredient-create {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.remove-ingredient-svg {
+  fill: var(--color-input-placeholder-l);
+  display: inline-block;
+  vertical-align: middle;
 }
