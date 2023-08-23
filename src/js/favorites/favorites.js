@@ -10,8 +10,8 @@ import {
   paginationRef,
 } from './favoritRefs';
 import { paginationFav } from './favPagination';
-const PER_PAGE = 3;
-let page = 2;
+const PER_PAGE = 1;
+let page = 1;
 
 // const getValuesOfStorage = storedData => {
 //   return JSON.parse(localStorage.getItem(storedData));

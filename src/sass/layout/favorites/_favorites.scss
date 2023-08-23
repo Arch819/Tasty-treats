@@ -72,6 +72,7 @@ background-image: url("../images/favorites/card@2x.jpg");
     display: flex;
     flex-direction: column;
     gap:24px;
+    margin-bottom: 40px;
   }
 
   .favorites__list-cards-thumb{
@@ -369,8 +370,8 @@ background-image: url("../images/favorites/card@2x.jpg");
   display: flex;
   justify-content: center;
     align-items: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border:solid 1px var(--color-categories-text-l);
   cursor: pointer;  
@@ -383,8 +384,8 @@ background-image: url("../images/favorites/card@2x.jpg");
 
 .favorites__pag-container{
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: var(--color-text-light);
 }
@@ -394,31 +395,34 @@ background-image: url("../images/favorites/card@2x.jpg");
 .favorites__prew-arrow{
     width: 24px;
     height: 24px;
-    transform: rotate(180deg);
+    transform: translate(-50%, -50%) rotate(180deg);
     fill: var(--color-btn-var1);
     opacity: 0.5;
   }
   .favorites__start-arrow-second{
     position: absolute;
-    top: 10px;
-    left: 14px;
+    top: 50%;
+    left: 60%;
   }
 
   .favorites__start-arrow-first{
     position: absolute;
-    top: 10px;
-    left: 6;
+    top: 50%;
+    left: 40%;
   }
   .favorites__prew-arrow{
     position: absolute;
-    top: 10px;
-    left: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
   }
 
   .favorites__next-arrow{
     position: absolute;
-    top: 10px;
-    left: 10px;
+  top: 50%;
+  left: 50%;
+  
+  transform: translate(-50%, -50%);
     width: 24px;
     height: 24px;
     fill: var(--color-btn-var1);
@@ -430,22 +434,27 @@ background-image: url("../images/favorites/card@2x.jpg");
     width: 24px;
     height: 24px;
     position: absolute;
+    transform: translate(-50%, -50%);
     
     fill: var(--color-btn-var1);
     opacity: 0.5;
   }
 
   .favorites__end-arrow-first{
-    top: 10px;
-    left: 6px;
+    top: 50%;
+    left: 40%;
   }
   .favorites__end-arrow-second{
-    top: 10px;
-    left: 14px;
+    top: 50%;
+    left: 60%;
   }
 
   .favorites__pag-page{
-    color: var(--color-btn-var2)
+    font-family: Inter;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
   }
   
   .favorites__start-arrow-first-thumb{
