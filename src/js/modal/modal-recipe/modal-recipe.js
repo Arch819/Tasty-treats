@@ -58,8 +58,8 @@ function openModalRecipe(e) {
       const savedFavirites = JSON.parse(localStorage.getItem('favorites'));
 
       const coverVideoEl = document.querySelector('.cover-video');
-      const videoIcon = document.querySelector('.icon-video');
-      videoIcon.addEventListener('click', hideCoverVideo);
+      const playBtn = document.querySelector('.playBtn');
+      playBtn.addEventListener('click', hideCoverVideo);
 
       function hideCoverVideo() {
         setTimeout(() => {
@@ -113,8 +113,8 @@ function closeOnBackdrop(e) {
 
 function toggleDarkTheme() {
   if (bodyEl.classList.contains('dark')) {
-    modalWindow.classList.add('black');
+    modalWindow.classList.add('dark-theme');
   } else {
-    modalWindow.classList.remove('black');
+    modalWindow.classList.remove('dark-theme');
   }
 }
