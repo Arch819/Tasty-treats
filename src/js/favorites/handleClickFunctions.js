@@ -4,7 +4,8 @@ import { renderCards } from './renderFavorites';
 import { getValuesOfStorage } from './cardElement';
 import { emptyItem } from './cardElement';
 // ========================================змінюємао кнопку на активну====================================
-const PER_PAGE = 1;
+
+const PER_PAGE = 12;
 let page = 1;
 
 const checkFilterBtn = evt => {
@@ -49,16 +50,15 @@ const handleFilter = async evt => {
   }
 };
 
-const handlePaginationClick = async evt => {
-  if (evt.target.classList.contains('pag-btn-number')) {
-    page = Number(evt.target.textContent);
+// const handlePaginationClick = async evt => {
+//   if (evt.target.classList.contains('pag-btn-number')) {
+//     page = Number(evt.target.textContent);
 
-    const filterValue = getValuesOfStorage('favorites');
-    console.log(filterValue);
-    const data = await renderCards(filterValue, page, PER_PAGE);
-    favoritesCardsRef.innerHTML = data;
-  }
-};
+//     const filterValue = getValuesOfStorage('favorites');
+//     const data = await renderCards(filterValue, page, PER_PAGE);
+//     favoritesCardsRef.innerHTML = data;
+//   }
+// };
 
 // ----------------------------------heart---------------------------------
 
