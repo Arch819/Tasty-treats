@@ -1,55 +1,44 @@
 import { FechRecipe } from './fechRecipeApi';
 
+const LOCAL_KEY = 'favorites';
+
 export function addToFavorites() {
   const heartCheckBoxRef = document.querySelectorAll('.card-checkbox');
-  //console.log('heartCheckBoxRef ', heartCheckBoxRef);
 
   heartCheckBoxRef.forEach(checkbox => {
     checkbox.addEventListener('change', onCheckboxChange);
   });
 
-  let selectedHeart = [];
+  let selectedHeart = []; // from local storage
   checkAndReadStorage();
-
-  // Для запроса карточки по ID
-  // const fechRecipe = new FechRecipe();
-  // console.log(fechRecipe);
 
   function onCheckboxChange(evt) {
     const checkbox = evt.target;
-    // console.dir(evt.target);
-    // console.log(evt.target.id);
-
     const checkboxId = checkbox.id;
-    // Запрос карточки рецепта по ID
+    const checkboxCategory = checkbox.dataset.category;
 
-    //
-
-    // Idcard-to-or-from-Arr
-    //console.log('arr-begin: ', selectedHeart);
     if (checkbox.checked) {
-      selectedHeart.push(checkboxId);
+      selectedHeart.push({ id: checkboxId, category: checkboxCategory });
     } else {
-      const index = selectedHeart.indexOf(checkboxId);
-      if (index !== -1) {
-        selectedHeart.splice(index, 1);
-      }
+      index = selectedHeart.findIndex(cardHeart => cardHeart.id == checkboxId);
+      selectedHeart.splice(index, 1);
     }
     const heartCheckBoxElLocalStorage = JSON.stringify(selectedHeart);
-    localStorage.setItem('favoriteRecipe', heartCheckBoxElLocalStorage);
-    //console.log('arr-end: ', selectedHeart);
+    localStorage.setItem('favorites', heartCheckBoxElLocalStorage);
   }
 
   function checkAndReadStorage() {
-    const storedData = localStorage.getItem('favoriteRecipe');
+    const storedData = localStorage.getItem('favorites');
     if (storedData) {
       selectedHeart = JSON.parse(storedData);
-
       heartCheckBoxRef.forEach(checkbox => {
         const checkboxId = checkbox.id;
-        if (selectedHeart.includes(checkboxId)) {
-          checkbox.checked = true;
-        }
+
+        selectedHeart.forEach(favoriteId => {
+          if (checkboxId === favoriteId.id) {
+            checkbox.checked = true;
+          }
+        });
       });
     }
   }

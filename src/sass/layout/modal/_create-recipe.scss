@@ -10,7 +10,7 @@
 }
 
 .modal-content-create {
-  padding: 30px;
+  padding: 20px;
   border: 1px solid #888;
   border-radius: 15px;
   background: #fff;
@@ -20,6 +20,7 @@
   position: absolute;
   box-sizing: border-box;
   max-height: 80vh;
+  position: relative;
 }
 @media screen and (max-width: 374px) {
   .modal-content-create {
@@ -27,6 +28,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
+    height: calc(100% - 80px);
+    position: absolute; /* Змініть на position: fixed; */
+    overflow: auto;
   }
   .ingredient-create {
     flex-direction: column;
@@ -42,9 +46,6 @@
   }
   .add-ingredient {
     margin-bottom: 5px;
-  }
-  .recipe-form {
-    overflow: auto;
   }
 }
 
@@ -65,13 +66,13 @@
 @media screen and (min-width: 768px) {
   .modal-content-create {
     width: 400px;
-    padding: 40px 40px;
+    padding: 20px 40px;
   }
 }
 @media screen and (min-width: 1280px) {
   .modal-content-create {
     width: 500px;
-    height: 415px;
+    height: 435px;
   }
   .ingredient-create {
     flex-direction: row;
@@ -90,12 +91,13 @@
   display: flex;
 }
 .close-create {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  position: sticky;
+  top: 0px;
+  left: 100%;
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
+  z-index: 1;
 }
 
 .close-create:hover,
@@ -134,7 +136,7 @@
 }
 
 .label-create {
-  margin-bottom: 8px;
+  margin-top: 8px;
 }
 .label-create:not(:last-child) {
   margin-right: 120px;
@@ -177,6 +179,7 @@
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
   margin-bottom: 15px;
+  margin-top: 8px;
   resize: none; /* Заборонити зміну розміру */
 
   box-sizing: border-box;
@@ -189,4 +192,11 @@
   height: 25px;
   margin-top: auto;
   margin-bottom: auto;
+}
+.plus-button-svg {
+  fill: var(--color-input-placeholder-l);
+  display: inline-block; /* Додайте цей рядок */
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 3px;
 }

@@ -1,5 +1,7 @@
-import Swiper from 'swiper';
+import Swiper from 'swiper/swiper-bundle.min.mjs';
+
 import 'swiper/swiper-bundle.min.css';
+
 import { fetchEvent } from "./heroApi";
 import { eventRender } from './heroRender';
 
@@ -8,13 +10,13 @@ const swiperEvent = document.querySelector(".swiper-wrapper");
 fetchEvent().then(data => {
     swiperEvent.insertAdjacentHTML('beforeend', eventRender(data));
     const swiper = new Swiper('.swiper', {
-      // modules: [Pagination, Navigation, Autoplay], 
+     
       allowSlideNext: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
         type: 'bullets',
-        dynamicBullets: true,
+       
       },
    spaceBetween: 10,
       autoplay: {
@@ -30,5 +32,6 @@ fetchEvent().then(data => {
     invert: true,
   },
     });
+  
   }
 );
