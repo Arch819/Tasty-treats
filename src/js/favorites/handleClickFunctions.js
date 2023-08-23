@@ -5,8 +5,8 @@ import {
 } from './favoritRefs';
 import { paginationFav } from './favPagination';
 import { renderCards } from './renderFavorites';
-import { getValuesOfStorage } from './config';
-import { emptyItem } from './empty';
+import { getValuesOfStorage } from './cardElement';
+import { emptyItem } from './cardElement';
 // ========================================змінюємао кнопку на активну====================================
 const PER_PAGE = 3;
 let page = 1;

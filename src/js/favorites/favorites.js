@@ -1,8 +1,8 @@
 import '../header/header';
 import '../header/_switch-themes';
 import { renderCategories, renderCards } from './renderFavorites';
-import { emptyRendering, getValuesOfStorage } from './config';
 import { handleFilter, handleHeartClick } from './handleClickFunctions';
+import { getValuesOfStorage, emptyRendering } from './cardElement';
 import {
   conRef,
   favoritesFilterRef,
@@ -13,10 +13,15 @@ import { paginationFav } from './favPagination';
 const PER_PAGE = 3;
 let page = 2;
 
+// const getValuesOfStorage = storedData => {
+//   return JSON.parse(localStorage.getItem(storedData));
+// };
+
 // -------------------------------------------основна функція та логіка сторінки Favorites--------------------------
 
 const renderPageFavorites = async () => {
   const keyOfLocalStorage = getValuesOfStorage('favorites'); // Беремо значення з localStorage
+
   paginationRef.style.display = 'none';
 
   // =--------------------------------------LocalStorage не існує або порожній масив----------------------
