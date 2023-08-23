@@ -73,7 +73,11 @@ addIngredientIcon.addEventListener('click', () => {
 
   const removeIngredientBtn = document.createElement('button');
   removeIngredientBtn.type = 'button';
-  removeIngredientBtn.textContent = '-';
+removeIngredientBtn.innerHTML = `
+  <svg class="remove-ingredient-svg" width="20" height="20">
+    <use href="./images/sprite.svg#icon-minus" class="remove-button-icon"></use>
+  </svg>
+`;
   removeIngredientBtn.classList.add('remove-ingredient-create');
   removeIngredientBtn.addEventListener('click', () => {
     ingredientsContainer.removeChild(newIngredientDiv);
