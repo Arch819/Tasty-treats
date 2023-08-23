@@ -26,6 +26,7 @@ const lastPageBtn = document.querySelector('#pag-btn-last');
 const nextPagePagBtn = document.querySelector('#pag-btn-next');
 const buttonNumered = document.querySelectorAll('.pag-btn-number');
 const previousPageButton = document.querySelector('#pag-btn-prev');
+const btnWithDotsRight = document.querySelector('#pag-btn-dots-right');
 
 backToFirstPage.addEventListener('click', backToFirst);
 lastPageBtn.addEventListener('click', loadLastPage);
@@ -249,8 +250,8 @@ function loadNextPage() {
 
 function loadPrevPage() {
   //console.log('loadPrevPage --- ','on Btn ', pageOneBtn.textContent, 'currentPage', testyApiService.currentPage);
-  //if (pageOneBtn.textContent != '1') {
-  if (parseInt(pageOneBtn.textContent) > 2) {
+  if (pageOneBtn.textContent != '1') {
+    //if (parseInt(pageOneBtn.textContent) > 2) {
     buttonNumered.forEach(button => {
       button.textContent--;
       // pageNumb=button.textContent
@@ -296,4 +297,10 @@ function changeButtonColor() {
       button.classList.remove('pag-btn-on-hover');
     }
   });
+  //
+  if (testyApiService.currentPage > 32 - 2) {
+    btnWithDotsRight.classList.add('btn_hidden');
+  } else {
+    btnWithDotsRight.classList.remove('btn_hidden');
+  }
 }
