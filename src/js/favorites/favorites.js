@@ -1,5 +1,5 @@
-// import '../header/header';
-// import '../header/_switch-themes';
+import '../header/header';
+import '../header/_switch-themes';
 import { renderCategories, renderCards } from './renderFavorites';
 import { emptyRendering, getValuesOfStorage } from './config';
 import { handleFilter, handleHeartClick } from './handleClickFunctions';
@@ -10,16 +10,14 @@ import {
   paginationRef,
 } from './favoritRefs';
 import { paginationFav } from './favPagination';
-import { renderQuantityOfPages } from './quantyityOfPages';
-let totalPage = 20;
-const PER_PAGE = 13;
-let page = 1;
+const PER_PAGE = 3;
+let page = 2;
 
 // -------------------------------------------основна функція та логіка сторінки Favorites--------------------------
 
 const renderPageFavorites = async () => {
   const keyOfLocalStorage = getValuesOfStorage('favorites'); // Беремо значення з localStorage
-  // paginationRef.style.display = 'none';
+  paginationRef.style.display = 'none';
 
   // =--------------------------------------LocalStorage не існує або порожній масив----------------------
   if (!keyOfLocalStorage || keyOfLocalStorage.length === 0) {
@@ -33,26 +31,17 @@ const renderPageFavorites = async () => {
   favoritesFilterRef.innerHTML = dataCategories;
   favoritesCardsRef.innerHTML = dataCards;
 
-  const cardContainer = document.querySelector('.favorites__list-cards');
-
   // перевіряємо довжину значення з LocalStorage-------------------------
 
   const pageCount = Math.ceil(keyOfLocalStorage.length / PER_PAGE);
 
-  // if (pageCount < PER_PAGE) {
-  //   paginationRef.style.display = 'none';
-  // } else {
-  //   const dataPages = renderQuantityOfPages(pageCount, PER_PAGE);
-  //   paginationRef.firstElementChild.insertAdjacentHTML(
-  //     'beforeend',
-  //     dataPages.join('')
-  //   );
-
-  // paginationRef.style.display = 'flex';
-  // }
+  if (pageCount > 1) {
+    paginationRef.style.display = 'flex';
+    paginationFav(pageCount, page);
+  }
 
   // додаємо обробник подій на контейнер щоб обрати сердечко на всіх картках. Делегування подій---------------------------------
-  cardContainer.addEventListener('click', handleHeartClick);
+  favoritesCardsRef.addEventListener('click', handleHeartClick);
 
   // ==============Додаємо обробник подій на фільтр===============
 
@@ -60,9 +49,67 @@ const renderPageFavorites = async () => {
   filterRef.addEventListener('click', handleFilter);
 };
 
-renderPageFavorites();
+paginationRef.addEventListener('click', async evt => {
+  const keyOfLocalStorage = getValuesOfStorage('favorites');
+  const pageCount = Math.ceil(keyOfLocalStorage.length / PER_PAGE);
 
-paginationFav(totalPage, 1);
+  if (evt.target.closest('.start-container')) {
+    page = 1;
+    console.log(evt);
+
+    const dataCards = await renderCards(keyOfLocalStorage, page, PER_PAGE);
+    favoritesCardsRef.innerHTML = dataCards;
+
+    paginationFav(pageCount, page);
+    return page;
+  }
+
+  if (evt.target.closest('.favorites__prew-arrow')) {
+    page -= 1;
+    console.log(evt);
+
+    const dataCards = await renderCards(keyOfLocalStorage, page, PER_PAGE);
+    favoritesCardsRef.innerHTML = dataCards;
+
+    paginationFav(pageCount, page);
+    return page;
+  }
+  if (evt.target.closest('.favorites__pag-page')) {
+    try {
+      page = Number(evt.target.textContent);
+
+      const dataCards = await renderCards(keyOfLocalStorage, page, PER_PAGE);
+      favoritesCardsRef.innerHTML = dataCards;
+
+      paginationFav(pageCount, page);
+      return page;
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  }
+
+  if (evt.target.closest('.favorites__next-arrow')) {
+    page += 1;
+    console.log(evt);
+
+    const dataCards = await renderCards(keyOfLocalStorage, page, PER_PAGE);
+    favoritesCardsRef.innerHTML = dataCards;
+
+    paginationFav(pageCount, page);
+    return page;
+  }
+
+  if (evt.target.closest('.end-container')) {
+    page = pageCount;
+
+    const dataCards = await renderCards(keyOfLocalStorage, page, PER_PAGE);
+    favoritesCardsRef.innerHTML = dataCards;
+
+    paginationFav(pageCount, page);
+    return page;
+  }
+});
+renderPageFavorites();
 
 // const test = [
 //   { id: '6462a8f74c3d0ddd28897fc2', category: 'Seafood' },

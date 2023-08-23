@@ -3,12 +3,12 @@ import {
   paginationRef,
   favoritesListCardsThumb,
 } from './favoritRefs';
+import { paginationFav } from './favPagination';
 import { renderCards } from './renderFavorites';
 import { getValuesOfStorage } from './config';
-import { renderQuantityOfPages } from './quantyityOfPages';
 import { emptyItem } from './empty';
 // ========================================змінюємао кнопку на активну====================================
-const PER_PAGE = 12;
+const PER_PAGE = 3;
 let page = 1;
 
 const checkFilterBtn = evt => {
@@ -36,8 +36,8 @@ const handleFilter = async evt => {
   // ===================================================перевіряємо якщо натиснули на All category====================================
   if (target.textContent === 'All categories') {
     page = 1; //скидаємо сторінку
-    const totalPageCount = Math.ceil(filterValue.length / PER_PAGE);
-    updatePagination(totalPageCount); // оновлюємо пагінацію
+    const totalPage = Math.ceil(filterValue.length / PER_PAGE);
+    paginationFav(totalPage, page); // оновлюємо пагінацію
 
     const data = await renderCards(filterValue, page, PER_PAGE);
     favoritesCardsRef.innerHTML = data;
@@ -69,7 +69,6 @@ const updatePagination = pageCount => {
     paginationRef.style.display = 'none';
     return;
   }
-  const dataPages = renderQuantityOfPages(pageCount, PER_PAGE);
   paginationRef.firstElementChild.innerHTML = dataPages.join('');
   paginationRef.style.display = 'flex';
 };
