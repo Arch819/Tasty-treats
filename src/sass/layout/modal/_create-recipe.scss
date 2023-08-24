@@ -14,12 +14,10 @@
   border: 1px solid #888;
   border-radius: 15px;
   background: var(--color-text-d);
-
-  // width: 100%;
   overflow-y: auto;
   position: absolute;
   box-sizing: border-box;
-  max-height: 80vh;
+  max-height: 90vh;
   position: relative;
 }
 @media screen and (max-width: 374px) {
@@ -72,7 +70,7 @@
 @media screen and (min-width: 1280px) {
   .modal-content-create {
     width: 500px;
-    height: 485px;
+    height: 90vh;
   }
   .ingredient-create {
     flex-direction: row;
@@ -107,9 +105,7 @@
   text-decoration: none;
   cursor: pointer;
 }
-// .close-right {
-//   right: 10px; /* Додайте цей рядок */
-// }
+
 .btn-create {
   padding: 14px 16px;
   justify-content: center;
@@ -119,12 +115,14 @@
   background: var(--color-active-el);
   color: var(--color-btn-var1);
   font-family: Inter;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   display: block;
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
+  font-family: Inter, sans-serif;
+  transition: color var(--transition);
 }
 .btn-create:hover,
 .btn-create:focus {
@@ -158,11 +156,13 @@
   cursor: pointer;
   border: var(--border-input-l);
   background: transparent;
-  margin-top: 15px;
+  margin-top: 47px;
+  font-family: Inter, sans-serif;
+  transition: background-color var(--transition);
 }
 .create-recipe-btn:hover,
 .create-recipe-btn:focus {
-  background: var(--bg-btn-var1);
+  background-color: var(--bg-btn-var1);
   color: var(--color-btn-var1);
 }
 .input-create,
@@ -182,7 +182,7 @@
   padding: 14px 18px;
   border-radius: 15px;
   border: var(--border-input-l);
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   margin-top: 8px;
   resize: none;
 
@@ -210,4 +210,36 @@
   padding: 0;
   cursor: pointer;
   margin-right: auto;
+}
+#recipeImagePreview {
+  max-width: 100%;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type='file']::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+input[type='file']::before {
+  content: 'Add photo';
+  display: inline-block;
+  background: #aaa;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  transition: background-color var(--transition);
+}
+
+input[type='file']:hover::before {
+  background-color: var(--color-input-placeholder-l);
 }

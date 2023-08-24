@@ -6,15 +6,13 @@ import { favoritesCardsRef } from './favoritRefs';
 // pageCount === кількість сторінок
 // page === сторінка
 
-let page = null;
-
 export const handleFavPagination = async (
   evt,
   keyOfLocalStorage,
   PER_PAGE,
   pageCount
 ) => {
-  page = Number(localStorage.getItem('page'));
+  let page = Number(localStorage.getItem('page'));
   if (!page) {
     page = 1;
   }
@@ -26,7 +24,6 @@ export const handleFavPagination = async (
 
     paginationFav(pageCount, page);
     localStorage.setItem('page', page);
-    return page;
   }
 
   if (evt.target.closest('.favorites__prew-arrow')) {
@@ -38,7 +35,6 @@ export const handleFavPagination = async (
 
       paginationFav(pageCount, page);
       localStorage.setItem('page', page);
-      return page;
     }
   }
   if (evt.target.closest('.favorites__pag-page')) {
@@ -50,7 +46,6 @@ export const handleFavPagination = async (
 
       paginationFav(pageCount, page);
       localStorage.setItem('page', page);
-      return page;
     } catch (error) {
       console.error('An error occurred:', error);
     }
@@ -64,10 +59,8 @@ export const handleFavPagination = async (
       favoritesCardsRef.innerHTML = dataCards;
 
       paginationFav(pageCount, page);
-      console.log(page);
       localStorage.setItem('page', page);
     }
-    return page;
   }
 
   if (evt.target.closest('.end-container')) {
@@ -78,6 +71,5 @@ export const handleFavPagination = async (
 
     paginationFav(pageCount, page);
     localStorage.setItem('page', page);
-    return page;
   }
 };

@@ -1,0 +1,22 @@
+export const refs = {
+  galleryRecipesRef: document.querySelector('.js-gallery'),
+  searchQueryTitleRef: document.querySelector('.input-search'),
+  seachQueryTimeRef: document.querySelector('.time-selector'),
+  seachQueryAreasRef: document.querySelector('.area-selector'),
+  selectQueryIngredientsRef: document.querySelector('.ingredients-selector'),
+  btnResetFilterRef: document.querySelector('.reset-filter'),
+  loaderIndicatorRef: document.querySelector('.loader'),
+  btnPaginationBarRef: document.querySelector('.pagination-bar'),
+  formFilters: document.querySelector('.filter-form'),
+  //
+  backToFirstPage: document.querySelector('#pag-btn-start'),
+  pageOneBtn: document.querySelector('#pag-btn-1'),
+  pageTwoBtn: document.querySelector('#pag-btn-2'),
+  pageThreeBtn: document.querySelector('#pag-btn-3'),
+  lastPageBtn: document.querySelector('#pag-btn-last'),
+  nextPagePagBtn: document.querySelector('#pag-btn-next'),
+  buttonNumered: document.querySelectorAll('.pag-btn-number'),
+  previousPageButton: document.querySelector('#pag-btn-prev'),
+  btnWithDotsRight: document.querySelector('#pag-btn-dots-right'),
+  btnWithDotsLeft: document.querySelector('#pag-btn-dots-left'),
+};
