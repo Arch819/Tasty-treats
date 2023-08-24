@@ -1,10 +1,10 @@
 .pagination-bar {
   display: flex;
-  gap: 14px;
+  gap: 4px;
 
   justify-content: center;
-  padding-top: 40px;
-  padding-bottom: 80px;
+  //padding-top: 40px;
+  //padding-bottom: 80px;
 }
 
 .pag-btn-block {
@@ -136,9 +136,9 @@
 
 @media screen and (min-width: 768px) {
   .pagination-bar {
-    gap: 24px;
-    padding-bottom: 64px;
-    padding-bottom: 100px;
+    gap: 8px;
+    //padding-bottom: 64px;
+    //padding-bottom: 100px;
   }
 
   .pag-btn-white-tablet {
@@ -177,7 +177,7 @@
 
 @media screen and (min-width: 1280px) {
   .pagination-bar {
-    padding-top: 64px;
+    //padding-top: 64px;
   }
 }
 
