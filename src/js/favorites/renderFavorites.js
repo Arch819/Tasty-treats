@@ -1,6 +1,7 @@
 import { fetchRecipeDataForIds } from './fetchFavorites';
 import { renderCardsMarkup } from './cardElement';
 import { markupCategory } from './filterElement';
+import { errorMessage } from './cardElement';
 
 // -----------------------------рендер списку категорій-------------------------------------
 // ПРиймає масив об'єктів і повертає markup елементу категорій
@@ -9,11 +10,11 @@ export const renderCategories = async storageValue => {
   try {
     const results = await fetchRecipeDataForIds(storageValue.map(el => el.id));
     const arrayOfCategories = results.map(el => el.data.category);
-
     const markup = markupCategory(arrayOfCategories);
     return markup;
   } catch (error) {
     console.log(error);
+    errorMessage();
   }
 };
 
@@ -30,6 +31,7 @@ export const renderCards = async (storageValue, currentPage, PerPage) => {
     const cardMarkupCard = renderCardsMarkup(slicedResults);
     return cardMarkupCard;
   } catch (error) {
+    errorMessage();
     console.log(error);
   }
 };

@@ -13,9 +13,9 @@ import {
 import { paginationFav } from './favPagination';
 
 const screenWidth = window.innerWidth;
-let perPage = 9;
-if (screenWidth > 768) {
-  perPage = 12;
+let perPage = 12;
+if (screenWidth < 768) {
+  perPage = 9;
 }
 let page = 1;
 let keyOfLocalStorage = null;
@@ -43,7 +43,9 @@ const handleHeartClick = evt => {
   }
 
   const isHiddenEl = evt.target.closest('.favorites__cards-item');
-  isHiddenEl.style.display = 'none';
+  if (isHiddenEl) {
+    isHiddenEl.style.display = 'none';
+  }
 
   const buttonId = target.id.slice(1);
   const dataValue = target.getAttribute('data-category');
@@ -65,6 +67,11 @@ const handleHeartClick = evt => {
 
 const handleFilter = async evt => {
   const target = evt.target;
+
+  if (target.type !== 'button') {
+    return;
+  }
+
   checkFilterBtn(target);
   keyOfLocalStorage = getValuesOfStorage('favorites');
   let arrayFromFilter = keyOfLocalStorage;
@@ -101,6 +108,10 @@ const renderPageFavorites = async () => {
 
   keyOfLocalStorage = getValuesOfStorage('favorites') || [];
 
+  if (screenWidth < 768 && keyOfLocalStorage.length === 0) {
+    favoritesCardsRef.style.minHeight = '100hv';
+  }
+
   // =--------------------------------------LocalStorage не існує або порожній масив----------------------
   if (keyOfLocalStorage.length === 0) {
     if (screenWidth < 768) {
@@ -114,6 +125,13 @@ const renderPageFavorites = async () => {
   pageCount = Math.ceil(keyOfLocalStorage.length / perPage);
   // ---------------------------------------Рендеримо сторінку-----------------------------------
   const dataCategories = await renderCategories(keyOfLocalStorage);
+  if (!dataCategories) {
+    favoritesFilterRef.style.display = 'none';
+    favoritesCardsRef.innerHTML = `
+    <li class="error-message"><h2>Error</h2>
+    <p>Oops! Something went wrong! Try reloading the page!</p></li>`;
+    return;
+  }
   const dataCards = await renderCards(keyOfLocalStorage, page, perPage);
   favoritesFilterRef.innerHTML = dataCategories;
   favoritesCardsRef.innerHTML = dataCards;
