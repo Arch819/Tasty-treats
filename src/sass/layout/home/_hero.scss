@@ -1,17 +1,6 @@
 .hero {
   padding-top: 88px;
 }
-.hero__wrap {
-  //   padding-right: 0;
-  //   overflow: hidden;
-  padding-bottom: 60px;  
-  position: relative;
-}
-
-.swiper-wrap {
-  padding-right: 0;
-}
-
 // .hero-titel {
 //   color: #050505;
 //   font-family: Inter;
@@ -90,6 +79,16 @@
 //   min-width: 0;
 //   // gap: 8px;
 // }
+.swiper-container {
+   padding-bottom: 60px;  
+  position: relative;
+  width: 515px;
+  
+}
+
+.swiper-wrap {
+  padding-right: 0;
+}
 
 .swiper-slide {
   display: flex;
@@ -100,15 +99,6 @@
   gap: 8px;
 }
 .swiper-container {
-  height: px;
-  // display: flex;
-  // flex-direction: column;
-  // gap: 4px;
-
-  width: 515px;
-
-//   width: 496px;
-//   height: 302px;
 }
 
 .img-item {
@@ -175,15 +165,6 @@
   background-color: var(--color-btn-var2);
 }
 
-
-
-.swiper-pagination {
- 
- // position: reletive !important;.
- margin-top: 20px;
-  
-  
-}
 span.swiper-pagination-bullet {
   opacity: 1;
   background-color: var(--color-btn-var2);
@@ -240,7 +221,6 @@ span.swiper-pagination-bullet-active {
   }
   .swiper-container {
     width: 871px;
-    // height: 468px;
     padding-top: 64px;
   }
   .cook-img {
@@ -266,10 +246,7 @@ span.swiper-pagination-bullet-active {
     background-size: 863px;
     width: 351px;
   }
-  .swiper-pagination {
-      // margin-left: 300px;
-  
-  }
+
 }
 
 @media screen and (min-width: 1280px) {
