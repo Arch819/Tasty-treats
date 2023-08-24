@@ -6,17 +6,18 @@ import { GetLists } from './lists-service';
 import { addToFavorites } from './add-to-favorites';
 import { refs } from './pagination-ref';
 
-const galleryRecipesRef = document.querySelector('.js-gallery');
-const searchQueryTitleRef = document.querySelector('.input-search');
-const seachQueryTimeRef = document.querySelector('.time-selector');
-const seachQueryAreasRef = document.querySelector('.area-selector');
-const selectQueryIngredientsRef = document.querySelector(
-  '.ingredients-selector'
-);
-const btnResetFilterRef = document.querySelector('.reset-filter');
-const loaderIndicatorRef = document.querySelector('.loader');
-const btnPaginationBarRef = document.querySelector('.pagination-bar');
-const formFilters = document.querySelector('.filter-form');
+//  - recipe-cards-refs.js
+// const galleryRecipesRef = document.querySelector('.js-gallery');
+// const searchQueryTitleRef = document.querySelector('.input-search');
+// const seachQueryTimeRef = document.querySelector('.time-selector');
+// const seachQueryAreasRef = document.querySelector('.area-selector');
+// const selectQueryIngredientsRef = document.querySelector(
+//   '.ingredients-selector'
+// );
+// const btnResetFilterRef = document.querySelector('.reset-filter');
+// const loaderIndicatorRef = document.querySelector('.loader');
+// const btnPaginationBarRef = document.querySelector('.pagination-bar');
+// const formFilters = document.querySelector('.filter-form');
 
 // //  - Pagination - to  pagination.js
 // const backToFirstPage = document.querySelector('#pag-btn-start');
@@ -57,15 +58,21 @@ fetchListIngredients();
 fetchRecipesQuery();
 
 function renderGallery(dataArr) {
-  galleryRecipesRef.insertAdjacentHTML('beforeend', createMarkup(dataArr));
+  refs.galleryRecipesRef.insertAdjacentHTML('beforeend', createMarkup(dataArr));
 }
 
-searchQueryTitleRef.addEventListener('input', debounce(onSeachQueryTitle, 500));
-seachQueryTimeRef.addEventListener('change', onSeachQueryTime);
-seachQueryAreasRef.addEventListener('change', onSeachQueryAreas);
-selectQueryIngredientsRef.addEventListener('change', onSeachQueryIngredients);
-btnResetFilterRef.addEventListener('click', onResetFilter);
-formFilters.addEventListener('submit', onForm);
+refs.searchQueryTitleRef.addEventListener(
+  'input',
+  debounce(onSeachQueryTitle, 500)
+);
+refs.seachQueryTimeRef.addEventListener('change', onSeachQueryTime);
+refs.seachQueryAreasRef.addEventListener('change', onSeachQueryAreas);
+refs.selectQueryIngredientsRef.addEventListener(
+  'change',
+  onSeachQueryIngredients
+);
+refs.btnResetFilterRef.addEventListener('click', onResetFilter);
+refs.formFilters.addEventListener('submit', onForm);
 
 function onForm(evt) {
   evt.preventDefault();
@@ -119,20 +126,20 @@ function onResetFilter() {
 }
 
 function resetFilter() {
-  searchQueryTitleRef.value = '';
-  seachQueryTimeRef.value = '';
-  seachQueryAreasRef.value = '';
-  selectQueryIngredientsRef.value = '';
+  refs.searchQueryTitleRef.value = '';
+  refs.seachQueryTimeRef.value = '';
+  refs.seachQueryAreasRef.value = '';
+  refs.selectQueryIngredientsRef.value = '';
   resetNumBtn();
 }
 
 function clearRecipesContainer() {
-  galleryRecipesRef.innerHTML = '';
+  refs.galleryRecipesRef.innerHTML = '';
 }
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function fetchRecipesQuery() {
-  loaderIndicatorRef.classList.remove('is-hidden-pgn');
-  btnPaginationBarRef.classList.add('is-hidden-pgn');
+  refs.loaderIndicatorRef.classList.remove('is-hidden-pgn');
+  refs.btnPaginationBarRef.classList.add('is-hidden-pgn');
   testyApiService
     .fetchRecipes()
     .then(data => {
@@ -140,8 +147,8 @@ function fetchRecipesQuery() {
       //data.results.length === 0 - !data.results -
       if (data.results.length === 0) {
         Notify.failure('Something went wrong. Please try again!');
-        loaderIndicatorRef.classList.add('is-hidden-pgn');
-        btnPaginationBarRef.classList.remove('is-hidden-pgn');
+        refs.loaderIndicatorRef.classList.add('is-hidden-pgn');
+        refs.btnPaginationBarRef.classList.remove('is-hidden-pgn');
         return;
       }
       //
@@ -152,8 +159,8 @@ function fetchRecipesQuery() {
       addToFavorites();
       changeButtonColor();
       /////testyApiService.incrementPage;
-      loaderIndicatorRef.classList.add('is-hidden-pgn');
-      btnPaginationBarRef.classList.remove('is-hidden-pgn');
+      refs.loaderIndicatorRef.classList.add('is-hidden-pgn');
+      refs.btnPaginationBarRef.classList.remove('is-hidden-pgn');
     })
     .catch(err => console.log(err));
 }
@@ -168,7 +175,7 @@ function fetchListAreas() {
           return `<option value="${area.name}" class="area">${area.name}</option>`;
         })
         .join('');
-      seachQueryAreasRef.insertAdjacentHTML('beforeend', markup);
+      refs.seachQueryAreasRef.insertAdjacentHTML('beforeend', markup);
     })
     .catch(err => console.log(err));
 }
@@ -183,7 +190,7 @@ function fetchListIngredients() {
           return `<option value="${ingredient._id}" class="area">${ingredient.name}</option>`;
         })
         .join('');
-      selectQueryIngredientsRef.insertAdjacentHTML('beforeend', markup);
+      refs.selectQueryIngredientsRef.insertAdjacentHTML('beforeend', markup);
     })
     .catch(err => console.log(err));
 }
