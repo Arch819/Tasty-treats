@@ -73,8 +73,19 @@ addIngredientIcon.addEventListener('click', () => {
 
   const removeIngredientBtn = document.createElement('button');
   removeIngredientBtn.type = 'button';
-  removeIngredientBtn.textContent = '-';
-  removeIngredientBtn.classList.add('remove-ingredient-create');
+    removeIngredientBtn.classList.add('remove-ingredient-create');
+
+const svgIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+svgIcon.setAttribute('class', 'remove-ingredient-svg');
+svgIcon.setAttribute('width', '20');
+svgIcon.setAttribute('height', '20');
+svgIcon.setAttribute('viewBox', '0 0 28 32');
+
+const svgPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+svgPath.setAttribute('d', 'M27 16c0 1.106-0.894 2-2 2h-22c-1.106 0-2-0.894-2-2s0.894-2 2-2h22c1.106 0 2 0.894 2 2z');
+
+svgIcon.appendChild(svgPath);
+removeIngredientBtn.appendChild(svgIcon);
   removeIngredientBtn.addEventListener('click', () => {
     ingredientsContainer.removeChild(newIngredientDiv);
   });

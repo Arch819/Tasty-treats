@@ -22,18 +22,35 @@
   top: 20px;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 531px;
+  width: 335px;
   background-color: var(--bg-body-light);
-  padding: 32px;
+  padding: 40px 20px;
   border-radius: 15px;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   color: var(--color-btn-var2);
+
+  @media screen and (min-width: 768px) {
+    width: 531px;
+    padding: 32px;
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
 }
 
 .icon-close {
   fill: var(--color-btn-var2);
+  width: 20px;
+  height: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .modal__title {
@@ -41,25 +58,38 @@
   font-weight: 600;
   line-height: 22px; /* 122.222% */
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+
+  @media screen and (min-width: 768px) {
+    order: -1;
+    margin-bottom: 16px;
+  }
 }
 
 .close-modal {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 24px;
-  height: 24px;
+  top: 14px;
+  right: 14px;
+  width: 20px;
+  height: 20px;
   display: block;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  padding: 0;
+
+  @media screen and (min-width: 768px) {
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .modal__video {
   position: relative;
   overflow: hidden;
-  height: 250px;
+  height: 295px;
   border-radius: 8px;
   background: linear-gradient(
       0deg,
@@ -67,7 +97,11 @@
       rgba(5, 5, 5, 0.4) 100%
     ),
     lightgray -34.64px -20px / 109.993% 120% no-repeat;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 16px;
+  }
 }
 
 .cover-video {
@@ -81,13 +115,31 @@
   display: none;
 }
 
-.icon-video {
+.playBtn {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   fill: var(--bg-body-light);
   cursor: pointer;
+  background-color: transparent;
+  width: 30px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  @media screen and (min-width: 768px) {
+    width: 36px;
+    height: 26px;
+  }
+}
+
+.play-icon {
+  width: 30px;
+  height: 20px;
+  @media screen and (min-width: 768px) {
+    width: 36px;
+    height: 26px;
+  }
 }
 
 .info-bar {
@@ -98,11 +150,27 @@
 }
 
 .tag-list {
+  display: none;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  // outline: 1px solid red;
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: inline-flex;
+    width: 60%;
+  }
+}
+
+.tag-list-mobile {
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 60%;
   gap: 8px;
+  margin-bottom: 24px;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
 
 .tag-item {
@@ -117,8 +185,11 @@
 .rating-block {
   display: flex;
   margin-top: 5px;
-  margin-left: auto;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+  }
 }
 
 .rating-value {
@@ -133,17 +204,16 @@
 }
 
 .ingredient-list {
-  margin-bottom: 32px;
-  max-height: 230px;
+  margin-bottom: 40px;
+  max-height: 244px;
   overflow: auto;
   padding-right: 10px;
   font-weight: 400;
   line-height: 18px; /* 128.571% */
+  @media screen and (min-width: 768px) {
+    max-height: 204px;
+  }
 }
-
-// .ingredient-list:hover {
-//   overflow: auto;
-// }
 
 .ingredient-item {
   display: flex;
@@ -160,33 +230,42 @@
   color: var(--color-text-desc-l);
   font-style: normal;
   line-height: 18px; /* 128.571% */
-  margin-bottom: 32px;
-  max-height: 162px;
+  margin-bottom: 40px;
+  max-height: 288px;
   overflow: auto;
+  @media screen and (min-width: 768px) {
+    max-height: 162px;
+    margin-bottom: 32px;
+  }
 }
 
 .modal-buttons {
   display: flex;
-  gap: 16px;
+  gap: 10px;
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+  }
 }
 
 .modal-button {
-  padding: 14px 28px;
+  padding: 12px 24px;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
   border: 1px solid #9bb537;
   background: transparent;
   color: #050505;
+  cursor: pointer;
   font-weight: 500;
   line-height: normal;
-  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    padding: 14px 28px;
+  }
 }
 
 .modal-button.color {
   background: var(--color-active-el);
   color: var(--bg-body-light);
-  margin-right: 16px;
 }
 
 .modal-button:hover,
