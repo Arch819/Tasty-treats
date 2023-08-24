@@ -204,6 +204,7 @@ function fetchListIngredients() {
 // pageThreeBtn.addEventListener('click', loadPageThree);
 
 function backToFirst() {
+  if (testyApiService.currentPage === 1) return;
   testyApiService.resetPage();
   pageOneBtn.textContent = 1;
   pageTwoBtn.textContent = 2;
@@ -213,6 +214,7 @@ function backToFirst() {
 }
 
 function loadLastPage() {
+  if (testyApiService.currentPage === totalPages) return;
   if (totalPages <= 3) return;
   // pageNumb ->> totalPages
   // if (window.innerWidth < 768) {
@@ -246,6 +248,8 @@ function loadLastPage() {
 function loadNextPage() {
   console.log('loadNextPage - page: ', testyApiService.currentPage);
   if (testyApiService.currentPage === totalPages) return;
+  //if (totalPages - testyApiService.currentPage <= 2) return;
+  if (parseInt(pageThreeBtn.textContent) === totalPages) return;
   // if (testyApiService.currentPage === 32) {
   //   return;
   // }
@@ -262,7 +266,11 @@ function loadNextPage() {
 }
 
 function loadPrevPage() {
-  if (testyApiService.currentPage === 1) return;
+  if (
+    testyApiService.currentPage === 1 ||
+    pageOneBtn.textContent.textContent === '1'
+  )
+    return;
   //console.log('loadPrevPage --- ','on Btn ', pageOneBtn.textContent, 'currentPage', testyApiService.currentPage);
   if (pageOneBtn.textContent != '1') {
     //if (parseInt(pageOneBtn.textContent) > 2) {
@@ -313,7 +321,9 @@ function changeButtonColor() {
     }
   });
   //
-  if (testyApiService.currentPage > 32 - 2) {
+  console.log('btn3: ', pageThreeBtn.textContent);
+  //if (testyApiService.currentPage > totalPages - 3) {
+  if (parseInt(pageThreeBtn.textContent) === totalPages) {
     btnWithDotsRight.classList.add('btn_hidden');
   } else {
     btnWithDotsRight.classList.remove('btn_hidden');
