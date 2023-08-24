@@ -48,7 +48,7 @@ const renderListCards = listOfCard => {
             <p class="favorites__cards-text">${data.description}</p>
             <div class="favorites__rating-thumb">
               ${renderRating(data.rating)}
-              <button class="favorites__cards-btn" data-id="${
+              <button class="favorites__cards-btn js-card-button" data-id="${
                 data._id
               }">See recipe</button>
             </div>
