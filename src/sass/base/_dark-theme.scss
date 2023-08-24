@@ -131,6 +131,11 @@
     background-color: var(--color-btn-var2);
     transition: background-color 1.5s;
   }
+  .favorites__filter-btn {
+    background-color: var(--color-btn-var2);
+    border: var(--border-input-d);
+    color: var(--color-categories-text-d);
+  }
 }
 
 body {
