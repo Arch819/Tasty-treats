@@ -1,4 +1,5 @@
 import icons from '../../images/sprite.svg';
+import Notiflix from 'notiflix';
 
 //  Створюємо розмітку зірок-------------------
 
@@ -42,7 +43,9 @@ const renderListCards = listOfCard => {
         }" class="icon-button" data-category="${
       data.category
     }"><svg class="favorites__heart heart-isActive"><use href="${icons}#icon-heart"></use></svg></button>
-          <img src="${data.preview}" alt="${data.title}" width="335">
+          <div class="favorit__img-thumb"><img src="${data.preview}" alt="${
+      data.title
+    }" width="335"></div>
           <div class="favorites__cards-thumb">
             <h2 class="favorites__cards-title">${data.title}</h2>
             <p class="favorites__cards-text">${data.description}</p>
@@ -93,10 +96,19 @@ const getValuesOfStorage = storedData => {
   }
 };
 
+const errorMessage = () => {
+  return Notiflix.Report.failure(
+    'Error',
+    'Oops! Something went wrong! Try reloading the page!',
+    'OK'
+  );
+};
+
 export {
   renderCardsMarkup,
   empty,
   emptyItem,
   emptyRendering,
   getValuesOfStorage,
+  errorMessage,
 };
