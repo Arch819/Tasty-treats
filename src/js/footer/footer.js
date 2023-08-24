@@ -27,7 +27,6 @@ teamList.insertAdjacentHTML('afterbegin', teamRender(team));
 
 function fetchTeam(e) {
   const { target } = e;
-  console.log(e.target);
   if (target.tagName === 'UL' || target.tagName === 'LI') {
     return;
   }

@@ -15,7 +15,7 @@
   border-radius: 15px;
   background: var(--color-text-d);
 
-  width: 100%;
+  // width: 100%;
   overflow-y: auto;
   position: absolute;
   box-sizing: border-box;
@@ -66,13 +66,13 @@
 @media screen and (min-width: 768px) {
   .modal-content-create {
     width: 400px;
-    padding: 20px 40px;
+    padding: 20px 20px 20px 30px;
   }
 }
 @media screen and (min-width: 1280px) {
   .modal-content-create {
     width: 500px;
-    height: 435px;
+    height: 485px;
   }
   .ingredient-create {
     flex-direction: row;
@@ -86,6 +86,7 @@
   max-width: 500px;
   display: flex;
   flex-direction: column;
+  padding: 0px 20px;
 }
 .ingredient-create {
   display: flex;
@@ -106,6 +107,9 @@
   text-decoration: none;
   cursor: pointer;
 }
+// .close-right {
+//   right: 10px; /* Додайте цей рядок */
+// }
 .btn-create {
   padding: 14px 16px;
   justify-content: center;
@@ -192,7 +196,8 @@
   margin-top: auto;
   margin-bottom: auto;
 }
-.plus-button-svg {
+.plus-button-svg,
+.remove-ingredient-svg {
   fill: var(--color-input-placeholder-l);
   display: inline-block;
   margin-top: auto;
@@ -204,9 +209,5 @@
   border: none;
   padding: 0;
   cursor: pointer;
-}
-.remove-ingredient-svg {
-  fill: var(--color-input-placeholder-l);
-  display: inline-block;
-  vertical-align: middle;
+  margin-right: auto;
 }

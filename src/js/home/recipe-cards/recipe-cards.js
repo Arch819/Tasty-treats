@@ -17,7 +17,7 @@ const loaderIndicatorRef = document.querySelector('.loader');
 const btnPaginationBarRef = document.querySelector('.pagination-bar');
 const formFilters = document.querySelector('.filter-form');
 
-//  - Pagination -
+//  - Pagination - to  pagination.js
 const backToFirstPage = document.querySelector('#pag-btn-start');
 const pageOneBtn = document.querySelector('#pag-btn-1');
 const pageTwoBtn = document.querySelector('#pag-btn-2');
@@ -27,6 +27,7 @@ const nextPagePagBtn = document.querySelector('#pag-btn-next');
 const buttonNumered = document.querySelectorAll('.pag-btn-number');
 const previousPageButton = document.querySelector('#pag-btn-prev');
 const btnWithDotsRight = document.querySelector('#pag-btn-dots-right');
+const btnWithDotsLeft = document.querySelector('#pag-btn-dots-left');
 
 backToFirstPage.addEventListener('click', backToFirst);
 lastPageBtn.addEventListener('click', loadLastPage);
@@ -39,6 +40,9 @@ pageThreeBtn.addEventListener('click', loadPageThree);
 Notify.init({
   position: 'center-center',
 });
+
+let pageNumb = 1;
+let totalPages = 0;
 
 const testyApiService = new TastyApiService();
 testyApiService.setLimitValue();
@@ -65,6 +69,7 @@ function onForm(evt) {
 }
 
 function onSeachQueryTitle(evt) {
+  resetNumBtn();
   //evt.preventDefault();
   //console.log('inputTitle:', evt.target.value);
   const inputQuery = evt.target.value.trim();
@@ -115,6 +120,7 @@ function resetFilter() {
   seachQueryTimeRef.value = '';
   seachQueryAreasRef.value = '';
   selectQueryIngredientsRef.value = '';
+  resetNumBtn();
 }
 
 function clearRecipesContainer() {
@@ -135,6 +141,9 @@ function fetchRecipesQuery() {
         btnPaginationBarRef.classList.remove('is-hidden-pgn');
         return;
       }
+      //
+      totalPages = data.totalPages;
+      console.log(totalPages);
       clearRecipesContainer();
       renderGallery(data.results);
       addToFavorites();
@@ -151,7 +160,7 @@ function fetchListAreas() {
     .fetchListAreas()
     .then(data => {
       //console.log('getLists', data);
-      markup = data
+      const markup = data
         .map(area => {
           return `<option value="${area.name}" class="area">${area.name}</option>`;
         })
@@ -166,7 +175,7 @@ function fetchListIngredients() {
     .fetchListIngredients()
     .then(data => {
       //console.log('ingredient', data);
-      markup = data
+      const markup = data
         .map(ingredient => {
           return `<option value="${ingredient._id}" class="area">${ingredient.name}</option>`;
         })
@@ -195,6 +204,7 @@ function fetchListIngredients() {
 // pageThreeBtn.addEventListener('click', loadPageThree);
 
 function backToFirst() {
+  if (testyApiService.currentPage === 1) return;
   testyApiService.resetPage();
   pageOneBtn.textContent = 1;
   pageTwoBtn.textContent = 2;
@@ -204,6 +214,8 @@ function backToFirst() {
 }
 
 function loadLastPage() {
+  if (testyApiService.currentPage === totalPages) return;
+  if (totalPages <= 3) return;
   // pageNumb ->> totalPages
   // if (window.innerWidth < 768) {
   //   pageNumb = 48;
@@ -223,7 +235,8 @@ function loadLastPage() {
     //for limit = 9;
     pageNumb = 32;
   }
-
+  //if ((testyApiService.currentPage = totalPages)) return;
+  pageNumb = totalPages;
   pageThreeBtn.textContent = pageNumb;
   pageTwoBtn.textContent = pageNumb - 1;
   pageOneBtn.textContent = pageNumb - 2;
@@ -233,10 +246,14 @@ function loadLastPage() {
 }
 
 function loadNextPage() {
-  //console.log('loadNextPage - page: ', testyApiService.currentPage);
-  if (testyApiService.currentPage === 32) {
-    return;
-  }
+  console.log('loadNextPage - page: ', testyApiService.currentPage);
+  if (testyApiService.currentPage === totalPages) return;
+  //if (totalPages - testyApiService.currentPage <= 2) return;
+  if (parseInt(pageThreeBtn.textContent) === totalPages) return;
+  // if (testyApiService.currentPage === 32) {
+  //   return;
+  // }
+  if (totalPages <= 3) return;
   buttonNumered.forEach(button => {
     button.textContent++;
     // pageNumb=button.textContent
@@ -249,6 +266,11 @@ function loadNextPage() {
 }
 
 function loadPrevPage() {
+  if (
+    testyApiService.currentPage === 1 ||
+    pageOneBtn.textContent.textContent === '1'
+  )
+    return;
   //console.log('loadPrevPage --- ','on Btn ', pageOneBtn.textContent, 'currentPage', testyApiService.currentPage);
   if (pageOneBtn.textContent != '1') {
     //if (parseInt(pageOneBtn.textContent) > 2) {
@@ -266,6 +288,7 @@ function loadPrevPage() {
 }
 
 function loadfirstPage() {
+  if (totalPages <= 3 && testyApiService.currentPage === 1) return;
   const pageNumb = parseInt(pageOneBtn.textContent);
   testyApiService.setCurrentPage(pageNumb);
   //galleryRecipesRef.innerHTML = '';
@@ -298,9 +321,40 @@ function changeButtonColor() {
     }
   });
   //
-  if (testyApiService.currentPage > 32 - 2) {
+  console.log('btn3: ', pageThreeBtn.textContent);
+  //if (testyApiService.currentPage > totalPages - 3) {
+  if (parseInt(pageThreeBtn.textContent) === totalPages) {
     btnWithDotsRight.classList.add('btn_hidden');
   } else {
     btnWithDotsRight.classList.remove('btn_hidden');
   }
+  //
+  if (testyApiService.currentPage > 3) {
+    btnWithDotsLeft.classList.remove('btn_hidden');
+  } else {
+    btnWithDotsLeft.classList.add('btn_hidden');
+  }
+  //
+  if (totalPages <= 3) {
+    btnWithDotsRight.classList.add('btn_hidden');
+    btnWithDotsLeft.classList.add('btn_hidden');
+  }
+  //
+  if (totalPages <= 2) {
+    pageThreeBtn.classList.add('btn_hidden');
+  }
+  //
+  if (totalPages <= 1) {
+    pageTwoBtn.classList.add('btn_hidden');
+  }
+}
+
+function resetNumBtn() {
+  pageOneBtn.textContent = 1;
+  pageTwoBtn.textContent = 2;
+  pageThreeBtn.textContent = 3;
+  pageOneBtn.classList.remove('btn_hidden');
+  pageTwoBtn.classList.remove('btn_hidden');
+  pageThreeBtn.classList.remove('btn_hidden');
+  btnWithDotsRight.classList.remove('btn_hidden');
 }
