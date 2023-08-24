@@ -4,6 +4,7 @@ import { createMarkup } from './recipe-cardsRender';
 import { TastyApiService } from './recipe-cardsApi';
 import { GetLists } from './lists-service';
 import { addToFavorites } from './add-to-favorites';
+import { refs } from './pagination-ref';
 
 const galleryRecipesRef = document.querySelector('.js-gallery');
 const searchQueryTitleRef = document.querySelector('.input-search');
@@ -17,27 +18,27 @@ const loaderIndicatorRef = document.querySelector('.loader');
 const btnPaginationBarRef = document.querySelector('.pagination-bar');
 const formFilters = document.querySelector('.filter-form');
 
-//  - Pagination - to  pagination.js
-const backToFirstPage = document.querySelector('#pag-btn-start');
-const pageOneBtn = document.querySelector('#pag-btn-1');
-const pageTwoBtn = document.querySelector('#pag-btn-2');
-const pageThreeBtn = document.querySelector('#pag-btn-3');
-const lastPageBtn = document.querySelector('#pag-btn-last');
-const nextPagePagBtn = document.querySelector('#pag-btn-next');
-const buttonNumered = document.querySelectorAll('.pag-btn-number');
-const previousPageButton = document.querySelector('#pag-btn-prev');
-const btnWithDotsRight = document.querySelector('#pag-btn-dots-right');
-const btnWithDotsLeft = document.querySelector('#pag-btn-dots-left');
+// //  - Pagination - to  pagination.js
+// const backToFirstPage = document.querySelector('#pag-btn-start');
+// const pageOneBtn = document.querySelector('#pag-btn-1');
+// const pageTwoBtn = document.querySelector('#pag-btn-2');
+// const pageThreeBtn = document.querySelector('#pag-btn-3');
+// const lastPageBtn = document.querySelector('#pag-btn-last');
+// const nextPagePagBtn = document.querySelector('#pag-btn-next');
+// const buttonNumered = document.querySelectorAll('.pag-btn-number');
+// const previousPageButton = document.querySelector('#pag-btn-prev');
+// const btnWithDotsRight = document.querySelector('#pag-btn-dots-right');
+// const btnWithDotsLeft = document.querySelector('#pag-btn-dots-left');
 
-backToFirstPage.addEventListener('click', backToFirst);
-lastPageBtn.addEventListener('click', loadLastPage);
-nextPagePagBtn.addEventListener('click', loadNextPage);
-previousPageButton.addEventListener('click', loadPrevPage);
-pageOneBtn.addEventListener('click', loadfirstPage);
-pageTwoBtn.addEventListener('click', loadPageTwo);
-pageThreeBtn.addEventListener('click', loadPageThree);
-btnWithDotsLeft.addEventListener('click', loadDotsLeft);
-btnWithDotsRight.addEventListener('click', loadDotsRigth);
+refs.backToFirstPage.addEventListener('click', backToFirst);
+refs.lastPageBtn.addEventListener('click', loadLastPage);
+refs.nextPagePagBtn.addEventListener('click', loadNextPage);
+refs.previousPageButton.addEventListener('click', loadPrevPage);
+refs.pageOneBtn.addEventListener('click', loadfirstPage);
+refs.pageTwoBtn.addEventListener('click', loadPageTwo);
+refs.pageThreeBtn.addEventListener('click', loadPageThree);
+refs.btnWithDotsLeft.addEventListener('click', loadDotsLeft);
+refs.btnWithDotsRight.addEventListener('click', loadDotsRigth);
 
 Notify.init({
   position: 'center-center',
@@ -208,9 +209,9 @@ function fetchListIngredients() {
 function backToFirst() {
   if (testyApiService.currentPage === 1) return;
   testyApiService.resetPage();
-  pageOneBtn.textContent = 1;
-  pageTwoBtn.textContent = 2;
-  pageThreeBtn.textContent = 3;
+  refs.pageOneBtn.textContent = 1;
+  refs.pageTwoBtn.textContent = 2;
+  refs.pageThreeBtn.textContent = 3;
   //galleryRecipesRef.innerHTML = '';
   fetchRecipesQuery();
 }
@@ -239,24 +240,24 @@ function loadLastPage() {
   }
   //if ((testyApiService.currentPage = totalPages)) return;
   pageNumb = totalPages;
-  pageThreeBtn.textContent = pageNumb;
-  pageTwoBtn.textContent = pageNumb - 1;
-  pageOneBtn.textContent = pageNumb - 2;
+  refs.pageThreeBtn.textContent = pageNumb;
+  refs.pageTwoBtn.textContent = pageNumb - 1;
+  refs.pageOneBtn.textContent = pageNumb - 2;
   //galleryRecipesRef.innerHTML = '';
   testyApiService.setCurrentPage(pageNumb);
   fetchRecipesQuery();
 }
 
 function loadNextPage() {
-  console.log('loadNextPage - page: ', testyApiService.currentPage);
+  //console.log('loadNextPage - page: ', testyApiService.currentPage);
   if (testyApiService.currentPage === totalPages) return;
   //if (totalPages - testyApiService.currentPage <= 2) return;
-  if (parseInt(pageThreeBtn.textContent) === totalPages) return;
+  if (parseInt(refs.pageThreeBtn.textContent) === totalPages) return;
   // if (testyApiService.currentPage === 32) {
   //   return;
   // }
   if (totalPages <= 3) return;
-  buttonNumered.forEach(button => {
+  refs.buttonNumered.forEach(button => {
     button.textContent++;
     // pageNumb=button.textContent
   });
@@ -270,13 +271,13 @@ function loadNextPage() {
 function loadPrevPage() {
   if (
     testyApiService.currentPage === 1 ||
-    pageOneBtn.textContent.textContent === '1'
+    refs.pageOneBtn.textContent.textContent === '1'
   )
     return;
   //console.log('loadPrevPage --- ','on Btn ', pageOneBtn.textContent, 'currentPage', testyApiService.currentPage);
-  if (pageOneBtn.textContent != '1') {
+  if (refs.pageOneBtn.textContent != '1') {
     //if (parseInt(pageOneBtn.textContent) > 2) {
-    buttonNumered.forEach(button => {
+    refs.buttonNumered.forEach(button => {
       button.textContent--;
       // pageNumb=button.textContent
     });
@@ -291,21 +292,21 @@ function loadPrevPage() {
 
 function loadfirstPage() {
   if (totalPages <= 3 && testyApiService.currentPage === 1) return;
-  const pageNumb = parseInt(pageOneBtn.textContent);
+  const pageNumb = parseInt(refs.pageOneBtn.textContent);
   testyApiService.setCurrentPage(pageNumb);
   //galleryRecipesRef.innerHTML = '';
   fetchRecipesQuery();
 }
 
 function loadPageTwo() {
-  const pageNumb = parseInt(pageTwoBtn.textContent);
+  const pageNumb = parseInt(refs.pageTwoBtn.textContent);
   testyApiService.setCurrentPage(pageNumb);
   //galleryRecipesRef.innerHTML = '';
   fetchRecipesQuery();
 }
 
 function loadPageThree() {
-  const pageNumb = parseInt(pageThreeBtn.textContent);
+  const pageNumb = parseInt(refs.pageThreeBtn.textContent);
   testyApiService.setCurrentPage(pageNumb);
   //galleryRecipesRef.innerHTML = '';
   fetchRecipesQuery();
@@ -323,20 +324,20 @@ function loadDotsLeft() {
   // );
   const pageDotsLeft = totalPages - parseInt(testyApiService.currentPage);
 
-  if (pageOneBtn.textContent === '2') {
-    pageThreeBtn.textContent = parseInt(pageThreeBtn.textContent) - 1;
-    pageTwoBtn.textContent = parseInt(pageTwoBtn.textContent) - 1;
-    pageOneBtn.textContent = parseInt(pageOneBtn.textContent) - 1;
+  if (refs.pageOneBtn.textContent === '2') {
+    refs.pageThreeBtn.textContent = parseInt(refs.pageThreeBtn.textContent) - 1;
+    refs.pageTwoBtn.textContent = parseInt(refs.pageTwoBtn.textContent) - 1;
+    refs.pageOneBtn.textContent = parseInt(refs.pageOneBtn.textContent) - 1;
     //galleryRecipesRef.innerHTML = '';
     testyApiService.setCurrentPage(pageNumb - 1);
     fetchRecipesQuery();
     return;
   }
 
-  if (parseInt(pageOneBtn.textContent) < 3) return;
-  pageThreeBtn.textContent = parseInt(pageThreeBtn.textContent) - 2;
-  pageTwoBtn.textContent = parseInt(pageTwoBtn.textContent) - 2;
-  pageOneBtn.textContent = parseInt(pageOneBtn.textContent) - 2;
+  if (parseInt(refs.pageOneBtn.textContent) < 3) return;
+  refs.pageThreeBtn.textContent = parseInt(refs.pageThreeBtn.textContent) - 2;
+  refs.pageTwoBtn.textContent = parseInt(refs.pageTwoBtn.textContent) - 2;
+  refs.pageOneBtn.textContent = parseInt(refs.pageOneBtn.textContent) - 2;
   //galleryRecipesRef.innerHTML = '';
   testyApiService.setCurrentPage(pageNumb - 2);
   fetchRecipesQuery();
@@ -354,26 +355,26 @@ function loadDotsRigth() {
   // );
   const pageDotsLeft = totalPages - parseInt(testyApiService.currentPage);
 
-  if (totalPages - parseInt(pageThreeBtn.textContent) === 1) {
-    pageThreeBtn.textContent = parseInt(pageThreeBtn.textContent) + 1;
-    pageTwoBtn.textContent = parseInt(pageTwoBtn.textContent) + 1;
-    pageOneBtn.textContent = parseInt(pageOneBtn.textContent) + 1;
+  if (totalPages - parseInt(refs.pageThreeBtn.textContent) === 1) {
+    refs.pageThreeBtn.textContent = parseInt(refs.pageThreeBtn.textContent) + 1;
+    refs.pageTwoBtn.textContent = parseInt(refs.pageTwoBtn.textContent) + 1;
+    refs.pageOneBtn.textContent = parseInt(refs.pageOneBtn.textContent) + 1;
     //galleryRecipesRef.innerHTML = '';
     testyApiService.setCurrentPage(pageNumb + 1);
     fetchRecipesQuery();
     return;
   }
 
-  pageThreeBtn.textContent = parseInt(pageThreeBtn.textContent) + 2;
-  pageTwoBtn.textContent = parseInt(pageTwoBtn.textContent) + 2;
-  pageOneBtn.textContent = parseInt(pageOneBtn.textContent) + 2;
+  refs.pageThreeBtn.textContent = parseInt(refs.pageThreeBtn.textContent) + 2;
+  refs.pageTwoBtn.textContent = parseInt(refs.pageTwoBtn.textContent) + 2;
+  refs.pageOneBtn.textContent = parseInt(refs.pageOneBtn.textContent) + 2;
   //galleryRecipesRef.innerHTML = '';
   testyApiService.setCurrentPage(pageNumb + 2);
   fetchRecipesQuery();
 }
 
 function changeButtonColor() {
-  buttonNumered.forEach(button => {
+  refs.buttonNumered.forEach(button => {
     const pageNumb = parseInt(button.textContent);
     //console.log(pageNumb);
     //console.log('btn:', pageNumb, 'currentPage', testyApiService.currentPage);
@@ -386,38 +387,38 @@ function changeButtonColor() {
   //
   //console.log('btn3: ', pageThreeBtn.textContent);
   //if (testyApiService.currentPage > totalPages - 3) {
-  if (parseInt(pageThreeBtn.textContent) === totalPages) {
-    btnWithDotsRight.classList.add('btn_hidden');
+  if (parseInt(refs.pageThreeBtn.textContent) === totalPages) {
+    refs.btnWithDotsRight.classList.add('btn_hidden');
   } else {
-    btnWithDotsRight.classList.remove('btn_hidden');
+    refs.btnWithDotsRight.classList.remove('btn_hidden');
   }
   //
   if (testyApiService.currentPage > 3) {
-    btnWithDotsLeft.classList.remove('btn_hidden');
+    refs.btnWithDotsLeft.classList.remove('btn_hidden');
   } else {
-    btnWithDotsLeft.classList.add('btn_hidden');
+    refs.btnWithDotsLeft.classList.add('btn_hidden');
   }
   //
   if (totalPages <= 3) {
-    btnWithDotsRight.classList.add('btn_hidden');
-    btnWithDotsLeft.classList.add('btn_hidden');
+    refs.btnWithDotsRight.classList.add('btn_hidden');
+    refs.btnWithDotsLeft.classList.add('btn_hidden');
   }
   //
   if (totalPages <= 2) {
-    pageThreeBtn.classList.add('btn_hidden');
+    refs.pageThreeBtn.classList.add('btn_hidden');
   }
   //
   if (totalPages <= 1) {
-    pageTwoBtn.classList.add('btn_hidden');
+    refs.pageTwoBtn.classList.add('btn_hidden');
   }
 }
 
 function resetNumBtn() {
-  pageOneBtn.textContent = 1;
-  pageTwoBtn.textContent = 2;
-  pageThreeBtn.textContent = 3;
-  pageOneBtn.classList.remove('btn_hidden');
-  pageTwoBtn.classList.remove('btn_hidden');
-  pageThreeBtn.classList.remove('btn_hidden');
-  btnWithDotsRight.classList.remove('btn_hidden');
+  refs.pageOneBtn.textContent = 1;
+  refs.pageTwoBtn.textContent = 2;
+  refs.pageThreeBtn.textContent = 3;
+  refs.pageOneBtn.classList.remove('btn_hidden');
+  refs.pageTwoBtn.classList.remove('btn_hidden');
+  refs.pageThreeBtn.classList.remove('btn_hidden');
+  refs.btnWithDotsRight.classList.remove('btn_hidden');
 }
