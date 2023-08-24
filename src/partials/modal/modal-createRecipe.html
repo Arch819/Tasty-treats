@@ -57,6 +57,16 @@
         rows="4"
         required
       ></textarea>
+      <label class="label-create" for="recipeImage">Recipe Image:</label>
+      <input
+        class="input-create"
+        type="file"
+        id="recipeImage"
+        name="recipeImage"
+        accept="image/*"
+      />
+
+      <img id="recipeImagePreview" />
 
       <button class="btn-create" type="submit">Save recipe</button>
     </form>
