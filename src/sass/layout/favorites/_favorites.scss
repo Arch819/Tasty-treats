@@ -1,7 +1,15 @@
+.favorites {
+  overflow: hidden;
+}
+
+.favorites__container-cards{
+  position: relative;
+  padding-top: 110px;
+}
+
 .favorites__wrap{
   width: 375px;
   padding: 0 20px;  
-  overflow: hidden;
 }
 
 .favorites__img{
@@ -50,6 +58,10 @@ background-image: url("../images/favorites/card@2x.jpg");
   }
 
   .favorites__list-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
     display: flex;
     gap: 12px;
     white-space: nowrap;
