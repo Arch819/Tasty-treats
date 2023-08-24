@@ -180,6 +180,7 @@
 .swiper-pagination {
  
  bottom: 0;
+ margin-left: 25px;
   
   
 }
@@ -266,7 +267,7 @@ span.swiper-pagination-bullet-active {
     width: 351px;
   }
   .swiper-pagination {
-      // margin-left: 300px;
+      margin-left: -30px;
   
   }
 }
@@ -291,5 +292,8 @@ span.swiper-pagination-bullet-active {
   .preview-deash {
     height: 271px;
     width: 304px;
+  }
+  .swiper-pagination {
+    margin-left: 255;
   }
 }
