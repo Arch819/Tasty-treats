@@ -10,7 +10,10 @@
   .first-words,
   .text,
   .btn-h,
-  .submit-btn[disabled] {
+  .submit-btn[disabled],
+  .order-modal-title,
+  .label-recipe-name,
+  .plus-button-svg {
     color: var(--color-text-d);
   }
   .logo {
@@ -19,6 +22,9 @@
   .create-order-link svg,
   .open-modal-button svg {
     fill: var(--color-text-d);
+  }
+  .order-modal-close-icon {
+    fill: var(--color-btn-var1);
   }
   .mobile-menu .close-modal-button {
     fill: var(--color-btn-var1);
@@ -36,6 +42,7 @@
     background-color: var(--color-btn-var2);
     border: var(--border-input-d);
   }
+
   .order-form-input,
   .order-form-comment {
     border: var(--border-input-d);
@@ -57,7 +64,7 @@
   .ingredient-name,
   .ingredient-amount,
   .textarea-create {
-    background-color: transparent;
+    background-color: var(--bg-btn-var2);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: rgba(255, 255, 255, 0.5);
     outline: none;
@@ -73,10 +80,11 @@
     color: var(--color-input-placeholder-d);
   }
   select {
-    background-color: transparent;
+    background-color: var(--bg-btn-var2);
     border: var(--border-input-d);
   }
-  .icon-search {
+  .icon-search,
+  .plus-button-svg {
     fill: var(--color-input-placeholder-d);
   }
   .input-search {
@@ -109,12 +117,24 @@
 
   .pag-btn-number,
   .pag-btn-white {
-    background-color: transparent;
+    background-color: var(--bg-btn-var2);
     border: 1px solid var(--color-categories-text-d);
     color: var(--color-text-d);
   }
   .pag-btn-left-icon {
     fill: rgba(255, 255, 255, 0.5);
+  }
+  .close-create:hover {
+    color: var(--color-btn-var1);
+  }
+  .footer {
+    background-color: var(--color-btn-var2);
+    transition: background-color 1.5s;
+  }
+  .favorites__filter-btn {
+    background-color: var(--color-btn-var2);
+    border: var(--border-input-d);
+    color: var(--color-categories-text-d);
   }
 }
 
@@ -126,15 +146,27 @@ body {
   background-color: var(--bg-btn-var1);
   transition: background-color 1.5s;
 }
+.order-modal-close-icon {
+  fill: var(--color-btn-var2);
+}
 footer .create-order-link svg,
 .close svg {
   fill: var(--color-text-d);
-  stroke: transparent;
+  stroke: var(--bg-btn-var2);
 }
 input,
-textarea {
-  background-color: transparent;
-}
+textarea,
+select,
 .btn-h {
-  background-color: transparent;
+  background-color: var(--bg-btn-var2);
+}
+
+input:-webkit-autofill,
+select:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--color-input-placeholder-l);
+}
+.footer {
+  transition: background-color 1.5s;
 }

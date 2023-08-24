@@ -32,14 +32,13 @@ background-image: url("../images/favorites/card@2x.jpg");
   }
 
   .favorites__empty-img {
-    width: 65px;
+    width: 68px;
     height: 58px;
     margin-bottom: 24px;
   }
   
   .favorites__text {
     width: 335px;
-    color: var(--color-text-light);
     font-family: Inter;
     font-size: 14px;
     line-height: 18px;
@@ -48,7 +47,6 @@ background-image: url("../images/favorites/card@2x.jpg");
 
   .empty {
     height: 100vh;
-    color: var(--color-btn-var2);
   }
 
   .favorites__list-filter {
@@ -72,6 +70,7 @@ background-image: url("../images/favorites/card@2x.jpg");
     display: flex;
     flex-direction: column;
     gap:24px;
+    margin-bottom: 40px;
   }
 
   .favorites__list-cards-thumb{
@@ -168,10 +167,8 @@ background-image: url("../images/favorites/card@2x.jpg");
     align-items: center;
   }
   
-  .favorites__cards-btn {
-    
-    font-size: 12px;
-    
+  .favorites__cards-btn {    
+    font-size: 12px;    
     font-weight: 500;
     font-family: Inter;
     padding: 8px 14px;
@@ -179,6 +176,7 @@ background-image: url("../images/favorites/card@2x.jpg");
     border: none;
     border-radius: 8px;
     color: var(--color-btn-var1);
+    cursor: pointer;
   }
   
   .favorites__rating {
@@ -210,6 +208,112 @@ background-image: url("../images/favorites/card@2x.jpg");
     opacity: 0.1;
   }
 
+  // ==================================================fav-pagination-======================
+.favorites__pagination{
+  display: flex;
+  justify-content: center;
+    gap: 8px;
+}  
+.favorites__pagination-item {
+  border-radius: 50%;
+}
+
+.favorites_page-dots-first,
+.favorites__pag-page{  
+  display: flex;
+  justify-content: center;
+    align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border:solid 1px;
+  cursor: pointer;  
+}
+
+.favorites_page-dots-first:active,
+.favorites__pag-page:active{
+  background-color: var(--color-active-el);
+  border: solid 1px transparent;
+}
+
+.favorites__pag-container{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--bg-btn-var1);
+}
+
+.favorites__pag-container.end-container{
+  border: solid 1px transparent;
+}
+
+.favorites__start-arrow-first,
+.favorites__start-arrow-second,
+.favorites__prew-arrow{
+    width: 24px;
+    height: 24px;
+    transform: translate(-50%, -50%) rotate(180deg);
+    fill: var(--color-btn-var1);
+    opacity: 0.5;
+  }
+  .favorites__start-arrow-second{
+    position: absolute;
+    top: 50%;
+    left: 60%;
+  }
+
+  .favorites__start-arrow-first{
+    position: absolute;
+    top: 50%;
+    left: 40%;
+  }
+  .favorites__prew-arrow{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+  }
+
+  .favorites__end-arrow-first,
+  .favorites__end-arrow-second,
+  .favorites__next-arrow{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    transform: translate(-50%, -50%);    
+    fill: var(--color-btn-var2);
+  }
+
+  .favorites__next-arrow{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+
+  .favorites__end-arrow-first{
+    top: 50%;
+    left: 40%;
+  }
+  .favorites__end-arrow-second{
+    top: 50%;
+    left: 60%;
+  }
+
+  .favorites__pag-page{
+    font-family: Inter;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+  
+  .favorites__start-arrow-first-thumb{
+    display: block;
+    width: 40px;
+    height: 40px;
+  }
+
   @media (min-width: 768px){
 
     .favorites__wrap{
@@ -219,7 +323,6 @@ background-image: url("../images/favorites/card@2x.jpg");
 
     .empty {
         height: 100%;
-        color: var(--color-btn-var2);
       }
 
       .favorites__empty{
@@ -245,6 +348,8 @@ background-image: url("../images/favorites/card@2x.jpg");
   }
 
       .favorites__empty-img {
+        width: 97px;
+        height: 83px;
         margin-top: 64px;
         margin-bottom: 32px;
       }
@@ -260,7 +365,6 @@ background-image: url("../images/favorites/card@2x.jpg");
       }
 
       .favorites__list-cards{
-        display: flex;
         flex-wrap: wrap;
         flex-direction: row;
         gap:16px;
@@ -280,6 +384,17 @@ background-image: url("../images/favorites/card@2x.jpg");
   .favorites__star-notActive {
     width: 12px;
     height: 12px;
+  }
+
+  .favorites_page-dots-first,
+.favorites__pag-page{
+  width: 44px;
+  height: 44px; 
+}
+
+  .favorites__pag-container{
+    width: 44px;
+    height: 44px;
   }
   }
 
@@ -345,10 +460,7 @@ background-image: url("../images/favorites/card@2x.jpg");
     margin: 1px;
     opacity: 0;
   }
-
-  .favorites-pagination-bar{
-    gap: 8px;
-  }
+  
   
   .heart-isActive {
     fill: white;
@@ -359,6 +471,4 @@ background-image: url("../images/favorites/card@2x.jpg");
     color: var(--color-btn-var1);
     background-color: var(--color-active-el);
   }
-  
-
   

@@ -48,7 +48,9 @@ const renderListCards = listOfCard => {
             <p class="favorites__cards-text">${data.description}</p>
             <div class="favorites__rating-thumb">
               ${renderRating(data.rating)}
-              <button class="favorites__cards-btn">See recipe</button>
+              <button class="favorites__cards-btn" data-id="${
+                data._id
+              }">See recipe</button>
             </div>
           </div>
         </li>`;
@@ -56,7 +58,45 @@ const renderListCards = listOfCard => {
 };
 
 // -----------------------отримує масив картинок і повертає markup списку-------------------------
-export const renderCardsMarkup = cardsData => {
+const renderCardsMarkup = cardsData => {
   const cardMarkupCard = renderListCards(cardsData).join('');
   return cardMarkupCard;
+};
+
+const empty = () => {
+  const text = `It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.`;
+  return `<svg class="favorites__empty-img">
+      <use href="${icons}#icon-elements"></use>
+    </svg>
+    <p class="favorites__text">${text}</p>`;
+};
+
+const emptyItem = () => {
+  return `<li class="favorites__list-cards-thumb">${empty()}</li>`;
+};
+
+// ========================================викликаємо коли потрібно завантажити порожню сторінку-======================
+const emptyRendering = conRef => {
+  conRef.classList.add('empty');
+  conRef.insertAdjacentHTML('beforeend', empty());
+};
+
+// =================================парсимо localStorage========================================
+const getValuesOfStorage = storedData => {
+  try {
+    const rawData = localStorage.getItem(storedData);
+    if (rawData) {
+      return JSON.parse(rawData);
+    }
+  } catch (error) {
+    console.error('Error while parsing local storage data:', error);
+  }
+};
+
+export {
+  renderCardsMarkup,
+  empty,
+  emptyItem,
+  emptyRendering,
+  getValuesOfStorage,
 };
