@@ -4,6 +4,21 @@ const closeBtn = document.querySelector('.close-create');
 const recipeForm = document.getElementById('recipeForm');
 const ingredientsContainer = document.getElementById('ingredients-create');
 const addIngredientIcon = document.querySelector('.add-ingredient-icon');
+const recipeImageInput = document.getElementById('recipeImage');
+const recipeImagePreview = document.getElementById('recipeImagePreview'); 
+
+recipeImageInput.addEventListener('change', event => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function() {
+
+      recipeImagePreview.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
 
 function disableBodyScroll() {
   document.body.style.overflow = 'hidden';
@@ -103,6 +118,7 @@ recipeForm.addEventListener('submit', event => {
   const ingredientNames = document.querySelectorAll('.ingredient-name');
   const ingredientAmounts = document.querySelectorAll('.ingredient-amount');
   const instructions = document.getElementById('instructions').value.trim();
+  const recipeImage = recipeImageInput.files[0];
 
   modal.style.display = 'none';
 });
@@ -115,6 +131,7 @@ recipeForm.addEventListener('submit', event => {
   const ingredientAmounts = document.querySelectorAll('.ingredient-amount');
   const instructions = document.getElementById('instructions').value.trim();
 
+
   const ingredients = [];
   for (let i = 0; i < ingredientNames.length; i += 1) {
     const ingredientName = ingredientNames[i].value.trim();
@@ -126,6 +143,7 @@ recipeForm.addEventListener('submit', event => {
     name: recipeName,
     ingredients: ingredients,
     instructions: instructions,
+    image: recipeImage,
   };
 
   saveRecipe(recipe);
