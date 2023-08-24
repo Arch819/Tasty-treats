@@ -6,6 +6,8 @@ import { favoritesCardsRef } from './favoritRefs';
 // pageCount === кількість сторінок
 // page === сторінка
 
+let page = null;
+
 export const handleFavPagination = async (
   evt,
   keyOfLocalStorage,
