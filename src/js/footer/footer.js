@@ -22,6 +22,9 @@ teamList.insertAdjacentHTML('afterbegin', teamRender(team));
 
 function fetchTeam(e) {
   const { target } = e;
+  if (target.tagName === 'UL' || target.tagName === 'LI') {
+    return;
+  }
   if (!target.tagName === 'IMG') {
     return;
   }
