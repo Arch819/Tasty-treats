@@ -17,9 +17,8 @@
       <h3 class="add-rating-title">Rating</h3>
 <form action="">
       <div class="form__item">
-        <div class="form__label">
-          New rating
           <div class="rating rating_set">
+            <p class="rating__value">0</p>
             <div class="rating__body">
               <div class="rating__active"></div>
               <div class="rating_items">
@@ -56,28 +55,13 @@
                 />
               </div>
             </div>
-            <div class="rating__value">0</div>
+            
           </div>
         </div>
         <!-- <form class="add-rating-form"> -->
           <!-- <div class="add-rating-flex-container">
-            <p class="js-rating-choosed">0.0</p>
+
             <fieldset class="starability-slot">
-              <input type="radio" id="star1" name="rating" value="1" required />
-              <label for="star1" title="Poor"></label>
-
-              <input type="radio" id="star2" name="rating" value="2" />
-              <label for="star2" title="Fair"></label>
-
-              <input type="radio" id="star3" name="rating" value="3" />
-              <label for="star3" title="Good"></label>
-
-              <input type="radio" id="star4" name="rating" value="4" />
-              <label for="star4" title="Excellent"></label>
-
-              <input type="radio" id="star5" name="rating" value="5" />
-              <label for="star5" title="Outstanding"></label>
-            </fieldset>
           </div> -->
 
           <input
@@ -87,111 +71,12 @@
             class="add-rating-email"
             placeholder="Enter email"
           />
-          <button type="submit" class="add-rating-submit-btn">Send</button></form>
+          <button type="submit" class="add-rating-submit-btn btn">Send</button></form>
       </div>
     </div>
   </div>
-  <!-- <button type="submit" class="add-rating-submit-btn">Send</button>
 
-rating-backdrop visible 
-<div class="rating-backdrop">
-  <div id="rating-modal-js" class="rating-modal-container">
-    <div class="rating-modal">
-      <button class="btn-close-rating btn">
-        <svg class="rating-close-icon" height="24" width="24">
-          <use
-            class="rating-close-icon-svg"
-            href="./images/sprite.svg#icon-close-x"
-          ></use>
-        </svg>
-      </button>
-      <div class="rating-block">
-        <div class="rating-block-star">
-          <h2 class="block-star-txt">Rating</h2>
-          <div class="rating-star">
-            <p class="rating_value">0.0</p>
-            <input
-              type="radio"
-              id="star1"
-              name="rating"
-              value="1"
-              class="star-input"
-            />
-            <label for="star1" class="star-label">
-              <svg class="star-rating" viewBox="0 0 24 24">
-                <use href="./images/sprite.svg#icon-star-grey"></use>
-              </svg>
-            </label>
-            <input
-              type="radio"
-              id="star2"
-              name="rating"
-              value="2"
-              class="star-input"
-            />
-            <label for="star2" class="star-label">
-              <svg class="star-rating" viewBox="0 0 24 24">
-                <use href="./images/sprite.svg#icon-star-grey"></use>
-              </svg>
-            </label>
-            <input
-              type="radio"
-              id="star3"
-              name="rating"
-              value="3"
-              class="star-input"
-            />
-            <label for="star3" class="star-label">
-              <svg class="star-rating" viewBox="0 0 24 24">
-                <use href="./images/sprite.svg#icon-star-grey"></use>
-              </svg>
-            </label>
-            <input
-              type="radio"
-              id="star4"
-              name="rating"
-              value="4"
-              class="star-input"
-            />
-            <label for="star4" class="star-label">
-              <svg class="star-rating" viewBox="0 0 24 24">
-                <use href="./images/sprite.svg#icon-star-grey"></use>
-              </svg>
-            </label>
-            <input
-              type="radio"
-              id="star5"
-              name="rating"
-              value="5"
-              class="star-input"
-            />
-            <label for="star5" class="star-label">
-              <svg class="star-rating" viewBox="0 0 24 24">
-                <use href="./images/sprite.svg#icon-star-grey"></use>
-              </svg>
-            </label>
-          </div>
-        </div>
-        <p class="rating-block-txt"></p>
-      </div>
-      <div class="rating-email">
-        <input
-          type="email"
-          id="email-1"
-          name="email"
-          placeholder="Enter your email"
-          class="order-form-input rating-form-input email-form-valid input-js email-rating"
-          required
-        />
-        <button type="submit" class="rating-email-btn submit-btn" disabled>
-          Send
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-Файли для роботи:
+<!-- Файли для роботи:
     Стилі:
       sass\layout\modal\_modal-rating.scss - стілі блоку;
 
@@ -203,6 +88,4 @@ rating-backdrop visible
       js\modal\modal-rating\modal-rating.js - запити на бек;
       js\modal\modal-rating\modal-ratingRender.js -рендер HTML;
 
-      -->
-
-<!-- Додавання рейтингу окремому рецепту - https://tasty-treats-backend.p.goit.global/api/recipes/ -->
+Додавання рейтингу окремому рецепту - https://tasty-treats-backend.p.goit.global/api/recipes/ -->
