@@ -36,6 +36,8 @@ previousPageButton.addEventListener('click', loadPrevPage);
 pageOneBtn.addEventListener('click', loadfirstPage);
 pageTwoBtn.addEventListener('click', loadPageTwo);
 pageThreeBtn.addEventListener('click', loadPageThree);
+btnWithDotsLeft.addEventListener('click', loadDotsLeft);
+btnWithDotsRight.addEventListener('click', loadDotsRigth);
 
 Notify.init({
   position: 'center-center',
@@ -148,7 +150,7 @@ function fetchRecipesQuery() {
       renderGallery(data.results);
       addToFavorites();
       changeButtonColor();
-      testyApiService.incrementPage;
+      /////testyApiService.incrementPage;
       loaderIndicatorRef.classList.add('is-hidden-pgn');
       btnPaginationBarRef.classList.remove('is-hidden-pgn');
     })
@@ -306,6 +308,67 @@ function loadPageThree() {
   const pageNumb = parseInt(pageThreeBtn.textContent);
   testyApiService.setCurrentPage(pageNumb);
   //galleryRecipesRef.innerHTML = '';
+  fetchRecipesQuery();
+}
+
+function loadDotsLeft() {
+  pageNumb = testyApiService.currentPage;
+  console.log(
+    'totalPages: ',
+    totalPages,
+    'testyApiService.currentPage: ',
+    testyApiService.currentPage,
+    'pageNumb: ',
+    pageNumb
+  );
+  const pageDotsLeft = totalPages - parseInt(testyApiService.currentPage);
+
+  if (pageOneBtn.textContent === '2') {
+    pageThreeBtn.textContent = parseInt(pageThreeBtn.textContent) - 1;
+    pageTwoBtn.textContent = parseInt(pageTwoBtn.textContent) - 1;
+    pageOneBtn.textContent = parseInt(pageOneBtn.textContent) - 1;
+    //galleryRecipesRef.innerHTML = '';
+    testyApiService.setCurrentPage(pageNumb - 1);
+    fetchRecipesQuery();
+    return;
+  }
+
+  if (parseInt(pageOneBtn.textContent) < 3) return;
+  pageThreeBtn.textContent = parseInt(pageThreeBtn.textContent) - 2;
+  pageTwoBtn.textContent = parseInt(pageTwoBtn.textContent) - 2;
+  pageOneBtn.textContent = parseInt(pageOneBtn.textContent) - 2;
+  //galleryRecipesRef.innerHTML = '';
+  testyApiService.setCurrentPage(pageNumb - 2);
+  fetchRecipesQuery();
+}
+
+function loadDotsRigth() {
+  pageNumb = testyApiService.currentPage;
+  console.log(
+    'totalPages: ',
+    totalPages,
+    'testyApiService.currentPage: ',
+    testyApiService.currentPage,
+    'pageNumb: ',
+    pageNumb
+  );
+  const pageDotsLeft = totalPages - parseInt(testyApiService.currentPage);
+
+  if (totalPages - parseInt(pageThreeBtn.textContent) === 1) {
+    pageThreeBtn.textContent = parseInt(pageThreeBtn.textContent) + 1;
+    pageTwoBtn.textContent = parseInt(pageTwoBtn.textContent) + 1;
+    pageOneBtn.textContent = parseInt(pageOneBtn.textContent) + 1;
+    //galleryRecipesRef.innerHTML = '';
+    testyApiService.setCurrentPage(pageNumb + 1);
+    fetchRecipesQuery();
+    return;
+  }
+
+  pageThreeBtn.textContent = parseInt(pageThreeBtn.textContent) + 2;
+  pageTwoBtn.textContent = parseInt(pageTwoBtn.textContent) + 2;
+  pageOneBtn.textContent = parseInt(pageOneBtn.textContent) + 2;
+  //galleryRecipesRef.innerHTML = '';
+  testyApiService.setCurrentPage(pageNumb + 2);
   fetchRecipesQuery();
 }
 
