@@ -4,7 +4,7 @@
 
 .favorites__container-cards{
   position: relative;
-  padding-top: 110px;
+  padding-top: 95px;
 }
 
 .favorites__wrap{
@@ -67,6 +67,10 @@ background-image: url("../images/favorites/card@2x.jpg");
     white-space: nowrap;
     margin-bottom: 24px;
     overflow: scroll;
+    padding-bottom: 15px;
+  }
+  .favorites__list-filter::-webkit-scrollbar{
+    height: 8px;
   }
 
   .favorites__filter-btn {
