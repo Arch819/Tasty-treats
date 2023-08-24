@@ -21,6 +21,9 @@
   --border-radius: 15px;
   --border-btn-var2: 1px solid #9bb537;
 
+  //scrollbar-thumb
+  --color-scrollbar-thumb-light: rgba(5, 5, 5, 0.18);
+
   //*dark
   //background
   --bg-body-dark: #1e1e1e;
@@ -37,4 +40,7 @@
 
   //?transition
   --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  //scrollbar-thumb
+  --color-scrollbar-thumb-dark: rgb(255, 255, 255, 0.18);
 }

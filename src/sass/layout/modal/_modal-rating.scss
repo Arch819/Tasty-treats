@@ -1,0 +1,160 @@
+.rating {
+  display: flex;
+    align-items: center;
+    color: #050505;
+font-family: 'Inter';
+font-size: 24px;
+font-weight: 600;
+line-height: 18px;
+
+}
+.rating__body {position: relative;
+
+  &::before{
+    content: '★★★★★';
+
+} }
+.rating__active {
+    position:absolute;
+    width: 0%;
+height: 24px;
+top:0;
+left:0;
+overflow: hidden;
+
+&::before{content:'★★★★★';
+    position: absolute;
+    width: 100%;
+height: 24px;
+top: 0;;
+left: 0;
+color:gold}
+
+}
+.rating_items {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0 ;
+
+
+}
+.rating__item {
+    flex: 0 0 20%;
+    height: 100%;
+    opacity: 0;
+
+}
+.rating__value {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+font-family: 'Inter';
+margin-right: 8px;
+}
+
+.add-rating-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms;
+}
+
+.add-rating-modal {
+  position: relative;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+max-width: 335px;
+  border-radius: 15px;
+}
+
+.add-rating-close-icon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+ 
+  &:hover {
+  fill: var(--color-active-el);
+  transition: var(--transition);
+}
+}
+
+.add-rating-title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: #050505;
+font-family: 'Inter';
+}
+.add-rating-email {
+  
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 24px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 18px;
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  
+  &:focus {
+  outline: none;
+  border: 1px solid #9bb537;
+}
+}
+
+.add-rating-submit-btn {
+  display:block;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 14px;
+  padding: 15px 130px;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--color-active-el);
+  box-shadow: none;
+  color: var(--color-btn-var1);
+  
+  &:hover {
+  color: var(--color-btn-var2);
+  transition: var(--transition);
+}
+}
+
+@media screen and (min-width: 768px) {
+  .add-rating-modal {
+    padding: 32px;
+    max-width: 424px;
+  }
+
+  .add-rating-email {
+    width: 360px;
+
+  }
+
+  .add-rating-submit-btn {
+    width: 360px;
+    margin-top: 16px;
+
+  }
+
+  .add-rating-close-icon {
+    width: 24px;
+    height: 24px;
+    top: 16px;
+    right: 16px;
+  }
+
+
+}

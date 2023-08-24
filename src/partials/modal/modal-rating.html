@@ -1,3 +1,81 @@
+<!-- <button class="give-rating-btn" id="give-rating" type="button">
+  Give a rating
+</button>
+ -->
+
+  <div class="add-rating-backdrop">
+    <div class="add-rating-modal">
+      
+      <svg
+        id="add-rating-close-btn"
+        class="add-rating-close-icon"
+        width="20"
+        height="20"
+      >
+        <use href="./images/sprite.svg#icon-close-x"></use>
+      </svg>
+      <h3 class="add-rating-title">Rating</h3>
+<form action="">
+      <div class="form__item">
+          <div class="rating rating_set">
+            <p class="rating__value">0</p>
+            <div class="rating__body">
+              <div class="rating__active"></div>
+              <div class="rating_items">
+                <input
+                  type="radio"
+                  name="rating"
+                  id=""
+                  class="rating__item"
+                  value="1"
+                /><input
+                  type="radio"
+                  name="rating"
+                  id=""
+                  class="rating__item"
+                  value="2"
+                /><input
+                  type="radio"
+                  name="rating"
+                  id=""
+                  class="rating__item"
+                  value="3"
+                /><input
+                  type="radio"
+                  name="rating"
+                  id=""
+                  class="rating__item"
+                  value="4"
+                /><input
+                  type="radio"
+                  name="rating"
+                  id=""
+                  class="rating__item"
+                  value="5"
+                />
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <!-- <form class="add-rating-form"> -->
+          <!-- <div class="add-rating-flex-container">
+
+            <fieldset class="starability-slot">
+          </div> -->
+
+          <input
+            required
+            type="email"
+            name="email"
+            class="add-rating-email"
+            placeholder="Enter email"
+          />
+          <button type="submit" class="add-rating-submit-btn btn">Send</button></form>
+      </div>
+    </div>
+  </div>
+
 <!-- Файли для роботи:
     Стилі:
       sass\layout\modal\_modal-rating.scss - стілі блоку;
@@ -10,13 +88,4 @@
       js\modal\modal-rating\modal-rating.js - запити на бек;
       js\modal\modal-rating\modal-ratingRender.js -рендер HTML;
 
-      -->
-
-<!-- Додавання рейтингу окремому рецепту - https://tasty-treats-backend.p.goit.global/api/recipes/ -->
-
-<!--  Вікно містить в собі радіокнопки, описову частину й обовʼязкове поле для введення користувачем email.
-      Всі поля форми повинні валідуватись. По click на кнопку Send, у разі введення користувачем валідних значень,
-      запит про додавання рейтингу відправляється на бекенд. 
-      У разі отримання успішної відповіді з бекенду  - модальне вікно з формою додавання рейтингу необхідно 
-      закрити. У разі отримання помилки з бекенду  - текст помилки необхідно візуалізувати користувачу у 
-      вигляді нотіфікацїї -->
+Додавання рейтингу окремому рецепту - https://tasty-treats-backend.p.goit.global/api/recipes/ -->

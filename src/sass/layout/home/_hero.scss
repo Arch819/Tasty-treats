@@ -2,19 +2,11 @@
   padding-top: 88px;
 }
 .hero__wrap {
-  //   padding-right: 0;
     overflow: hidden;
-  padding-bottom: 60px;  
-  position: relative;
-}
 
-.swiper-wrap {
-  padding-right: 0;
 }
-
 // .hero-titel {
 //   color: #050505;
-//   font-family: Inter;
 //   font-size: 26px;
 //   font-style: normal;
 //   font-weight: 600;
@@ -49,7 +41,6 @@
   margin-top: 14px;
   
   color: #050505;
-    font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -70,7 +61,6 @@
 
 .hero-button {
   color: #050505;
-  font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -90,6 +80,16 @@
 //   min-width: 0;
 //   // gap: 8px;
 // }
+.swiper-container {
+   padding-bottom: 60px;  
+  position: relative;
+  width: 515px;
+  
+}
+
+.swiper-wrap {
+  padding-right: 0;
+}
 
 .swiper-slide {
   display: flex;
@@ -100,15 +100,6 @@
   gap: 8px;
 }
 .swiper-container {
-  height: px;
-  // display: flex;
-  // flex-direction: column;
-  // gap: 4px;
-
-  width: 515px;
-
-//   width: 496px;
-//   height: 302px;
 }
 
 .img-item {
@@ -175,14 +166,9 @@
   background-color: var(--color-btn-var2);
 }
 
-
-
 .swiper-pagination {
- 
  bottom: 0;
  margin-left: 25px;
-  
-  
 }
 span.swiper-pagination-bullet {
   opacity: 1;
@@ -240,7 +226,6 @@ span.swiper-pagination-bullet-active {
   }
   .swiper-container {
     width: 871px;
-    // height: 468px;
     padding-top: 64px;
   }
   .cook-img {
@@ -266,11 +251,11 @@ span.swiper-pagination-bullet-active {
     background-size: 863px;
     width: 351px;
   }
+
   .swiper-pagination {
       margin-left: -30px;
-  
   }
-}
+
 
 @media screen and (min-width: 1280px) {
   .hero {

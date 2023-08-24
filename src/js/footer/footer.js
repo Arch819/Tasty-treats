@@ -5,6 +5,7 @@ import { modalTeamRender } from './teamRender';
 
 const teamList = document.getElementById('team-list');
 const link = document.querySelectorAll('.disable-link');
+const supportLink = document.querySelector('.support-link');
 const modalTeam = document.querySelector('.modal-wraper');
 const backdropTeam = document.getElementById('team-modal');
 const closeBtn = document.querySelector('.close-modal-team');
@@ -13,6 +14,10 @@ let teamItem = 0;
 
 teamList.addEventListener('click', fetchTeam);
 closeBtn.addEventListener('click', onClose);
+supportLink.addEventListener('click', e => {
+  e.preventDefault();
+  confirmNavigation(supportLink.href);
+});
 
 link.forEach(linkItem => {
   linkItem.addEventListener('click', e => e.preventDefault());
@@ -22,6 +27,9 @@ teamList.insertAdjacentHTML('afterbegin', teamRender(team));
 
 function fetchTeam(e) {
   const { target } = e;
+  if (target.tagName === 'UL' || target.tagName === 'LI') {
+    return;
+  }
   if (!target.tagName === 'IMG') {
     return;
   }
@@ -31,7 +39,7 @@ function fetchTeam(e) {
   setClassBackdropTeam(e);
 }
 
-function setClassBackdropTeam(e) {
+function setClassBackdropTeam() {
   document.addEventListener('keydown', onKeyClose);
   document.addEventListener('click', onClickClose);
 
@@ -73,4 +81,15 @@ function onClickClose(event) {
     onClose();
     document.removeEventListener('click', onClickClose);
   }
+}
+function confirmNavigation(link) {
+  Notiflix.Confirm.show(
+    'Confirmation',
+    'This address leads to another website. Are you sure you want to navigate to this link?',
+    'Yes',
+    'No',
+    function () {
+      window.open(link, '_blank');
+    }
+  );
 }

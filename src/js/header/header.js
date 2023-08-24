@@ -4,16 +4,46 @@ import { refs } from "./refs";
 import { toggleModal, modalIsOpen } from "./_modal-window";
 
 
+
+
+const iconMoons = refs.iconMoon;
+const iconSuns = refs.iconSun;
+
+document.addEventListener('DOMContentLoaded', () => {
+    iconMoons.forEach((iconMoon, idx) => {
+        const iconSun = iconSuns[idx];
+
+        refs.sliderEl.forEach(checkboxInput => {
+            checkboxInput.addEventListener('change', () => {
+                const isChecked = checkboxInput.checked;
+
+                iconSun.classList.toggle('visibility-hidden', isChecked);
+                iconMoon.classList.toggle('visibility-hidden', !isChecked);
+            });
+
+            const isChecked = checkboxInput.checked;
+            console.log(isChecked);
+
+            iconSun.classList.toggle('visibility-hidden', isChecked);
+            iconMoon.classList.toggle('visibility-hidden', !isChecked);
+        });
+    });
+});
+
+
 const currentPath = window.location.pathname;
+console.log(currentPath);
 
 const navigationLinksArray = Array.from(refs.navigationLinks);
 const hasActiveLink = navigationLinksArray.some(link => link.getAttribute('href') === currentPath);
-
-
-
+console.log(refs.navigationLinks);
 
 if (!hasActiveLink) {
-    refs.navigationLinks[0].classList.add('current-link');
+    navigationLinksArray.forEach(link => {
+        if (link.textContent === "Home") {
+            link.classList.add('current-link');
+        }
+    });
 } else {
     refs.navigationLinks.forEach(link => {
         if (link.getAttribute('href') === currentPath) {
@@ -40,18 +70,8 @@ window.onscroll = function () {
 
 
 
-refs.sliderEl.forEach(checkboxInput => {
-    checkboxInput.addEventListener('change', () => {
-        refs.iconMoon.forEach((iconMoon, idx) => {
-            const iconSun = refs.iconSun[idx];
+// if (checkboxInput.checked) {
+//     iconMoon.classList.add('visibility-hidden');
+//     iconSun.classList.remove('visibility-hidden');
+// }
 
-            if (!checkboxInput.checked) {
-                iconMoon.classList.add('visibility-hidden');
-                iconSun.classList.remove('visibility-hidden');
-            } else {
-                iconMoon.classList.remove('visibility-hidden');
-                iconSun.classList.add('visibility-hidden');
-            }
-        });
-    });
-});

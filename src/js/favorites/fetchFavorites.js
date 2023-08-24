@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { errorMessage } from './cardElement';
 
 const URL_RECIPE = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
 
@@ -11,7 +12,7 @@ export const fetchRecipeById = async id => {
 
     return response;
   } catch {
-    throw new Error('an error occurred while fetching the images from the API');
+    errorMessage();
   }
 };
 
