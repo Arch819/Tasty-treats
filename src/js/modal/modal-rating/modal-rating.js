@@ -83,69 +83,42 @@ function initRatings() {
 
 
 // DOM Elements
-// const starIconGrey = <svg class="icon-star-modal"><use href="${icons}#icon-star-grey"></use></svg>;
 const backdrop = document.querySelector('.add-rating-backdrop');
-const modal = document.querySelector('.add-rating-modal');
-const closeModalBtn = document.getElementById('add-rating-close-btn');
-const form = document.querySelector('.add-rating-form');
-// const starChoosed = document.querySelector('.js-rating-choosed');
-// const starField = document.querySelector('.starability-slot');
-const addRatingEmail = document.querySelector('.add-rating-email');
-const opnElements = document.getElementsByClassName('js-rating');
-for (const opn of opnElements) {
-    opn.addEventListener('click', () => {
-        // modal.style.display = 'block';
-      backdrop.style.display = 'block';
-      backdrop.style.zIndex = '9999';
-    });
-// console.log(opn)
-// console.log()
-// opn.addEventListener('click', () => {modal.style.display = 'block';
-//   backdrop.style.display = 'block';
-};
-    
-
-
-// console.log(opn);
-// console.log(opn.currentTurget);
-// let stars = null;
-// let giveRatingBtn = null;
-[backdrop].forEach(el => {
-  if (el) {
-    el.style.display = 'none';
+document.addEventListener('click', function (event) {
+  // Перевірка, чи було натиснуто кнопку "Open Modal"
+  if (event.target.classList.contains('js-rating')) {
+    // Рендерінг модального вікна і кнопки "Give a rating"
+    const closeModalBtn = document.getElementById('add-rating-close-btn');
+    const modal = document.querySelector('.add-rating-modal')
+    openModal()
+    closeModalBtn.addEventListener('click', closeModal);
   }
-});
-// EVENT LISTENERS
-document.addEventListener('keydown', evt => {
-  if (evt.key === 'Escape') {
+})
 
-    onClose();
-    console.log(' text `click esc`')
+
+function openModal() {
+  backdrop.style.display = 'block';
+  backdrop.addEventListener('click', (evt) => {
+    if (!evt.target.classList.contains('add-rating-backdrop')) {
+    return
+    }
+    closeModal()
+  }  )
+  document.addEventListener('keydown', evt => {
+    if (evt.key === 'Escape') {
+      closeModal()
   }
-});
-
-if (form) {
-  form.addEventListener('submit', submitRating);
-  console.log("форма закрита")
+  });
+  
 }
 
-if (closeModalBtn||Escape) {
-  closeModalBtn.addEventListener('click', onClose);
-  console.log('X')
-}
-function onClose() {
-  // form.reset();
+function closeModal() {
+  
   backdrop.style.display = 'none';
-}
-function submitRating(e) {
-    e.preventDefault();
-    const selectedRadioButton = starField.querySelector(
-        'input[name="rating"]:checked'
-    );
-
-    const mail = addRatingEmail.value;
-    const data = {
-        rate: selectedRadioButton ? parseFloat(selectedRadioButton.value) : 0,
-        email: mail,
-    };
+  document.removeEventListener('keydown', evt => {
+    if (evt.key === 'Escape')
+    {
+      closeModal()
+    }
+  })
 }
