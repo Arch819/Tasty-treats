@@ -89,9 +89,12 @@ document.addEventListener('click', function (event) {
   if (event.target.classList.contains('js-rating')) {
     // Рендерінг модального вікна і кнопки "Give a rating"
     const closeModalBtn = document.getElementById('add-rating-close-btn');
-    const modal = document.querySelector('.add-rating-modal')
-    openModal()
+    const modal = document.querySelector('.add-rating-modal');
+    const formRating = document.querySelector('.add-rating-modal form');
+    
     closeModalBtn.addEventListener('click', closeModal);
+    formRating.addEventListener('submit', (e) => e.preventDefault());
+    openModal()
   }
 })
 
