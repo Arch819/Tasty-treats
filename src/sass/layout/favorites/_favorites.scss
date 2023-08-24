@@ -386,7 +386,7 @@ background-image: url("../images/favorites/card@2x.jpg");
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--color-text-light);
+  background-color: var(--bg-btn-var1);
 }
 
 .favorites__start-arrow-first,
@@ -416,27 +416,20 @@ background-image: url("../images/favorites/card@2x.jpg");
   transform: translate(-50%, -50%) rotate(180deg);
   }
 
+  .favorites__end-arrow-first,
+  .favorites__end-arrow-second,
   .favorites__next-arrow{
-    position: absolute;
-  top: 50%;
-  left: 50%;
-  
-  transform: translate(-50%, -50%);
     width: 24px;
     height: 24px;
-    fill: var(--color-btn-var1);
-    opacity: 0.5;
+    position: absolute;
+    transform: translate(-50%, -50%);    
+    fill: var(--color-btn-var2);
   }
 
-  .favorites__end-arrow-first,
-  .favorites__end-arrow-second{
-    width: 24px;
-    height: 24px;
+  .favorites__next-arrow{
     position: absolute;
-    transform: translate(-50%, -50%);
-    
-    fill: var(--color-btn-var1);
-    opacity: 0.5;
+    left: 50%;
+    top: 50%;
   }
 
   .favorites__end-arrow-first{
@@ -458,6 +451,6 @@ background-image: url("../images/favorites/card@2x.jpg");
   
   .favorites__start-arrow-first-thumb{
     display: block;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
   }

@@ -81,7 +81,14 @@ const emptyRendering = conRef => {
 
 // =================================парсимо localStorage========================================
 const getValuesOfStorage = storedData => {
-  return JSON.parse(localStorage.getItem(storedData));
+  try {
+    const rawData = localStorage.getItem(storedData);
+    if (rawData) {
+      return JSON.parse(rawData);
+    }
+  } catch (error) {
+    console.error('Error while parsing local storage data:', error);
+  }
 };
 
 export {

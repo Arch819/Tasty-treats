@@ -1,13 +1,14 @@
 import sprite from '../../images/sprite.svg';
 import { paginationRef } from './favoritRefs';
+const screenWidth = window.innerWidth;
 
 export function paginationFav(totalPage, page) {
   let liTag = '';
   let activeLi = null;
   let beforePage = page - 1;
   let afterPage = page + 1;
-  if (page > 1) {
-    liTag += `<li class="favorites__pagination-item">
+
+  liTag += `<li class="favorites__pagination-item">
     <div class="favorites__pag-container start-container">
       <svg class="favorites__start-arrow-first">
         <use href="${sprite}#icon-arrow"></use>
@@ -24,7 +25,6 @@ export function paginationFav(totalPage, page) {
       </svg>
     </div>
   </li>`;
-  }
 
   if (page > 2) {
     liTag += `<li class="favorites__pagination-item">
@@ -32,20 +32,28 @@ export function paginationFav(totalPage, page) {
   </li>`;
   }
 
-  if (page == totalPage) {
-    beforePage -= 1;
-  }
+  if (screenWidth >= 768) {
+    if (page == totalPage) {
+      beforePage -= 1;
+    }
 
-  if (page == 1) {
-    afterPage += 1;
+    if (page == 1) {
+      afterPage += 1;
+    }
   }
 
   for (let pageLength = beforePage; pageLength <= afterPage; pageLength++) {
     if (pageLength > totalPage) {
       continue;
     }
-    if (pageLength == 0) {
-      pageLength = pageLength + 1;
+    if (screenWidth >= 768) {
+      if (pageLength == 0) {
+        pageLength = pageLength + 1;
+      }
+    } else {
+      if (pageLength <= 0) {
+        continue;
+      }
     }
 
     if (page == pageLength) {
@@ -65,8 +73,7 @@ export function paginationFav(totalPage, page) {
   </li>`;
   }
 
-  if (page < totalPage) {
-    liTag += `<li class="favorites__pagination-item">
+  liTag += `<li class="favorites__pagination-item">
     <div class="favorites__pag-container next-container">
       <svg class="favorites__next-arrow">
         <use href="${sprite}#icon-arrow"></use>
@@ -83,7 +90,6 @@ export function paginationFav(totalPage, page) {
       </svg>
     </div>
   </li>`;
-  }
   paginationRef.innerHTML = liTag;
 }
 //виклик функції і передаємо загальна к-ть сторінок та актуальну сторінку.
