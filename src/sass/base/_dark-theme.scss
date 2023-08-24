@@ -143,6 +143,10 @@
     color: var(--color-btn-var1);
     background-color: var(--color-active-el);
   }
+  option {
+    background-color: var(--color-text-light);
+    color: var(--bg-body-light);
+  }
 }
 
 body {
