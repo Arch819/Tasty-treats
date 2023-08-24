@@ -115,12 +115,14 @@
   background: var(--color-active-el);
   color: var(--color-btn-var1);
   font-family: Inter;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   display: block;
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
+  font-family: Inter, sans-serif;
+  transition: color var(--transition);
 }
 .btn-create:hover,
 .btn-create:focus {
@@ -154,11 +156,13 @@
   cursor: pointer;
   border: var(--border-input-l);
   background: transparent;
-  margin-top: 15px;
+  margin-top: 47px;
+  font-family: Inter, sans-serif;
+  transition: background-color var(--transition);
 }
 .create-recipe-btn:hover,
 .create-recipe-btn:focus {
-  background: var(--bg-btn-var1);
+  background-color: var(--bg-btn-var1);
   color: var(--color-btn-var1);
 }
 .input-create,
@@ -178,7 +182,7 @@
   padding: 14px 18px;
   border-radius: 15px;
   border: var(--border-input-l);
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   margin-top: 8px;
   resize: none;
 
@@ -237,5 +241,5 @@ input[type='file']::before {
 }
 
 input[type='file']:hover::before {
-  background: var(--color-input-placeholder-l);
+  background-color: var(--color-input-placeholder-l);
 }
