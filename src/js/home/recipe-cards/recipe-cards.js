@@ -429,3 +429,5 @@ function resetNumBtn() {
   refs.pageThreeBtn.classList.remove('btn_hidden');
   refs.btnWithDotsRight.classList.remove('btn_hidden');
 }
+
+export { resetFilter, resetNumBtn };

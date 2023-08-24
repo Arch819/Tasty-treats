@@ -20,7 +20,9 @@ export function addToFavorites() {
     if (checkbox.checked) {
       selectedHeart.push({ id: checkboxId, category: checkboxCategory });
     } else {
-      index = selectedHeart.findIndex(cardHeart => cardHeart.id == checkboxId);
+      let index = selectedHeart.findIndex(
+        cardHeart => cardHeart.id == checkboxId
+      );
       selectedHeart.splice(index, 1);
     }
     const heartCheckBoxElLocalStorage = JSON.stringify(selectedHeart);
