@@ -1,4 +1,8 @@
-@import '~node_modules/modern-normalize/modern-normalize.css';
+@import "~node_modules/modern-normalize/modern-normalize.css";
+@font-face {
+  font-family: Inter, sans-serif;
+  src: url("./fonts/Inter-VariableFont_slnt\,wght.ttf");
+}
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -10,7 +14,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--color-text-light);
 }
 

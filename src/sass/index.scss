@@ -1,11 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
-
 // BASE
 @import "./base/variables";
 @import "./base/base";
 @import "./base/container";
-@import "base/dark-theme";
-@import "base/main";
+@import "./base/dark-theme";
+@import "./base/main";
 
 // VENDORS
 @import "./vendors/mixin";
