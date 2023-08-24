@@ -145,7 +145,7 @@ function fetchRecipesQuery() {
       }
       //
       totalPages = data.totalPages;
-      console.log(totalPages);
+      //console.log(totalPages);
       clearRecipesContainer();
       renderGallery(data.results);
       addToFavorites();
@@ -313,14 +313,14 @@ function loadPageThree() {
 
 function loadDotsLeft() {
   pageNumb = testyApiService.currentPage;
-  console.log(
-    'totalPages: ',
-    totalPages,
-    'testyApiService.currentPage: ',
-    testyApiService.currentPage,
-    'pageNumb: ',
-    pageNumb
-  );
+  // console.log(
+  //   'totalPages: ',
+  //   totalPages,
+  //   'testyApiService.currentPage: ',
+  //   testyApiService.currentPage,
+  //   'pageNumb: ',
+  //   pageNumb
+  // );
   const pageDotsLeft = totalPages - parseInt(testyApiService.currentPage);
 
   if (pageOneBtn.textContent === '2') {
@@ -344,14 +344,14 @@ function loadDotsLeft() {
 
 function loadDotsRigth() {
   pageNumb = testyApiService.currentPage;
-  console.log(
-    'totalPages: ',
-    totalPages,
-    'testyApiService.currentPage: ',
-    testyApiService.currentPage,
-    'pageNumb: ',
-    pageNumb
-  );
+  // console.log(
+  //   'totalPages: ',
+  //   totalPages,
+  //   'testyApiService.currentPage: ',
+  //   testyApiService.currentPage,
+  //   'pageNumb: ',
+  //   pageNumb
+  // );
   const pageDotsLeft = totalPages - parseInt(testyApiService.currentPage);
 
   if (totalPages - parseInt(pageThreeBtn.textContent) === 1) {
@@ -384,7 +384,7 @@ function changeButtonColor() {
     }
   });
   //
-  console.log('btn3: ', pageThreeBtn.textContent);
+  //console.log('btn3: ', pageThreeBtn.textContent);
   //if (testyApiService.currentPage > totalPages - 3) {
   if (parseInt(pageThreeBtn.textContent) === totalPages) {
     btnWithDotsRight.classList.add('btn_hidden');
