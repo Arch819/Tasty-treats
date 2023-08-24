@@ -33,7 +33,6 @@ function addToFavorite(event) {
   event.target.textContent = 'Remove from favorites';
 }
 
-
 // refs.cardsEl.addEventListener('click', openModalRecipe);
 
 const bodyEl = document.querySelector('body');
@@ -41,12 +40,15 @@ const modalWindow = document.querySelector('.modal');
 const modalEl = document.querySelector('.modal-content');
 const backdropEl = document.querySelector('.js-backdrop');
 const cardsEl = document.querySelector('.search-recipes');
+const favEl = document.querySelector('body');
 if (cardsEl) {
   cardsEl.addEventListener('click', openModalRecipe);
 }
-
+favEl.addEventListener('click', openModalRecipe);
 
 function openModalRecipe(e) {
+  console.log(e.target);
+  console.log(modalEl);
   if (e.target.classList.contains('js-card-button')) {
     toggleDarkTheme();
     let id = e.target.dataset.id;
