@@ -1,5 +1,4 @@
 import icons from '../../images/sprite.svg';
-import elements from '../../images/favorites/elements.jpg';
 
 //  Створюємо розмітку зірок-------------------
 
@@ -49,7 +48,9 @@ const renderListCards = listOfCard => {
             <p class="favorites__cards-text">${data.description}</p>
             <div class="favorites__rating-thumb">
               ${renderRating(data.rating)}
-              <button class="favorites__cards-btn">See recipe</button>
+              <button class="favorites__cards-btn" data-id="${
+                data._id
+              }">See recipe</button>
             </div>
           </div>
         </li>`;
@@ -64,8 +65,9 @@ const renderCardsMarkup = cardsData => {
 
 const empty = () => {
   const text = `It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.`;
-  return `
-    <img src="${elements}" class="favorites__empty-img" alt="chef's hat">
+  return `<svg class="favorites__empty-img">
+      <use href="${icons}#icon-elements"></use>
+    </svg>
     <p class="favorites__text">${text}</p>`;
 };
 

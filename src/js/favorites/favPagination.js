@@ -92,4 +92,3 @@ export function paginationFav(totalPage, page) {
   </li>`;
   paginationRef.innerHTML = liTag;
 }
-//виклик функції і передаємо загальна к-ть сторінок та актуальну сторінку.

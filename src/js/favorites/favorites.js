@@ -8,11 +8,13 @@ import {
   favoritesFilterRef,
   favoritesCardsRef,
   paginationRef,
+  favImgRef,
 } from './favoritRefs';
 import { paginationFav } from './favPagination';
 
+const screenWidth = window.innerWidth;
 let perPage = 9;
-if (window.innerWidth > 768) {
+if (screenWidth > 768) {
   perPage = 12;
 }
 let page = 1;
@@ -39,6 +41,9 @@ const handleHeartClick = evt => {
   if (!target) {
     return;
   }
+
+  const isHiddenEl = evt.target.closest('.favorites__cards-item');
+  isHiddenEl.style.display = 'none';
 
   const buttonId = target.id.slice(1);
   const dataValue = target.getAttribute('data-category');
@@ -79,9 +84,12 @@ const handleFilter = async evt => {
 
     const data = await renderCards(arrayFromFilter, page, perPage);
     favoritesCardsRef.innerHTML = data;
+
+    favoritesCardsRef.style.justifyContent = 'start';
     return page;
   } else {
     favoritesCardsRef.innerHTML = emptyItem();
+    favoritesCardsRef.style.justifyContent = 'center';
   }
   return keyOfLocalStorage, pageCount, page;
 };
@@ -95,9 +103,14 @@ const renderPageFavorites = async () => {
 
   // =--------------------------------------LocalStorage не існує або порожній масив----------------------
   if (keyOfLocalStorage.length === 0) {
+    if (screenWidth < 768) {
+      favImgRef.style.display = 'none';
+    }
     emptyRendering(conRef);
     return;
   }
+
+  favImgRef.style.display = 'block';
   pageCount = Math.ceil(keyOfLocalStorage.length / perPage);
   // ---------------------------------------Рендеримо сторінку-----------------------------------
   const dataCategories = await renderCategories(keyOfLocalStorage);
