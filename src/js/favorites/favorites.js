@@ -59,5 +59,5 @@ renderPageFavorites();
 import '../footer/footer';
 //*modal
 import '../modal/modal-order/modal-order';
-import '../modal/modal-rating/modal-rating';
+// import '../modal/modal-rating/modal-rating';
 import '../modal/modal-recipe/modal-recipe';
