@@ -1,4 +1,5 @@
 import icons from '../../images/sprite.svg';
+import elements from '../../images/favorites/elements.jpg';
 
 //  Створюємо розмітку зірок-------------------
 
@@ -56,7 +57,37 @@ const renderListCards = listOfCard => {
 };
 
 // -----------------------отримує масив картинок і повертає markup списку-------------------------
-export const renderCardsMarkup = cardsData => {
+const renderCardsMarkup = cardsData => {
   const cardMarkupCard = renderListCards(cardsData).join('');
   return cardMarkupCard;
+};
+
+const empty = () => {
+  const text = `It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.`;
+  return `
+    <img src="${elements}" class="favorites__empty-img" alt="chef's hat">
+    <p class="favorites__text">${text}</p>`;
+};
+
+const emptyItem = () => {
+  return `<li class="favorites__list-cards-thumb">${empty()}</li>`;
+};
+
+// ========================================викликаємо коли потрібно завантажити порожню сторінку-======================
+const emptyRendering = conRef => {
+  conRef.classList.add('empty');
+  conRef.insertAdjacentHTML('beforeend', empty());
+};
+
+// =================================парсимо localStorage========================================
+const getValuesOfStorage = storedData => {
+  return JSON.parse(localStorage.getItem(storedData));
+};
+
+export {
+  renderCardsMarkup,
+  empty,
+  emptyItem,
+  emptyRendering,
+  getValuesOfStorage,
 };

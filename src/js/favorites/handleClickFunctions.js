@@ -1,27 +1,23 @@
-import {
-  favoritesCardsRef,
-  paginationRef,
-  favoritesListCardsThumb,
-} from './favoritRefs';
+import { favoritesCardsRef, paginationRef } from './favoritRefs';
+import { paginationFav } from './favPagination';
 import { renderCards } from './renderFavorites';
-import { getValuesOfStorage } from './config';
-import { renderQuantityOfPages } from './quantyityOfPages';
-import { emptyItem } from './empty';
+import { getValuesOfStorage } from './cardElement';
+import { emptyItem } from './cardElement';
 // ========================================змінюємао кнопку на активну====================================
+
 const PER_PAGE = 12;
 let page = 1;
 
 const checkFilterBtn = evt => {
-  if (evt.classList.contains('favorites__filter-btn')) {
-    // ==================================Знімаємо клас з усіх кнопок====================================
-    const activeButton = document.querySelector(
-      '.favorites__filter-btn.favorites__active-btn'
-    );
+  const isFilterBtn = evt.classList.contains('favorites__filter-btn');
+
+  if (isFilterBtn) {
+    const activeButton = document.querySelector('.favorites__active-btn');
+
     if (activeButton) {
       activeButton.classList.remove('favorites__active-btn');
     }
 
-    // ==============================================Додаємо клас до натиснутої кнопки============================
     evt.classList.add('favorites__active-btn');
   }
 };
@@ -32,58 +28,37 @@ const handleFilter = async evt => {
   const target = evt.target;
   checkFilterBtn(target);
   const filterValue = getValuesOfStorage('favorites');
-
-  // ===================================================перевіряємо якщо натиснули на All category====================================
-  if (target.textContent === 'All categories') {
-    page = 1; //скидаємо сторінку
-    const totalPageCount = Math.ceil(filterValue.length / PER_PAGE);
-    updatePagination(totalPageCount); // оновлюємо пагінацію
-
-    const data = await renderCards(filterValue, page, PER_PAGE);
-    favoritesCardsRef.innerHTML = data;
-    return;
-  }
-
-  // фільтруємо масив і залишаємо ті які співпадають з натиснутою категорією
-  const arrayFromFilter = filterValue.filter(
+  let arrayFromFilter = filterValue.filter(
     el => el.category === target.textContent
   );
 
-  if (arrayFromFilter.length !== 0) {
-    page = 1; // Скидаємо сторінку натисканні на кнопку категорії
-    const totalPageCount = Math.ceil(arrayFromFilter.length / PER_PAGE);
-    updatePagination(totalPageCount);
+  if (target.textContent === 'All categories') {
+    arrayFromFilter = filterValue;
+  }
 
+  if (arrayFromFilter.length !== 0) {
+    page = 1;
+    const totalPage = Math.ceil(arrayFromFilter.length / PER_PAGE);
+    paginationRef.style.display = totalPage > 1 ? 'flex' : 'none';
+    paginationFav(totalPage, page);
     const data = await renderCards(arrayFromFilter, page, PER_PAGE);
     favoritesCardsRef.style.justifyContent = 'start';
     favoritesCardsRef.innerHTML = data;
   } else {
-    favoritesCardsRef.style.justifyContent = 'center';
+    favoritesCardsRef.style.justifyContent = 'start';
     favoritesCardsRef.innerHTML = emptyItem();
   }
 };
 
-// ===============Оновлюємо пагінацію=============
-const updatePagination = pageCount => {
-  if (pageCount === 1) {
-    paginationRef.style.display = 'none';
-    return;
-  }
-  const dataPages = renderQuantityOfPages(pageCount, PER_PAGE);
-  paginationRef.firstElementChild.innerHTML = dataPages.join('');
-  paginationRef.style.display = 'flex';
-};
+// const handlePaginationClick = async evt => {
+//   if (evt.target.classList.contains('pag-btn-number')) {
+//     page = Number(evt.target.textContent);
 
-const handlePaginationClick = async evt => {
-  if (evt.target.classList.contains('pag-btn-number')) {
-    page = Number(evt.target.textContent);
-
-    const filterValue = getValuesOfStorage('favorites');
-    console.log(filterValue);
-    const data = await renderCards(filterValue, page, PER_PAGE);
-    favoritesCardsRef.innerHTML = data;
-  }
-};
+//     const filterValue = getValuesOfStorage('favorites');
+//     const data = await renderCards(filterValue, page, PER_PAGE);
+//     favoritesCardsRef.innerHTML = data;
+//   }
+// };
 
 // ----------------------------------heart---------------------------------
 

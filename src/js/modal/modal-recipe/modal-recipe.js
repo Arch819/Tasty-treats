@@ -33,6 +33,9 @@ function addToFavorite(event) {
   event.target.textContent = 'Remove from favorites';
 }
 
+
+// refs.cardsEl.addEventListener('click', openModalRecipe);
+
 const bodyEl = document.querySelector('body');
 const modalWindow = document.querySelector('.modal');
 const modalEl = document.querySelector('.modal-content');
@@ -41,6 +44,7 @@ const cardsEl = document.querySelector('.search-recipes');
 if (cardsEl) {
   cardsEl.addEventListener('click', openModalRecipe);
 }
+
 
 function openModalRecipe(e) {
   if (e.target.classList.contains('js-card-button')) {
