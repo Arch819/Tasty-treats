@@ -401,7 +401,9 @@ function changeButtonColor() {
     refs.btnWithDotsRight.classList.remove('btn_hidden');
   }
   //
-  if (testyApiService.currentPage > 3) {
+  //console.log('testyApiService.currentPage: ', testyApiService.currentPage,'Btn1: ',refs.pageOneBtn.textContent);
+  //if (testyApiService.currentPage > 3) {
+  if (testyApiService.currentPage > 1 && refs.pageOneBtn.textContent !== '1') {
     refs.btnWithDotsLeft.classList.remove('btn_hidden');
   } else {
     refs.btnWithDotsLeft.classList.add('btn_hidden');
