@@ -70,7 +70,7 @@ function handleGetRecipesCategory(event) {
     tastyApiService.category = nameCategory;
     tastyApiService.fetchRecipes()
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             const markup = createMarkup(data.results);
             galleryRecipesRef.innerHTML = markup;
             
@@ -95,7 +95,7 @@ function handleGetAllRecipes(event) {
 
     tastyApiService.fetchRecipes()
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             const markup = createMarkup(data.results);
             galleryRecipesRef.innerHTML = markup;
         })
