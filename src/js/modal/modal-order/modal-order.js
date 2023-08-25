@@ -109,12 +109,12 @@ const orderModal = () => {
       }
       // Збереження даних у localStorage
       saveFormDataToLocalStorage(formData);
-      console.log(`https://tasty-treats-backend.p.goit.global/api/orders/add&{
-            name: ${formData.name},
-            phone: ${formData.phone},
-            email: ${formData.email},
-            comment:${formData.comment},
-        }`);
+      // console.log(`https://tasty-treats-backend.p.goit.global/api/orders/add&{
+      //       name: ${formData.name},
+      //       phone: ${formData.phone},
+      //       email: ${formData.email},
+      //       comment:${formData.comment},
+      //   }`);
 
       Notiflix.Report.success("Your order has successfully been sent. Thank you!", "OK");
 
