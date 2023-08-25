@@ -47,47 +47,56 @@ if (cardsEl) {
 favEl.addEventListener('click', openModalRecipe);
 
 function openModalRecipe(e) {
-  console.log(e.target);
-  console.log(modalEl);
   if (e.target.classList.contains('js-card-button')) {
     toggleDarkTheme();
     let id = e.target.dataset.id;
-    fetchRecipe(id).then(obj => {
-      modalEl.innerHTML = renderRecipe(obj);
-      const closeBtn = document.querySelector('.close-modal');
-      backdropEl.classList.remove('is-hidden');
-      document.body.classList.add('no-scroll');
-      closeBtn.addEventListener('click', closeModal);
-      backdropEl.addEventListener('click', closeOnEscape);
-      document.addEventListener('keydown', closeOnBackdrop);
-      const favoriteBtn = document.querySelector('.js-favorite');
-      const savedFavirites = JSON.parse(localStorage.getItem('favorites'));
+    fetchRecipe(id)
+      .then(obj => {
+        modalEl.innerHTML = renderRecipe(obj);
+        const closeBtn = document.querySelector('.close-modal');
+        backdropEl.classList.remove('is-hidden');
+        document.body.classList.add('no-scroll');
+        closeBtn.addEventListener('click', closeModal);
+        backdropEl.addEventListener('click', closeOnEscape);
+        document.addEventListener('keydown', closeOnBackdrop);
+        const favoriteBtn = document.querySelector('.js-favorite');
+        const savedFavirites = JSON.parse(localStorage.getItem('favorites'));
 
-      const coverVideoEl = document.querySelector('.cover-video');
-      const playBtn = document.querySelector('.playBtn');
-      playBtn.addEventListener('click', hideCoverVideo);
+        const coverVideoEl = document.querySelector('.cover-video');
+        const playBtn = document.querySelector('.playBtn');
+        playBtn.addEventListener('click', hideCoverVideo);
 
-      function hideCoverVideo() {
-        setTimeout(() => {
-          coverVideoEl.classList.add('is-hidden');
-        }, 300);
-        document
-          .getElementById('v1')
-          .contentWindow.postMessage(
-            '{"event":"command","func":"playVideo","args":""}',
-            '*'
-          );
-      }
+        function hideCoverVideo() {
+          setTimeout(() => {
+            coverVideoEl.classList.add('is-hidden');
+          }, 300);
+          document
+            .getElementById('v1')
+            .contentWindow.postMessage(
+              '{"event":"command","func":"playVideo","args":""}',
+              '*'
+            );
+        }
 
-      if (
-        JSON.parse(
-          localStorage.getItem('favorites') && hasArrElement(savedFavirites, id)
-        )
-      ) {
-        favoriteBtn.textContent = 'Remove from favorites';
-      }
-      favoriteBtn.addEventListener('click', addToFavorite);
-    });
+        if (
+          JSON.parse(
+            localStorage.getItem('favorites') &&
+              hasArrElement(savedFavirites, id)
+          )
+        ) {
+          favoriteBtn.textContent = 'Remove from favorites';
+        }
+        favoriteBtn.addEventListener('click', addToFavorite);
+      })
+      .catch(error => {
+        modalEl.innerHTML = `<p>${error}</p>`;
+        const closeBtn = document.querySelector('.close-modal');
+        backdropEl.classList.remove('is-hidden');
+        document.body.classList.add('no-scroll');
+        closeBtn.addEventListener('click', closeError);
+        backdropEl.addEventListener('click', closeOnEscapeError);
+        document.addEventListener('keydown', closeOnBackdropError);
+      });
   }
 }
 
@@ -115,6 +124,26 @@ function closeOnBackdrop(e) {
   if (e.code === 'Escape') {
     closeModal();
   }
+}
+
+function closeError() {
+  document.body.classList.remove('no-scroll');
+  backdropEl.classList.add('is-hidden');
+  document.removeEventListener('keydown', closeOnBackdropError);
+  backdropEl.removeEventListener('click', closeOnEscapeError);
+}
+
+function closeOnBackdropError(e) {
+  if (e.code === 'Escape') {
+    closeError();
+  }
+}
+
+function closeOnEscapeError(e) {
+  if (e.target !== e.currentTarget) {
+    return;
+  }
+  closeError();
 }
 
 function toggleDarkTheme() {
