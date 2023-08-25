@@ -5,6 +5,7 @@ import { TastyApiService } from './recipe-cardsApi';
 import { GetLists } from './lists-service';
 import { addToFavorites } from './add-to-favorites';
 import { refs } from './pagination-ref';
+import { testyApiService } from './recipe-object';
 
 //  - recipe-cards-refs.js
 // const galleryRecipesRef = document.querySelector('.js-gallery');
@@ -48,7 +49,7 @@ Notify.init({
 let pageNumb = 1;
 let totalPages = 0;
 
-const testyApiService = new TastyApiService();
+//const testyApiService = new TastyApiService();
 testyApiService.setLimitValue();
 //console.log('new TastyApiService:', testyApiService.currentPage);
 const getLists = new GetLists();
