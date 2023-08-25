@@ -6,7 +6,9 @@ const paginationRef = document.querySelector('.favorites__pagination');
 const favoritesListCardsThumb = document.querySelector(
   '.favorites__list-cards-thumb'
 );
-
+const favoritesContainer = document.querySelector(
+  '.favorites__container-cards'
+);
 export {
   conRef,
   favImgRef,
@@ -14,4 +16,5 @@ export {
   favoritesCardsRef,
   paginationRef,
   favoritesListCardsThumb,
+  favoritesContainer,
 };

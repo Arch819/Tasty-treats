@@ -10,6 +10,7 @@ import {
   favoritesCardsRef,
   paginationRef,
   favImgRef,
+  favoritesContainer,
 } from './favoritRefs';
 import { paginationFav } from './favPagination';
 
@@ -19,8 +20,13 @@ if (screenWidth < 768) {
   perPage = 9;
 }
 let page = 1;
-let keyOfLocalStorage = null;
+let keyOfLocalStorage = getValuesOfStorage('favorites');
 let pageCount = null;
+
+const renderEmptyItem = () => {
+  favoritesCardsRef.innerHTML = emptyItem();
+  favoritesCardsRef.style.justifyContent = 'center';
+};
 
 const checkFilterBtn = evt => {
   const isFilterBtn = evt.classList.contains('favorites__filter-btn');
@@ -36,7 +42,7 @@ const checkFilterBtn = evt => {
   }
 };
 
-const handleHeartClick = evt => {
+const handleHeartClick = async evt => {
   const target = evt.target.closest('.icon-button');
 
   if (!target) {
@@ -45,7 +51,22 @@ const handleHeartClick = evt => {
 
   const isHiddenEl = evt.target.closest('.favorites__cards-item');
   if (isHiddenEl) {
-    isHiddenEl.style.display = 'none';
+    isHiddenEl.classList.toggle('is-Hidden-F');
+    keyOfLocalStorage = keyOfLocalStorage.filter(
+      el => el.id !== target.id.slice(1)
+    );
+    const dataCategories = await renderCategories(keyOfLocalStorage);
+    favoritesFilterRef.innerHTML = dataCategories;
+    pageCount = Math.ceil(keyOfLocalStorage.length / perPage);
+    const data = await renderCards(keyOfLocalStorage, page, perPage);
+    favoritesCardsRef.innerHTML = data;
+    paginationFav(pageCount, page);
+    if (pageCount === 1) {
+      paginationRef.style.display = 'none';
+    }
+    if (keyOfLocalStorage.length === 0) {
+      renderEmptyItem();
+    }
   }
 
   const buttonId = target.id.slice(1);
@@ -74,17 +95,15 @@ const handleFilter = async evt => {
   }
 
   checkFilterBtn(target);
-  keyOfLocalStorage = getValuesOfStorage('favorites');
   let arrayFromFilter = keyOfLocalStorage;
   if (target.textContent !== 'All categories') {
     arrayFromFilter = keyOfLocalStorage.filter(
       el => el.category === target.textContent
     );
   }
-
+  console.log(arrayFromFilter);
   if (arrayFromFilter.length !== 0) {
     localStorage.setItem('page', 1);
-    keyOfLocalStorage = arrayFromFilter;
     pageCount = Math.ceil(arrayFromFilter.length / perPage);
     paginationRef.style.display = pageCount > 1 ? 'flex' : 'none';
 
@@ -94,10 +113,8 @@ const handleFilter = async evt => {
     favoritesCardsRef.innerHTML = data;
 
     favoritesCardsRef.style.justifyContent = 'start';
-    return page;
   } else {
-    favoritesCardsRef.innerHTML = emptyItem();
-    favoritesCardsRef.style.justifyContent = 'center';
+    renderEmptyItem();
   }
   return keyOfLocalStorage, pageCount, page;
 };
@@ -119,6 +136,7 @@ const renderPageFavorites = async () => {
       favImgRef.style.display = 'none';
     }
     emptyRendering(conRef);
+    favoritesContainer.classList.toggle('is-Hidden-F');
     return;
   }
 
