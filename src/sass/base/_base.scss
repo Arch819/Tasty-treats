@@ -1,7 +1,30 @@
 @import "~node_modules/modern-normalize/modern-normalize.css";
 @font-face {
-  font-family: Inter, sans-serif;
-  src: url("./fonts/Inter-VariableFont_slnt\,wght.ttf");
+  font-family: "Inter";
+  font-weight: 400;
+  src:
+    local("Inter"),
+    url("./fonts/regular/Inter-Regular.woff2") format("woff2"),
+    url("./fonts/regular/Inter-Regular.woff") format("woff"),
+    url("./fonts/regular/Inter-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 500;
+  src:
+    local("Inter"),
+    url("./fonts/medium/Inter-Medium.woff2") format("woff2"),
+    url("./fonts/medium/Inter-Medium.woff") format("woff"),
+    url("./fonts/medium/Inter-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 600;
+  src:
+    local("Inter"),
+    url("./fonts/semi-bold/Inter-SemiBold.woff2") format("woff2"),
+    url("./fonts/semi-bold/Inter-SemiBold.woff") format("woff"),
+    url("./fonts/semi-bold/Inter-SemiBold.ttf") format("truetype");
 }
 
 ::-webkit-scrollbar {
