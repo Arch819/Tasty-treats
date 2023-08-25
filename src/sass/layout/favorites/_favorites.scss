@@ -47,7 +47,6 @@ background-image: url("../images/favorites/card@2x.jpg");
   
   .favorites__text {
     width: 335px;
-    font-family: Inter;
     font-size: 14px;
     line-height: 18px;
     text-align: center;
@@ -163,7 +162,6 @@ background-image: url("../images/favorites/card@2x.jpg");
     font-weight: 600;
     line-height: 18px; /* 128.571% */
     text-transform: uppercase;
-    font-family: Inter;
     margin-bottom: 8px;
   }
   
@@ -188,7 +186,6 @@ background-image: url("../images/favorites/card@2x.jpg");
   .favorites__cards-btn {    
     font-size: 12px;    
     font-weight: 500;
-    font-family: Inter;
     padding: 8px 14px;
     background-color: var(--bg-btn-var1);
     border: none;
@@ -246,6 +243,7 @@ background-image: url("../images/favorites/card@2x.jpg");
   border-radius: 50%;
   border:solid 1px;
   cursor: pointer;  
+  user-select: none;
 }
 
 .favorites_page-dots-first:active,
@@ -324,7 +322,6 @@ background-image: url("../images/favorites/card@2x.jpg");
   }
 
   .favorites__pag-page{
-    font-family: Inter;
     font-style: normal;
     font-size: 18px;
     line-height: 22px;
