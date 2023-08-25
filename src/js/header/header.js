@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const isChecked = checkboxInput.checked;
-            console.log(isChecked);
+            // console.log(isChecked);
 
             iconSun.classList.toggle('visibility-hidden', isChecked);
             iconMoon.classList.toggle('visibility-hidden', !isChecked);
@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const currentPath = window.location.pathname;
-console.log(currentPath);
+// console.log(currentPath);
 
 const navigationLinksArray = Array.from(refs.navigationLinks);
 const hasActiveLink = navigationLinksArray.some(link => link.getAttribute('href') === currentPath);
-console.log(refs.navigationLinks);
+// console.log(refs.navigationLinks);
 
 if (!hasActiveLink) {
     navigationLinksArray.forEach(link => {
