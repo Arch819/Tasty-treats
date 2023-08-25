@@ -168,7 +168,8 @@
 
 .swiper-pagination {
  bottom: 0;
- margin-left: 25px;
+ text-align: start;
+ margin-left: 33%;
 }
 span.swiper-pagination-bullet {
   opacity: 1;
@@ -253,7 +254,7 @@ span.swiper-pagination-bullet-active {
   }
 
   .swiper-pagination {
-      margin-left: -30px;
+   margin-left: 35%;
   }
 }
 
