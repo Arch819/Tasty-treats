@@ -14,7 +14,7 @@ recipeImageInput.addEventListener('change', event => {
     reader.onload = function() {
 
       recipeImagePreview.src = reader.result;
-      recipeImagePreview.removeAttribute('hidden');
+      recipeImagePreview.style.display ='block';
     };
     reader.readAsDataURL(file);
   }
