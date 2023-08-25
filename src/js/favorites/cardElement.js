@@ -42,7 +42,7 @@ const renderListCards = listOfCard => {
           data._id
         }" class="icon-button" data-category="${
       data.category
-    }"><svg class="favorites__heart heart-isActive"><use href="${icons}#icon-heart"></use></svg></button>
+    }" aria-label="Heart"><svg class="favorites__heart heart-isActive"><use href="${icons}#icon-heart"></use></svg></button>
           <div class="favorit__img-thumb"><img src="${data.preview}" alt="${
       data.title
     }" width="335"></div>
