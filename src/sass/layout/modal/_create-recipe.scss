@@ -17,7 +17,7 @@
   overflow-y: auto;
   position: absolute;
   box-sizing: border-box;
-  max-height: 90vh;
+  max-height: 80vh;
   position: relative;
 }
 @media screen and (max-width: 374px) {
@@ -70,7 +70,7 @@
 @media screen and (min-width: 1280px) {
   .modal-content-create {
     width: 500px;
-    height: 90vh;
+    height: 80vh;
   }
   .ingredient-create {
     flex-direction: row;
@@ -121,6 +121,7 @@
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 15px;
   font-family: Inter, sans-serif;
   transition: color var(--transition);
 }
