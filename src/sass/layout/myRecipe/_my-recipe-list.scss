@@ -1,0 +1,93 @@
+.my-recipe {
+  overflow: hidden;
+}
+.my-recipe__container-cards {
+  position: relative;
+  padding-top: 95px;
+}
+.my-recipe__wrap {
+  width: 375px;
+  padding: 0 20px;
+}
+
+.my-recipe__container-cards {
+  position: relative;
+  padding-top: 95px;
+}
+
+.my-recipe__list-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.my-recipe__cards-item {
+  position: relative;
+}
+
+.my-recipe__cards-item img {
+  width: 335px;
+  border-radius: 15px;
+}
+
+.my-recipe__cards-thumb {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  padding: 16px;
+}
+
+.my-recipe__change-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 12;
+  background: transparent;
+  border: none;
+  font-size: 36px;
+  fill: var(--color-btn-var1);
+}
+
+@media (max-width: 768px) {
+  .my-recipe__list-cards {
+    min-height: 335px;
+  }
+}
+
+@media (min-width: 768px) {
+  .my-recipe__wrap {
+    width: 704px;
+    padding: 0;
+  }
+  .my-recipe__list-cards {
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 16px;
+    min-height: 244px;
+  }
+
+  .my-recipe__cards-item img {
+    width: 224px;
+    height: 244px;
+  }
+}
+@media (min-width: 1280px) {
+  .my-recipe__wrap {
+    width: 1080px;
+    padding: 0;
+  }
+
+  .my-recipe__list-cards {
+    gap: 32px 16px;
+    min-height: 287px;
+  }
+
+  .my-recipe__cards-item {
+    height: 287px;
+  }
+  .my-recipe__cards-item img {
+    width: 258px;
+    height: 287px;
+  }
+}
