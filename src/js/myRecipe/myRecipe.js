@@ -1,6 +1,9 @@
 import '../components/components-index';
 import '../header/header';
 import '../header/_switch-themes';
+import './js/footer/footer';
+//*modal
+import './js/modal/modal-createRecipe/createRecipe';
 import { fetchMyRecipe } from './myRecipeFetch';
 import { renderRecipeCard } from './myRecipeRender';
 
