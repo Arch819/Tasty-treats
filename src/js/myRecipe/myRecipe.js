@@ -1,3 +1,6 @@
+import '../components/components-index';
+import '../header/header';
+import '../header/_switch-themes';
 import { fetchMyRecipe } from './myRecipeFetch';
 import { renderRecipeCard } from './myRecipeRender';
 
