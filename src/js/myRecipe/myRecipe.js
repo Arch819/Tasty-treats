@@ -3,7 +3,7 @@ import '../header/header';
 import '../header/_switch-themes';
 import '../footer/footer';
 //*modal
-import '../modal/modal-createRecipe/createRecipe';
+// import '../modal/modal-createRecipe/createRecipe';
 import { fetchMyRecipe } from './myRecipeFetch';
 import { renderRecipeCard } from './myRecipeRender';
 
